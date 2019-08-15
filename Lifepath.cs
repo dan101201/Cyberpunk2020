@@ -11,7 +11,7 @@ namespace Cyberpunk2020CharacterCreator
        
         
         /// <summary>
-        /// Generates Life events following the chart in the Cyberpunk 2020 book
+        /// Generates Life events following the chart in the Cyberpunk 2020 book, currently not done
         /// </summary>
         /// <returns>A Dictionary<int,string> with the int value representing age and starting at 16</returns>
         public static Dictionary<int, string> GenerateLifeEvents (Character character)
