@@ -1,0 +1,30 @@
+C:\Users\Daniel\source\repos\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\Cyberpunk2020CharacterCreator.csprojAssemblyReference.cache
+C:\Users\Daniel\source\repos\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\MainWindow.g.cs
+C:\Users\Daniel\source\repos\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\App.g.cs
+C:\Users\Daniel\source\repos\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\Cyberpunk2020CharacterCreator_MarkupCompile.cache
+C:\Users\Daniel\source\repos\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\Cyberpunk2020CharacterCreator_MarkupCompile.lref
+C:\Users\Daniel\source\repos\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\bin\Debug\Cyberpunk2020CharacterCreator.exe.config
+C:\Users\Daniel\source\repos\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\bin\Debug\Cyberpunk2020CharacterCreator.exe
+C:\Users\Daniel\source\repos\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\bin\Debug\Cyberpunk2020CharacterCreator.pdb
+C:\Users\Daniel\source\repos\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\MainWindow.baml
+C:\Users\Daniel\source\repos\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\Cyberpunk2020CharacterCreator.g.resources
+C:\Users\Daniel\source\repos\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\Cyberpunk2020CharacterCreator.Properties.Resources.resources
+C:\Users\Daniel\source\repos\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\Cyberpunk2020CharacterCreator.csproj.GenerateResource.cache
+C:\Users\Daniel\source\repos\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\Cyberpunk2020CharacterCreator.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\source\repos\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\Cyberpunk2020CharacterCreator.exe
+C:\Users\Daniel\source\repos\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\Cyberpunk2020CharacterCreator.pdb
+C:\Users\Daniel\OneDrive - EFIF\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\bin\Debug\Cyberpunk2020CharacterCreator.exe.config
+C:\Users\Daniel\OneDrive - EFIF\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\bin\Debug\Cyberpunk2020CharacterCreator.exe
+C:\Users\Daniel\OneDrive - EFIF\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\bin\Debug\Cyberpunk2020CharacterCreator.pdb
+C:\Users\Daniel\OneDrive - EFIF\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\Cyberpunk2020CharacterCreator.csprojAssemblyReference.cache
+C:\Users\Daniel\OneDrive - EFIF\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\MainWindow.g.cs
+C:\Users\Daniel\OneDrive - EFIF\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\App.g.cs
+C:\Users\Daniel\OneDrive - EFIF\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\Cyberpunk2020CharacterCreator_MarkupCompile.cache
+C:\Users\Daniel\OneDrive - EFIF\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\Cyberpunk2020CharacterCreator_MarkupCompile.lref
+C:\Users\Daniel\OneDrive - EFIF\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\MainWindow.baml
+C:\Users\Daniel\OneDrive - EFIF\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\Cyberpunk2020CharacterCreator.g.resources
+C:\Users\Daniel\OneDrive - EFIF\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\Cyberpunk2020CharacterCreator.Properties.Resources.resources
+C:\Users\Daniel\OneDrive - EFIF\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\Cyberpunk2020CharacterCreator.csproj.GenerateResource.cache
+C:\Users\Daniel\OneDrive - EFIF\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\Cyberpunk2020CharacterCreator.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\OneDrive - EFIF\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\Cyberpunk2020CharacterCreator.exe
+C:\Users\Daniel\OneDrive - EFIF\Cyberpunk2020CharacterCreator\Cyberpunk2020CharacterCreator\obj\Debug\Cyberpunk2020CharacterCreator.pdb

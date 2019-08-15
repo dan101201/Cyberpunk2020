@@ -1,0 +1,29 @@
+﻿Corp (Executive, Officer, Union Rep, Stock Trader, Bureaucrat, Manager)   You are a company man, you are an expert at promoting and utilizing the resources your employer or business allows you.  You are the Power Broker, the CEO, the VIP. 
+Awareness/Notice, Human Perception, Education, Library Search, Social, Persuasion, Stock Market, Wardrobe & Style, Personal Grooming
+
+Cop (Police Officer, Guardsman, MP, Sheriff, Peacekeeper, Lawman) You uphold the law, you have the authority to arrest lawbreakers, question anything you find suspicious, and use force to protect yourself and others.
+Awareness/Notice Handgun, Human Perception, Athletics, Education, Brawling, Melee, Interrogation, Streetwise
+
+Fixer  (Drug Dealer, Arms Merchant, Pimp, Mafioso, Oyabun, Talent Scout, Black Marketeer, Loan Shark, Fence) You can get what people need, and you can get rid of it when they don�t want it anymore.  You are the go to guy, some do it legally, some don't, but regardless if someone wants something hard to find, they go to a Fixer to get it. 
+Awareness/Notice, Forgery, Handgun, Brawling, Melee, Pick Lock, Pick Pocket, Intimidate, Persuasion
+
+Media (Reporter, Journalist, Expert, Lawyer, Correspondent, Crier) You find the facts and report them; your audience knows and respects you for your ability to tell them what is going on in the community and the world. 
+Awareness/Notice, Composition, Education, Persuasion, Human Perception, Social, Streetwise, Photo & Film, Interview
+
+Medtechie (Doctor, Medic, Nurse, Healer, Medicine Man, Pharmacist, Surgeon, Veterinarian) You have devoted your life to healing others; the secrets of flesh and blood are open to you. SA - Medical Tech: Added to First Aid and one other Med Skill or Diagnose Illness. 
+Awareness/Notice, Basic Tech, Diagnose, Education, Cryotank Operation, Library Search, Pharmaceuticals, Zoology, Human Perception
+
+Netrunner (Hacker, Digital Cowboy, Comm. Specialist) You have mastered computers and communications, you use them to infiltrate secure information, take over other machines, and cruise the hidden alleys and portals of the vast information highway. 
+Awareness/Notice, Basic Tech, Education, System Knowledge, CyberTech, Cyberdeck Design, Composition, Electronics, Programming
+
+Nomad (Gypsy, Tribesman, Carnie, Pirate, Gang Member) You are a member of an extended family, always on the move.  You are one of your people, you live and die for them, and they for you.  They are your strength and your weakness; the family and its needs always come first.
+Awareness/Notice, Endurance, Melee, Rifle, Drive, Basic Tech, Wilderness Survival, Brawling, Athletics
+
+Solo (Fighter, Mercenary, Bodyguard, Soldier, Muscle, Swat Member, Warrior, Outrider etc...)  This is the basic combat dedicated career; you make your living being the toughest, baddest guy around.  
+Awareness/Notice, Handgun, Melee, Weapons Tech, Rifle, Athletics, Submachinegun, Stealth, Solo
+
+Techie  (Mechanic, Inventor, Engineer, Smith, Tradesman, Pharmacist, Chef, Chemist, Alchemist) Brilliant with all things mechanical in nature, you are more than a handyman, you are what keeps the gear functioning as well as building and creating the equipment necessary for any situation. 
+Awareness/Notice, Basic Tech, CyberTech, Teaching, Education, Electronics, Techie
+
+Rocker (Lead Singer, Guitarist) If you live to rock, this is where you belong. Rockerboys are the street pets, social consciences and rebels of the 2000's.
+Awareness/Notice, Perform, Wardrobe & Style, Composition, Brawling, Play Instrument, Streetwise, Persuasion, Seduction
