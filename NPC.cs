@@ -17,7 +17,7 @@ namespace Cyberpunk2020CharacterCreator
 
         public NPC()
         {
-            this.generateRandomNPC(0);
+            
         }
 
         NPC(int points)
@@ -34,27 +34,36 @@ namespace Cyberpunk2020CharacterCreator
             
         }
 
-        void generateRandomNPC(int points)
+        /// <summary>
+        /// Generates random NPC using all of the other functions in this class
+        /// </summary>
+        /// <returns></returns>
+        public static NPC generateRandomNPC(int points)
         {
+            NPC temp = new NPC();
             Random rnd = new Random();
             if (rnd.Next(1,10) < 6)
             {
                 male = false;
             }
-            name = RandomNameGenerator(male);
+            temp.name = RandomNameGenerator(male);
             
             if (points == 0)
             {
                 points = rnd.Next(30, 65);
             }
-            style.randomlySelectStyle();
-            motivation = Motivation.randomlyGenerateMotivation();
+            temp.style.randomlySelectStyle();
+            temp.motivation = Motivation.randomlyGenerateMotivation();
             rnd.Next(1, 10);
-            role = Role.roles[Role.intToRoleName(rnd.Next(1, 10))];
-            stats = generateStatsForNPC(points);
+            temp.role = Role.roles[Role.intToRoleName(rnd.Next(1, 10))];
+            temp.stats = generateStatsForNPC(points);
 
         }
 
+        /// <summary>
+        /// Randomly generates a name based on if the name needed is male or not
+        /// </summary>
+        /// <returns>string</returns>
         static string RandomNameGenerator (bool male)
         {
             string name = "";
@@ -72,6 +81,11 @@ namespace Cyberpunk2020CharacterCreator
             name += " " + System.IO.File.ReadAllLines("Surnames.txt")[random].Trim();
             return name;
         }
+
+        /// <summary>
+        /// Randomly generates a name without thinking about gender
+        /// </summary>
+        /// <returns>string</returns>
         static string RandomNameGenerator()
         {
             string name = "";
@@ -90,6 +104,10 @@ namespace Cyberpunk2020CharacterCreator
             return name;
         }
 
+        /// <summary>
+        /// Generates stats for NPC, based on the role's most important stat, all other stats are randomly distributed
+        /// </summary>
+        /// <returns>Stats class</returns>
         Stats generateStatsForNPC(int points)
         {
             Random rnd = new Random();

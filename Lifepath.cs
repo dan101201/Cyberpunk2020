@@ -10,9 +10,13 @@ namespace Cyberpunk2020CharacterCreator
     {
        
         
-
+        /// <summary>
+        /// Generates Life events following the chart in the Cyberpunk 2020 book
+        /// </summary>
+        /// <returns>A Dictionary<int,string> with the int value representing age and starting at 16</returns>
         public static Dictionary<int, string> GenerateLifeEvents (Character character)
         {
+            
             Random rnd = new Random();
             Dictionary<int, string> events = new Dictionary<int, string>();
             for (int i = 16; i < character.age; i++)
