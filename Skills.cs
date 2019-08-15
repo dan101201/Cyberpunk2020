@@ -8,6 +8,7 @@ namespace Cyberpunk2020CharacterCreator
 {
     static class Skills
     {
+        //Dictionary of the skills, with a string key being the nameo f the skill, and int being the level in the skill
         public static Dictionary<string, int> returnSkillDictionary(bool interlock)
         {
             Dictionary<string, int> skills = new Dictionary<string, int>();
@@ -21,6 +22,7 @@ namespace Cyberpunk2020CharacterCreator
             
         
 
+    //Returns a string array full of all the skills, using either the interlock(official system) or a homebrew one
     static string[] returnSkillArray(bool InterLock)
         {
             string[] skill;

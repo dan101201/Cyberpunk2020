@@ -14,11 +14,15 @@ namespace Cyberpunk2020CharacterCreator
         string feelingAbout;
         string mostValuedPossesion;
 
+        /// <summary>
+        /// Randomly generates a Motivation
+        /// </summary>
+        /// <returns></returns>
         public static Motivation randomlyGenerateMotivation()
         {
-            //
             Random rnd = new Random();
             Motivation temp = new Motivation();
+            //Reads text file full of motivations
             string[] lines = System.IO.File.ReadAllLines("Motivation.txt");
             int random = rnd.Next(1,10);
             temp.personalityTraits = lines[random];

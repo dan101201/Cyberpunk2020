@@ -8,5 +8,6 @@ namespace Cyberpunk2020CharacterCreator
 {
     class EthnicGroup
     {
+        //Insert racism here
     }
 }

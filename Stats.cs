@@ -9,6 +9,7 @@ namespace Cyberpunk2020CharacterCreator
     class Stats
     {
 
+        //Dictionary of the stats, with the key as a string representing the name of the skill, and int being the level in the stat
         public Dictionary<string, int> stats = new Dictionary<string, int>();
         
 
@@ -25,7 +26,10 @@ namespace Cyberpunk2020CharacterCreator
             stats.Add("BTM", 0);
         }
 
+        //Double to keep track of lost humanity
         double humanityLost = 0;
+
+        //Property for finding Empathy
         public int EM
         {
             

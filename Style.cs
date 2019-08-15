@@ -13,6 +13,7 @@ namespace Cyberpunk2020CharacterCreator
         static string hairstyle;
         static string affectation;
 
+
         static string[] clothes =
         {
             "Biker Leathers",

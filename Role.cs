@@ -8,6 +8,7 @@ namespace Cyberpunk2020CharacterCreator
 {
     class Role
     {
+        // Makes a Dictionary full of all the roles with the name of the role as the string key
         public static Dictionary<string, Role> roles
         {
             get
@@ -95,10 +96,13 @@ namespace Cyberpunk2020CharacterCreator
             {
                 var line = lines[i];
                 Role role = new Role();
+                //Checks for empty line
                 if (lines[i].Trim() != "")
                 {
+                    //In the text file the line above the empty one are the base skills, so checks that this is not base skills
                     if (lines[i + 1].Trim() != "")
                     {
+                        //if not base skills, reads txt file to make the different roles/class's
                         role.name = line.Substring(0,line.IndexOf('('));
                         string temp = line.Substring(line.IndexOf('(') + 1);
                         temp = temp.Substring(0, temp.IndexOf(')'));
@@ -110,6 +114,8 @@ namespace Cyberpunk2020CharacterCreator
                         role.skills = lines[i + 1].Split(',');
 
                         roles.Add(role.name.ToLower(),role);
+
+                        //Sets the important stat of the role
                         switch (role.name.Trim())
                         {
                             case "Techie":

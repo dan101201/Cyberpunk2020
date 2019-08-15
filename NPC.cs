@@ -8,13 +8,25 @@ namespace Cyberpunk2020CharacterCreator
 {
     class NPC
     {
+        //Name for the NPC
         public string name;
+
+        //If false, its female
         public bool male;
+
+        //The class/role of the NPC
         public Role role;
+
+        //Stats for the NPC
         public Stats stats = new Stats();
+
+        //The NPC's Style
         public Style style;
         public Motivation motivation;
 
+        /// <summary>
+        /// Generates random NPC using all of the other functions in this class
+        /// </summary>
         public NPC()
         {
             this = generateStatsForNPC();
@@ -41,7 +53,7 @@ namespace Cyberpunk2020CharacterCreator
         /// Generates random NPC using all of the other functions in this class
         /// </summary>
         /// <returns>NPC</returns>
-        public static NPC generateRandomNPC(int points)
+        static NPC generateRandomNPC(int points)
         {
             NPC temp = new NPC();
             Random rnd = new Random();
@@ -67,7 +79,7 @@ namespace Cyberpunk2020CharacterCreator
         /// Randomly generates a name based on if the name needed is male or not
         /// </summary>
         /// <returns>string</returns>
-        static string RandomNameGenerator (bool male)
+        public static string RandomNameGenerator (bool male)
         {
             string name = "";
             Random rnd = new Random();
@@ -89,7 +101,7 @@ namespace Cyberpunk2020CharacterCreator
         /// Randomly generates a name without thinking about gender
         /// </summary>
         /// <returns>string</returns>
-        static string RandomNameGenerator()
+        public static string RandomNameGenerator()
         {
             string name = "";
             Random rnd = new Random();
