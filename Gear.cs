@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cyberpunk2020CharacterCreator
 {
+    //Gear Ie. Weapons, Cybernetics and Armor.
     class Gear
     {
     }
