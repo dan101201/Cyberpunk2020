@@ -17,12 +17,15 @@ namespace Cyberpunk2020CharacterCreator
 
         public NPC()
         {
-            
+            this = generateStatsForNPC();
         }
 
+        
+        /// <summary>
+        /// NPC Constructor, takes int for how many points NPC gets for stats, if stats are 20 or less, they are randomly generated between 35-65
+        /// </summary>
         NPC(int points)
         {
-
             if (points <= 20)
             {
                 this.generateRandomNPC(0);
@@ -37,7 +40,7 @@ namespace Cyberpunk2020CharacterCreator
         /// <summary>
         /// Generates random NPC using all of the other functions in this class
         /// </summary>
-        /// <returns></returns>
+        /// <returns>NPC</returns>
         public static NPC generateRandomNPC(int points)
         {
             NPC temp = new NPC();
