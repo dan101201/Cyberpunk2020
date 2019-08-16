@@ -284,7 +284,7 @@ namespace Cyberpunk2020CharacterCreator
 								character1 = Character.generateRandomNPC(0);
 							}
 
-							character1.
+							//character1.
 						}
 						else if (random == 6)
 						{
