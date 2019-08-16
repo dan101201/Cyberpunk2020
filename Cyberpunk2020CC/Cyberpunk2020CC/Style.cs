@@ -9,9 +9,9 @@ namespace Cyberpunk2020CharacterCreator
     class Style
     {
 
-        static string clothing;
-        static string hairstyle;
-        static string affectation;
+        public string clothing;
+        public string hairstyle;
+        public string affectation;
 
 
         static string[] clothes =

@@ -265,7 +265,7 @@ namespace Cyberpunk2020CharacterCreator
 					//You made a friend
 					if (random <= 5)
 					{
-						NPC friend = new NPC();
+						Character friend = new Character();
 						string[] friends =
 							   {
 							"like a big brother.",
@@ -284,7 +284,7 @@ namespace Cyberpunk2020CharacterCreator
 						random = rnd.Next(1, 10);
 						if (random == 5)
 						{
-							foreach (KeyValuePair<NPC, int> pair in character.relationships)
+							foreach (KeyValuePair<Character, int> pair in character.relationships)
 							{
 								if (notFound)
 								{
@@ -302,7 +302,7 @@ namespace Cyberpunk2020CharacterCreator
 						else if (random == 6)
 						{
 
-							foreach (KeyValuePair<NPC, int> pair in character.relationships)
+							foreach (KeyValuePair<Character, int> pair in character.relationships)
 							{
 								if (notFound)
 								{
@@ -335,12 +335,12 @@ namespace Cyberpunk2020CharacterCreator
 					}
 					else if (random > 5)
 					{
-						NPC enemy = new NPC();
+						Character enemy = new Character();
 						bool notFound = false;
 						random = rnd.Next(1, 10);
 						if (random == 1)
 						{
-							foreach (KeyValuePair<NPC, int> valuePair in character.relationships)
+							foreach (KeyValuePair<Character, int> valuePair in character.relationships)
 							{
 								if (valuePair.Value == 0 && notFound)
 								{
@@ -357,7 +357,7 @@ namespace Cyberpunk2020CharacterCreator
 						}
 						else if (random == 2)
 						{
-							foreach (KeyValuePair<NPC, int> valuePair in character.relationships)
+							foreach (KeyValuePair<Character, int> valuePair in character.relationships)
 							{
 								if (valuePair.Value == 2 && notFound)
 								{
@@ -374,7 +374,7 @@ namespace Cyberpunk2020CharacterCreator
 						}
 						else if (random == 3)
 						{
-							foreach (KeyValuePair<NPC, int> valuePair in character.relationships)
+							foreach (KeyValuePair<Character, int> valuePair in character.relationships)
 							{
 								if (valuePair.Value == 3 && notFound)
 								{

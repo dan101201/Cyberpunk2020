@@ -42,7 +42,7 @@ namespace Cyberpunk2020CharacterCreator
             get;
             private set;
         }
-        //Only used for NPC's
+        //Only used for Character's
         public string importantStat
         {
             get;

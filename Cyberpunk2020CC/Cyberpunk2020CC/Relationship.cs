@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cyberpunk2020CC
+namespace Cyberpunk2020CharacterCreator
 {
     class Relationship
     {
-        
-        bool Acquaintance
+        public Character person;
+        public Character character;
+        public bool Acquaintance
         {
             set
             {
@@ -20,7 +21,7 @@ namespace Cyberpunk2020CC
                 return Acquaintance;
             }
         }
-        bool Enemy
+        public bool Enemy
         {
             set
             {
@@ -46,7 +47,7 @@ namespace Cyberpunk2020CC
             }
         }
 
-        bool Friend
+        public bool Friend
         {
             set
             {
@@ -67,7 +68,17 @@ namespace Cyberpunk2020CC
                 return Friend;
             }
         }
+
+        public enum quickRelation
+        {
+            Friend,
+            Enemy,
+            Acquantance,
+            Family
+        }
         
+        
+
         
     }
 }
