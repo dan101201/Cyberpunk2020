@@ -24,7 +24,7 @@ namespace Cyberpunk2020CharacterCreator
 					return "Anglo-American (English)";
 
 				case 2:
-					return "African (Bantu, Fante, Kongo, Ashanti, Zulu, Swahili";
+					return "African (Bantu, Fante, Kongo, Ashanti, Zulu, Swahili)";
 
 				case 3:
 					return "Japanese/Korean (Japanese, Korean)";
