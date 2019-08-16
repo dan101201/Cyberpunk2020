@@ -443,7 +443,7 @@ namespace Cyberpunk2020CharacterCreator
 			return events;
 		}
 
-		void SkillBoost(string skill, int ifNotKnown, int ifKnown)
+		static void SkillBoost(string skill, int ifNotKnown, int ifKnown)
 		{
 			switch (skill)
 			{
@@ -461,12 +461,12 @@ namespace Cyberpunk2020CharacterCreator
 			}
 		}
 
-		void StatBoost(string stat, int amount)
+		static void StatBoost(string stat, int amount)
 		{
 
 		}
 
-		void StatBoost(string stat, int amount, int special)
+		static void StatBoost(string stat, int amount, int special)
 		{
 
 		}
