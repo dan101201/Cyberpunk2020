@@ -252,7 +252,7 @@ namespace Cyberpunk2020CharacterCreator
 							}
 							else
 							{
-								events[i] += "\nI am going to clear my name.";
+								events[i] += "\nI am gong to save, if possible, anyone else involved with the situation.";
 							}
 
 						}
