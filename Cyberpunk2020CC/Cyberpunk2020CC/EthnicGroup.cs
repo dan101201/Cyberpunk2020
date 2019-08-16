@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cyberpunk2020CharacterCreator
+namespace Cyberpunk2020CC
 {
     class EthnicGroup
     {
@@ -24,19 +24,19 @@ namespace Cyberpunk2020CharacterCreator
 					return "Anglo-American (English)";
 
 				case 2:
-					return "African (Bantu, Fante, Kongo, Ashanti, Zulu, Swahili)";
+					return "African (Ashanti, Bantu, Congo, Egyptian, Fante, Morrocan, Swahili, Zulu)";
 
 				case 3:
-					return "Japanese/Korean (Japanese, Korean)";
+					return "West Asian/Indo Chinese (Burmese, Cambodian, Indian, Thai, Pakistani, Vietnamese, )";
 
 				case 4:
-					return "Central European/Soviet (Bulgarian, Russian, Czech, Polish, Ukranian, Slovak)";
+					return "Eastern European/Soviet (Czech, Estonian, Finnish, Latvian, Lithuanian, Polish, Romanian, Russian, Ukranian, Slovak)";
 
 				case 5:
-					return "Pacific Islander (Microneasian, Tagalog, Polynesian, Malayan, Sudanese, Indonesian, Hawaiian)";
+					return "Pacific Islander (Hawaiian, Indonesian, Malayan, Microneasian, Polynesian, Sudanese, Tagalog)";
 
 				case 6:
-					return "Chinese/Southeast Asian (Burmese, Cantonese, Mandarin, Thai, Tibetan, Vietnamese)";
+					return "Chinese/East Asian (Cantonese, Japanese, Korean, Mandarin, Tibetan)";
 
 				case 7:
 					return "Black American (English, Blackfolk)";
@@ -45,10 +45,19 @@ namespace Cyberpunk2020CharacterCreator
 					return "Hispanic American (Spanish, English)";
 
 				case 9:
-					return "Central/South American (Spanish, Portuguese)";
+					return "Central/South American (Portuguese, Spanish, French)";
 
 				case 10:
-					return "European (French, German, English, Spanish, Italian, Greek, Danish, Dutch, Norwegian, Swedish, Finnish)";
+					return "West European (Danish, Dutch, French, German, English, Italian, Norwegian, Portuguese, Spanish, Swedish)";
+
+                case 11:
+                    return "Balkan (Albanian, Bosnian, Bulgarian, Croatian, Greek, Serbian,)";
+
+                case 12:
+                    return "Middle Eastern (Afghan, Arabs, Iranian, Iraqi, Israeli, Lebanese, Syrian, Turkish)";
+
+                case 13:
+                    return "Caribbean (Cuban, Haitian, Jamaican, English, French)";
 
 				default:
 					return null;
