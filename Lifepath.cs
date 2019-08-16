@@ -58,9 +58,11 @@ namespace Cyberpunk2020CharacterCreator
                                 break;
                             case 4:
                                 events.Add(i, "You find a sensei(Teacher). Begin at +2 or add +1 to a Martial Arts Skill of your choice.");
+								SkillBoost("Martial Arts", 2, 1);
                                 break;
                             case 5:
-                                events.Add(i, "You find a teacher. Add +1 to any INT based skill, or being a new INT based skill at +2.");
+                                events.Add(i, "You find a teacher. Add +1 to any INT based skill, or begin a new INT based skill at +2.");
+								SkillBoost("INT", 2, 1);
                                 break;
                             case 6:
                                 events.Add(i, "A powerful Corporate Exec owes you a favor.");
@@ -76,6 +78,7 @@ namespace Cyberpunk2020CharacterCreator
                                 break;
                             case 10:
                                 events.Add(i, "You found a combat teacher. Add +1 to any weapon skill with the exception of Martial Arts or Brawling, or begin a new combat skill at +2.");
+								SkillBoost("Weapon*", 2, 1);
                                 break;
                         }
                     }
@@ -439,5 +442,33 @@ namespace Cyberpunk2020CharacterCreator
             }
             return events;
         }
+
+		void SkillBoost(string skill, int ifNotKnown, int ifKnown)
+		{
+			switch (skill)
+			{
+				case "Martial Arts":
+					//see line 59
+					break;
+
+				case "INT":
+					//see line 63
+					break;
+
+				case "Weapon*":
+					//see line 79
+					break;
+			}
+		}
+
+		void StatBoost(string stat, int amount)
+		{
+
+		}
+
+		void StatBoost(string stat, int amount, int special)
+		{
+
+		}
     }
 }

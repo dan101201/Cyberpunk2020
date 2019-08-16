@@ -61,6 +61,20 @@ namespace Cyberpunk2020CharacterCreator
             }
         }
 
+		public double Run
+		{
+			get
+			{
+				stats["MA"] * 3;
+			}
+		}
 
+		public double Leap
+		{
+			get
+			{
+				Run / 4;
+			}
+		}
     }
 }
