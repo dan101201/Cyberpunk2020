@@ -65,7 +65,7 @@ namespace Cyberpunk2020CharacterCreator
 		{
 			get
 			{
-				stats["MA"] * 3;
+				return stats["MA"] * 3;
 			}
 		}
 
@@ -73,7 +73,7 @@ namespace Cyberpunk2020CharacterCreator
 		{
 			get
 			{
-				Run / 4;
+				return Run / 4;
 			}
 		}
     }
