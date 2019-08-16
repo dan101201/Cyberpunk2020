@@ -29,25 +29,8 @@ namespace Cyberpunk2020CharacterCreator
         /// </summary>
         public NPC()
         {
-            this = generateStatsForNPC();
         }
 
-        
-        /// <summary>
-        /// NPC Constructor, takes int for how many points NPC gets for stats, if stats are 20 or less, they are randomly generated between 35-65
-        /// </summary>
-        NPC(int points)
-        {
-            if (points <= 20)
-            {
-                this.generateRandomNPC(0);
-            } 
-            else
-            {
-                this.generateRandomNPC(points);
-            }
-            
-        }
 
         /// <summary>
         /// Generates random NPC using all of the other functions in this class
@@ -59,9 +42,9 @@ namespace Cyberpunk2020CharacterCreator
             Random rnd = new Random();
             if (rnd.Next(1,10) < 6)
             {
-                male = false;
+                temp.male = false;
             }
-            temp.name = RandomNameGenerator(male);
+            temp.name = RandomNameGenerator(temp.male);
             
             if (points == 0)
             {
@@ -71,8 +54,9 @@ namespace Cyberpunk2020CharacterCreator
             temp.motivation = Motivation.randomlyGenerateMotivation();
             rnd.Next(1, 10);
             temp.role = Role.roles[Role.intToRoleName(rnd.Next(1, 10))];
-            temp.stats = generateStatsForNPC(points);
+            temp.stats = generateStatsForNPC(points, temp);
 
+            return temp;
         }
 
         /// <summary>
@@ -123,17 +107,17 @@ namespace Cyberpunk2020CharacterCreator
         /// Generates stats for NPC, based on the role's most important stat, all other stats are randomly distributed
         /// </summary>
         /// <returns>Stats class</returns>
-        Stats generateStatsForNPC(int points)
+        static Stats generateStatsForNPC(int points, NPC npc)
         {
             Random rnd = new Random();
             int random = rnd.Next(6, 8);
             Stats temp = new Stats();
-            temp.stats[role.importantStat] = random;
+            temp.stats[npc.role.importantStat] = random;
             points -= random;
 
             foreach(KeyValuePair<string, int> key in temp.stats)
             {
-                if (key.Key != role.importantStat)
+                if (key.Key != npc.role.importantStat)
                 {
                     bool run = true;
                     while (run)
