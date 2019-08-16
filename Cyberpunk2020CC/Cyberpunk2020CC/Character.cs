@@ -26,9 +26,6 @@ namespace Cyberpunk2020CharacterCreator
         //All life events
         public Dictionary<int, string> lifeEvents;
 
-        //Currently unimplemented
-        public Family family;
-
         //Motivation for the character
         public Motivation motivation;
 
