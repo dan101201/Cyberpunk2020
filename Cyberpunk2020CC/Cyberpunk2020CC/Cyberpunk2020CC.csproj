@@ -64,6 +64,7 @@
     <Compile Include="Character.xaml.cs">
       <DependentUpon>Character.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dice.cs" />
     <Compile Include="Relationship.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="Skills.cs" />
