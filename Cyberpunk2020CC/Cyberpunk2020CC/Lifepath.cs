@@ -262,12 +262,14 @@ namespace Cyberpunk2020CharacterCreator
 				else if (random <= 6)
 				{
 					Character character1 = new Character();
+					Relationship relationship = new Relationship();
 					random = rnd.Next(1, 10);
 					//You made a friend
 					if (random <= 5)
 					{
 						bool preexisting = false;
 						random = rnd.Next(1, 10);
+						relationship.Friend = true;
 						if (random == 5)
 						{
 							foreach (KeyValuePair<Character, Relationship> pair in character.relationships)
@@ -278,22 +280,32 @@ namespace Cyberpunk2020CharacterCreator
 									character1 = pair.Key;
 								}
 							}
-
-							if (!preexisting)
-							{
-								character1 = Character.generateRandomNPC(0);
-							}
-
-							character1.
 						}
 						else if (random == 6)
 						{
+							foreach (KeyValuePair<Character, Relationship> pair in character.relationships)
+							{
+								if (character.relationships[pair.Key].Enemy)
+								{
+									preexisting = true;
+									character1 = pair.Key;
+								}
+							}
+						}
 
+						if (!preexisting)
+						{
+							character.relationships[character1].Friend = true;
+							character1.relationships[character].Friend = true;
 						}
 						else
 						{
-
+							character1 = Character.MakeQuickRelation(character, Relationship.quickRelation.Friend);
 						}
+					}
+					else
+					{
+						relationship.Enemy = true;
 					}
 					/*if (random <= 5)
 					{
