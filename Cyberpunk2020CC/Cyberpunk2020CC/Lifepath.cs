@@ -264,6 +264,7 @@ namespace Cyberpunk2020CharacterCreator
 					Character character1 = new Character();
 					Relationship relationship = new Relationship();
 					random = rnd.Next(1, 10);
+					List<Character> potentials = new List<Character>();
 					//You made a friend
 					if (random <= 5)
 					{
@@ -277,9 +278,10 @@ namespace Cyberpunk2020CharacterCreator
 								if (character.relationships[pair.Key].Acquaintance)
 								{
 									preexisting = true;
-									character1 = pair.Key;
+									potentials.Add(pair.Key);
 								}
 							}
+							character1 = potentials[rnd.Next(0, potentials.Count)];
 						}
 						else if (random == 6)
 						{
@@ -288,9 +290,13 @@ namespace Cyberpunk2020CharacterCreator
 								if (character.relationships[pair.Key].Enemy)
 								{
 									preexisting = true;
-									character1 = pair.Key;
+									potentials.Add(pair.Key);
 								}
 							}
+							character1 = potentials[rnd.Next(0, potentials.Count)];
+
+							character.relationships[character1].Enemy = false;
+							character1.relationships[character].Enemy = false;
 						}
 
 						if (!preexisting)
@@ -302,182 +308,376 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							character1 = Character.MakeQuickRelation(character, Relationship.quickRelation.Friend);
 						}
-					}
-					else
-					{
-						relationship.Enemy = true;
-					}
-					/*if (random <= 5)
-					{
-						Character friend = Character.generateRandomNPC(0);
-						string[] friends =
-							   {
-							"like a big brother.",
-							"like a kid brother to me.",
-							"as a teacher or mentor.",
-							"as a partner or co-worker.",
-							"as an old lover, who is now my friend.",
-							"as an old enemy, who is now my friend.",
-							"like a foster parent to me.",
-							"like a relative.",
-							"an old childhood friend.",
-							"a friend with common interest."
-						};
-						events.Add(i, "I think of " + friend.name + " ");
-						bool notFound = true;
-						random = rnd.Next(1, 10);
-						if (random == 5)
+
+						events.Add(i, "You made a new friend!");
+
+						if (character1.male)
 						{
-							foreach (KeyValuePair<Character, Relationship> pair in character.relationships)
-							{
-								if (notFound)
-								{
-									if (character.relationships[pair.Key].Acquaintance)
-									{
-										notFound = false;
-										friend = pair.Key;
+							events[i] += " He is ";
+						}
+						else
+						{
+							events[i] += " She is ";
+						}
 
-									}
-									else
-									{
-
-									}
-								}
-
-							}
-
+						if (random == 1)
+						{
+							events[i] += "like a big brother to you.";
+						}
+						else if (random == 2)
+						{
+							events[i] += "like a kid brother to you.";
+						}
+						else if (random == 3)
+						{
+							events[i] += "a teacher or mentor to you.";
+						}
+						else if (random == 4)
+						{
+							events[i] += "a partner or co-worker to you.";
+						}
+						else if (random == 5)
+						{
+							events[i] += "an old lover of yours, " + character1.name + ".";
 						}
 						else if (random == 6)
 						{
-
-							foreach (KeyValuePair<Character, Relationship> pair in character.relationships)
-							{
-								if (notFound)
-								{
-									if (character.relationships[pair.Key].Enemy)
-									{
-										notFound = false;
-										friend = pair.Key;
-									}
-								}
-
-							}
+							events[i] += "an old enemy of yours, " + character1.name + ".";
+						}
+						else if (random == 7)
+						{
+							events[i] += "like a foster parent to you.";
+						}
+						else if (random == 8)
+						{
+							events[i] += "a relative.";
+						}
+						else if (random == 9)
+						{
+							events[i] += "an old childhood friend you have reconnected with.";
+						}
+						else if (random == 10)
+						{
+							events[i] += "someone you met through a common interest.";
 						}
 
 						if (random == 1 || random == 2)
 						{
-							if (!friend.male)
+							if (!character1.male)
 							{
-								string temp = friends[random].Replace("brother", "sister");
-								events[i] += temp;
+								events[i].Replace("brother", "sister");
 							}
 
 						}
-						else
-						{
-							events[i] += friends[i];
-						}
-
-
-
 					}
-					else if (random > 5)
+					else
 					{
-						Character enemy = new Character();
-						bool notFound = false;
-						random = rnd.Next(1, 10);
-						if (random == 1)
+						relationship.Enemy = true;
+
+						bool preexisting = false;
+						int random1 = rnd.Next(1, 10);
+						int random2 = rnd.Next(1, 10);
+						int random3 = rnd.Next(1, 10);
+						int random4 = rnd.Next(1, 10);
+						int random5 = rnd.Next(1, 10);
+						relationship.Friend = true;
+						if (random1 == 1 || random1 == 2)
 						{
-							foreach (KeyValuePair<Character, Relationship> valuePair in character.relationships)
+							foreach (KeyValuePair<Character, Relationship> pair in character.relationships)
 							{
-								if (valuePair.Value == 0 && notFound)
+								if (character.relationships[pair.Key].Acquaintance)
 								{
-									notFound = true;
-									enemy = valuePair.Key;
-									character.relationships[valuePair.Key] = -1;
+									preexisting = true;
+									character1 = pair.Key;
 								}
 							}
-							if (!notFound)
-							{
-								events.Add(i, enemy.name + " is one of my old friends, ");
-							}
+							character1 = potentials[rnd.Next(0, potentials.Count)];
 
+							character.relationships[character1].Friend = false;
+							character1.relationships[character].Friend = false;
 						}
-						else if (random == 2)
+						else if (random1 == 3)
 						{
-							foreach (KeyValuePair<Character, Relationship> valuePair in character.relationships)
+							foreach (KeyValuePair<Character, Relationship> pair in character.relationships)
 							{
-								if (valuePair.Value == 2 && notFound)
+								if (character.relationships[pair.Key].Family)
 								{
-									notFound = true;
-									enemy = valuePair.Key;
-									character.relationships[valuePair.Key] = -1;
+									preexisting = true;
+									character1 = pair.Key;
 								}
 							}
-							if (!notFound)
-							{
-								events.Add(i, enemy.name + " is one of my old lovers, ");
-							}
+							character1 = potentials[rnd.Next(0, potentials.Count)];
+						}
 
-						}
-						else if (random == 3)
+						if (!preexisting)
 						{
-							foreach (KeyValuePair<Character, Relationship> valuePair in character.relationships)
-							{
-								if (valuePair.Value == 3 && notFound)
-								{
-									notFound = true;
-									enemy = valuePair.Key;
-									character.relationships[valuePair.Key] = -1;
-								}
-							}
-							if (!notFound)
-							{
-								events.Add(i, enemy.name + " is one of my relatives, ");
-							}
-						}
-						else if (notFound)
-						{
-
-							switch (random)
-							{
-								case 5:
-									events.Add(i, enemy.name + " is one of my employees, ");
-									break;
-								case 6:
-									events.Add(i, enemy.name + " is one of my employers, ");
-									break;
-								case 7:
-									events.Add(i, enemy.name + " is one of my partners or co-workers, ");
-									break;
-								case 8:
-									events.Add(i, enemy.name + " is a Booster gang member, ");
-									break;
-								case 9:
-									events.Add(i, enemy.name + " is a corporate executive, ");
-									break;
-								case 10:
-									events.Add(i, enemy.name + " is a government official, ");
-									break;
-								default:
-									events.Add(i, enemy.name + " is one of my childhood enemies, ");
-									break;
-							}
-						}
-						random = rnd.Next(1, 10);
-						if (random <= 4)
-						{
-							events[i] += "They hate me because I";
-						}
-						else if (random <= 7)
-						{
-							events[i] += "I hate them because they";
+							character.relationships[character1].Enemy = true;
+							character1.relationships[character].Enemy = true;
 						}
 						else
 						{
-							events[i] += "We hate eachother because one of us (your choice)";
+							character1 = Character.MakeQuickRelation(character, Relationship.quickRelation.Enemy);
 						}
-					}*/
+
+						events.Add(i, "You made a new enemy!");
+
+						if (random3 <= 4)
+						{
+							if (random1 == 1)
+							{
+								events[i] += " An ex friend";
+							}
+							else if (random1 == 2)
+							{
+								events[i] += " An ex lover";
+							}
+							else if (random1 == 3)
+							{
+								events[i] += " A relative";
+							}
+							else if (random1 == 4)
+							{
+								events[i] += " A childhood enemy";
+							}
+							else if (random1 == 5)
+							{
+								events[i] += " A person working for you";
+							}
+							else if (random1 == 6)
+							{
+								events[i] += " A person you work for";
+							}
+							else if (random1 == 7)
+							{
+								events[i] += " A partner or co-worker";
+							}
+							else if (random1 == 8)
+							{
+								events[i] += " A booster gang member";
+							}
+							else if (random1 == 9)
+							{
+								events[i] += " A corporate exec";
+							}
+							else if (random1 == 10)
+							{
+								events[i] += " A government official";
+							}
+							events[i] += " hates you";
+						}
+						else if (random3 <= 7)
+						{
+							events[i] += " You hate";
+							if (random1 == 1)
+							{
+								events[i] += " an ex friend";
+							}
+							else if (random1 == 2)
+							{
+								events[i] += " an ex lover";
+							}
+							else if (random1 == 3)
+							{
+								events[i] += " a relative";
+							}
+							else if (random1 == 4)
+							{
+								events[i] += " a childhood enemy";
+							}
+							else if (random1 == 5)
+							{
+								events[i] += " a person working for you";
+							}
+							else if (random1 == 6)
+							{
+								events[i] += " a person you work for";
+							}
+							else if (random1 == 7)
+							{
+								events[i] += " a partner or co-worker";
+							}
+							else if (random1 == 8)
+							{
+								events[i] += " a booster gang member";
+							}
+							else if (random1 == 9)
+							{
+								events[i] += " a corporate exec";
+							}
+							else if (random1 == 10)
+							{
+								events[i] += " a government official";
+							}
+						}
+						else if (random3 <= 10)
+						{
+							events[i] += " You and";
+							if (random1 == 1)
+							{
+								events[i] += " an ex friend";
+							}
+							else if (random1 == 2)
+							{
+								events[i] += " an ex lover";
+							}
+							else if (random1 == 3)
+							{
+								events[i] += " a relative";
+							}
+							else if (random1 == 4)
+							{
+								events[i] += " a childhood enemy";
+							}
+							else if (random1 == 5)
+							{
+								events[i] += " a person working for you";
+							}
+							else if (random1 == 6)
+							{
+								events[i] += " a person you work for";
+							}
+							else if (random1 == 7)
+							{
+								events[i] += " a partner or co-worker";
+							}
+							else if (random1 == 8)
+							{
+								events[i] += " a booster gang member";
+							}
+							else if (random1 == 9)
+							{
+								events[i] += " a corporate exec";
+							}
+							else if (random1 == 10)
+							{
+								events[i] += " a government official";
+							}
+							events[i] += " hate each other";
+						}
+
+						events[i] += ", because one of you ";
+						if (random2 == 1)
+						{
+							events[i] += "caused the other to lose face or status.";
+						}
+						else if (random2 == 2)
+						{
+							events[i] += "caused the loss of a lover, friend or relative.";
+						}
+						else if (random2 == 3)
+						{
+							events[i] += "caused a major humiliation.";
+						}
+						else if (random2 == 4)
+						{
+							events[i] += "accused the other of cowardice or some other personal flaw.";
+						}
+						else if (random2 == 5)
+						{
+							random = rnd.Next(1, 6);
+							if (random <= 2)
+							{
+								events[i] += "caused the other to lose an eye.";
+							}
+							else if (random <= 4)
+							{
+								events[i] += "caused the other to lose an arm.";
+							}
+							else if (random <= 6)
+							{
+								events[i] += "caused the other to be badly scarred.";
+							}
+						}
+						else if (random2 == 6)
+						{
+							events[i] += "deserted or betrayed the other.";
+						}
+						else if (random2 == 7)
+						{
+							events[i] += "turned down the other's offer of job or romantic involvement.";
+						}
+						else if (random2 == 8)
+						{
+							events[i] += "just didn't like each other.";
+						}
+						else if (random2 == 9)
+						{
+							events[i] += "was a romantic rival.";
+						}
+						else if (random2 == 10)
+						{
+							events[i] += "foiled a plan of the other's.";
+						}
+
+						events[i] += " If the two of you met face to face, ";
+						if (random3 <= 4)
+						{
+							events[i] += "they would ";
+						}
+						else if (random3 <= 7)
+						{
+							events[i] += "you would";
+						}
+						else if (random3 <= 10)
+						{
+							events[i] += "you would both";
+						}
+						if (random4 <= 2)
+						{
+							events[i] += " go into a murderous, killing rage and rip his face off!";
+						}
+						else if (random4 <= 4)
+						{
+							events[i] += " avoid the scum.";
+						}
+						else if (random4 <= 6)
+						{
+							events[i] += " backstab him indirectly.";
+						}
+						else if (random4 <= 8)
+						{
+							events[i] += " ignore the scum.";
+						}
+						else if (random4 <= 10)
+						{
+							events[i] += " rip into him verbally.";
+						}
+
+						if (random3 > 7)
+						{
+							events[i].Replace("his", "each others");
+							events[i].Replace("scum", "each other");
+						}
+						else if (!character1.male)
+						{
+							events[i].Replace("his", "her");
+						}
+
+						if (random5 <= 3)
+						{
+							events[i] += " Only your enemy is involved.";
+						}
+						else if (random5 <= 5)
+						{
+							events[i] += " Only your enemy and a few of their friends are involved.";
+						}
+						else if (random5 <= 7)
+						{
+							events[i] += " Your enemy's entire gang is involved.";
+						}
+						else if (random5 == 8)
+						{
+							events[i] += " Your enemy's small corporation is involved.";
+						}
+						else if (random5 == 9)
+						{
+							events[i] += " Your enemy's large corporation is involved.";
+						}
+						else if (random5 == 10)
+						{
+							events[i] += " Your enemy's entire government agency is involved.";
+						}
+					}
 				}
 				else if (random <= 8)
 				{
@@ -485,7 +685,7 @@ namespace Cyberpunk2020CharacterCreator
 				}
 				else if (random <= 10)
 				{
-					events.Add(i, "Nothing happened that year");
+					events.Add(i, "Nothing happened that year.");
 				}
 			}
 			return events;
