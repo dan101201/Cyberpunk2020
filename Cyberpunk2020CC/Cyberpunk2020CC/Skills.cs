@@ -25,7 +25,6 @@ namespace Cyberpunk2020CharacterCreator
     //Returns a string array full of all the skills, using either the interlock(official system) or a homebrew one
     static string[] returnSkillArray(bool InterLock)
         {
-            string[] skill;
             if (!InterLock)
             {
                 string[] temp =
