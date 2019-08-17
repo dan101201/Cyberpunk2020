@@ -9,6 +9,8 @@
       Title="Character">
 
     <Grid>
-        
+        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="36">
+            hello how are you
+        </TextBlock>
     </Grid>
 </Page>
