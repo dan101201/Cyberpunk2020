@@ -70,6 +70,7 @@
     <Compile Include="Skills.cs" />
     <Compile Include="Stats.cs" />
     <Compile Include="Style.cs" />
+    <Compile Include="Utility.cs" />
     <Compile Include="Weapon.cs" />
     <Page Include="Character.xaml">
       <SubType>Designer</SubType>
