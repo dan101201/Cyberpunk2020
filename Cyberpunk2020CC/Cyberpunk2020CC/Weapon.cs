@@ -65,7 +65,7 @@ namespace Cyberpunk2020CharacterCreator
             XmlDocument doc = new XmlDocument();
 
             doc.Load(path);
-            XmlNodeList nodes = doc.SelectNodes("weapons");
+            XmlNodeList nodes = doc.SelectNodes("weapon");
 
             foreach (XmlNode node in nodes)
             {
