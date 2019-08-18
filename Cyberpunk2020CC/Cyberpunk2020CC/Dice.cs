@@ -40,5 +40,15 @@ namespace Cyberpunk2020CharacterCreator
             this.number = number;
             this.bonus = bonus;
         }
+
+        public Dice(string line)
+        {
+            
+            this.number = line[0];
+            this.amount = line[2];
+            this.bonus = int.Parse(line.Split('+')[1].Trim());
+
+        }
+
     }
 }
