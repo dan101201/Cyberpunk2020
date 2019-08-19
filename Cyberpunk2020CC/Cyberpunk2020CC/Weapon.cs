@@ -56,7 +56,7 @@ namespace Cyberpunk2020CharacterCreator
 
         Rel reliability;
 
-        int cost;
+        double cost;
 
         static Weapon[] XMLToWeapons (string path)
         {
@@ -75,8 +75,8 @@ namespace Cyberpunk2020CharacterCreator
                 tempWeapon.name = XmlFindFirstNodeAndRemoveAllChildren(doc,"name").InnerText;
                 tempWeapon.damage = new Dice(XmlFindFirstNodeAndRemoveAllChildren(doc, "damage").InnerText);
                 tempWeapon.shots = int.Parse(XmlFindFirstNodeAndRemoveAllChildren(doc, "shots").InnerText);
-                tempWeapon.rof = int.Parse(XmlFindFirstNodeAndRemoveAllChildren(doc, "shots").InnerText);
-                tempWeapon.cost = int.Parse(XmlFindFirstNodeAndRemoveAllChildren(doc, "cost").InnerText);
+                tempWeapon.rof = int.Parse(XmlFindFirstNodeAndRemoveAllChildren(doc, "rof").InnerText);
+                tempWeapon.cost = double.Parse(XmlFindFirstNodeAndRemoveAllChildren(doc, "cost").InnerText);
                 tempWeapon.wa = int.Parse(XmlFindFirstNodeAndRemoveAllChildren(doc, "wa").InnerText);
                 tempWeapon.concealability = StringToCon(XmlFindFirstNodeAndRemoveAllChildren(doc, "con").InnerText);
                 tempWeapon.reliability = StringToRel(XmlFindFirstNodeAndRemoveAllChildren(doc, "rel").InnerText);

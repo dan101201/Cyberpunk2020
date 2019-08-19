@@ -1,0 +1,29 @@
+<weapon>
+  <name>
+    example weapon
+  </name>
+  <wa>
+    +1
+  </wa>
+  <con>
+    P
+  </con>
+  <avail>
+    E
+  </avail>
+  <damage>
+    6D6+7
+  </damage>
+  <shots>
+    32
+  </shots>
+  <rof>
+    3
+  </rof>
+  <rel>
+    VR
+  </rel>
+  <cost>
+    500
+  </cost>
+</weapon>
