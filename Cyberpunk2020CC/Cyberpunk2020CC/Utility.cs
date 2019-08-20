@@ -19,6 +19,7 @@ namespace Cyberpunk2020CharacterCreator
             return node;
         }
 
+        //Finds all nodes inside the XmlDocument with the name given, and removes all children
         static public XmlNode XmlFindFirstNodeAndRemoveAllChildren(XmlDocument doc, string name)
         {
 
