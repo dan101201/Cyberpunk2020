@@ -69,6 +69,7 @@
     <Compile Include="Role.cs" />
     <Compile Include="Skills.cs" />
     <Compile Include="Stats.cs" />
+    <Compile Include="Storage.cs" />
     <Compile Include="Style.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="Weapon.cs" />
@@ -86,7 +87,7 @@
     </Compile>
     <Compile Include="Character.cs" />
     <Compile Include="EthnicGroup.cs" />
-    <Compile Include="Gear.cs" />
+    <Compile Include="Armor.cs" />
     <Compile Include="Lifepath.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
