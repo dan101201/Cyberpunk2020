@@ -10,21 +10,60 @@ namespace Cyberpunk2020CharacterCreator
     {
 
         //Dictionary of the stats, with the key as a string representing the name of the skill, and int being the level in the stat
-        public Dictionary<string, int> stats = new Dictionary<string, int>();
-        
+        public int[] stats;
 
-        public Stats()
+        public static int getStatsIndex(string temp)
         {
-            stats.Add("INT", 0);
-            stats.Add("REF", 0);
-            stats.Add("CL", 0);
-            stats.Add("TECH", 0);
-            stats.Add("LK", 0);
-            stats.Add("ATT", 0);
-            stats.Add("MA", 0);
-            stats.Add("EM", 0);
-            stats.Add("BTM", 0);
+            switch (temp)
+            {
+                case "INT":
+                    return 0;
+                case "REF":
+                    return 1;
+                case "CL":
+                    return 2;
+                case "TECH":
+                    return 3;
+                case "LK":
+                    return 4;
+                case "ATT":
+                    return 5;
+                case "MA":
+                    return 6;
+                case "EM":
+                    return 7;
+                case "BTM":
+                    return 8;
+            }
+            return 0;
         }
+
+        public int getStats(string temp)
+        {
+            switch(temp) {
+                case "INT":
+                    return stats[0];
+                case "REF":
+                    return stats[1];
+                case "CL":
+                    return stats[2];
+                case "TECH":
+                    return stats[3];
+                case "LK":
+                    return stats[4];
+                case "ATT":
+                    return stats[5];
+                case "MA":
+                    return stats[6];
+                case "EM":
+                    return stats[7];
+                case "BTM":
+                    return stats[8];
+            }
+            return stats[0];
+        }
+
+            
 
         //Double to keep track of lost humanity
         double humanityLost = 0;
@@ -35,7 +74,7 @@ namespace Cyberpunk2020CharacterCreator
             
             get
             {
-                return stats["EM"] - Convert.ToInt32(Math.Floor(humanityLost)) / 10;
+                return stats[getStatsIndex("EM")] - Convert.ToInt32(Math.Floor(humanityLost)) / 10;
             }
             set
             {
@@ -43,14 +82,14 @@ namespace Cyberpunk2020CharacterCreator
                 {
                     value = 1;
                 }
-                stats["EM"] = value;
+                stats[getStatsIndex("EM")] = value;
             }
         }
         public double Humanity
         {
             get
             {
-                return stats["EM"] * 4 - humanityLost;
+                return stats[getStatsIndex("EM")] * 4 - humanityLost;
             }
             set
             {
@@ -65,7 +104,7 @@ namespace Cyberpunk2020CharacterCreator
 		{
 			get
 			{
-				return stats["MA"] * 3;
+				return stats[getStatsIndex("MA")] * 3;
 			}
 		}
 
@@ -76,5 +115,18 @@ namespace Cyberpunk2020CharacterCreator
 				return Run / 4;
 			}
 		}
+
+        public static Stats generateStatsForNPC(int points, Character npc)
+        {
+            Random rnd = new Random();
+            int random = rnd.Next(6, 8);
+            Stats temp = new Stats();
+            temp.stats = Utility.GetSlots(9, 10);
+            
+            
+
+            return temp;
+
+        }
     }
 }

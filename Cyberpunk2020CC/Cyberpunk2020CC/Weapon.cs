@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Xml;
 using static Cyberpunk2020CharacterCreator.Utility;
-using static Cyberpunk2020CharacterCreator.Relationship;
 
 namespace Cyberpunk2020CharacterCreator
 {
