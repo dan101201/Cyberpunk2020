@@ -81,6 +81,8 @@ namespace Cyberpunk2020CharacterCreator
                 tempRole.name = XmlRemoveAllChildren(node,"name").InnerText;
                 tempRole.desc = XmlRemoveAllChildren(node, "desc").InnerText;
                 tempRole.skills = XmlRemoveAllChildren(node, "skills").InnerText.Split(',');
+
+                temp.Add(tempRole.name,tempRole);
             }
 
 
