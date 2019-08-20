@@ -20,12 +20,9 @@ namespace Cyberpunk2020CharacterCreator
         }
 
         //Finds all nodes inside the XmlDocument with the name given, and removes all children
-        static public XmlNode XmlFindFirstNodeAndRemoveAllChildren(XmlDocument doc, string name)
+        static public XmlNode XmlRemoveAllChildren(XmlNode node, string name)
         {
-
-            XmlNodeList nodes = doc.SelectNodes(name);
-            XmlNode node = nodes[0];
-
+            node = node.SelectSingleNode(name);
             foreach (XmlNode child in node)
             {
                 node.RemoveChild(child);
