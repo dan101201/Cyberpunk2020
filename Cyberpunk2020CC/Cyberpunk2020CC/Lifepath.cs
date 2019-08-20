@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Cyberpunk2020CharacterCreator.Stats;
 
 namespace Cyberpunk2020CharacterCreator
 {
@@ -99,7 +100,7 @@ namespace Cyberpunk2020CharacterCreator
 								break;
 							case 3:
 								events.Add(i, "Illness or addiction. You have contracted either and illness or a drug habit in this time. You have lost 1 REF as a result");
-								character.stats.stats["REF"] -= 1;
+								character.stats.stats[getStatsIndex("REF")] -= 1;
 								break;
 							case 4:
 								random = rnd.Next(1, 10);
@@ -121,7 +122,7 @@ namespace Cyberpunk2020CharacterCreator
 								if (random <= 4)
 								{
 									events.Add(i, "Accident. You were in a terrible accident, and were terribly disfigured, you have lost 5 ATT.");
-									character.stats.stats["ATT"] -= 5;
+									character.stats.stats[getStatsIndex("ATT")] -= 5;
 								}
 								else if (random <= 6)
 								{
@@ -218,18 +219,18 @@ namespace Cyberpunk2020CharacterCreator
 								if (random <= 3)
 								{
 									events.Add(i, "You have experienced some type of nervous disorder, probably from a bioplague. You have lost 1 pt. REF.");
-									character.stats.stats["REF"] -= 1;
+									character.stats.stats[getStatsIndex("REF")] -= 1;
 								}
 								else if (random <= 7)
 								{
 									events.Add(i, "You have experienced some type of mental problem; you suffer anxiety attacks and phobias. You've lost 1 pt. CL.");
-									character.stats.stats["CL"] -= 1;
+									character.stats.stats[getStatsIndex("CL")] -= 1;
 								}
 								else if (random <= 10)
 								{
 									events.Add(i, "You have experienced a major psychosis. You hear voices, are violent, irrational, depressive. You have lost 1 pt from your CL, and 1 from REF");
-									character.stats.stats["CL"] -= 1;
-									character.stats.stats["REF"] -= 1;
+									character.stats.stats[getStatsIndex("CL")] -= 1;
+									character.stats.stats[getStatsIndex("REF")] -= 1;
 								}
 								break;
 						}

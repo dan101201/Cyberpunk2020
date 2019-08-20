@@ -3,19 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using static Cyberpunk2020CharacterCreator.Utility;
 
 namespace Cyberpunk2020CharacterCreator
 {
     class Role
     {
         // Makes a Dictionary full of all the roles with the name of the role as the string key
-        public static Dictionary<string, Role> roles
-        {
-            get
-            {
-                return makeRoles();
-            }
-        }
+        public static Dictionary<string, Role> roles;
 
         public string name
         {
@@ -27,28 +23,13 @@ namespace Cyberpunk2020CharacterCreator
             get;
             private set;
         }
-        public string[] jobNames
-        {
-            get;
-            private set;
-        }
         public string[] skills
         {
             get;
             private set;
         }
-        public string specialAbility
-        {
-            get;
-            private set;
-        }
-        //Only used for Character's
-        public string importantStat
-        {
-            get;
-            private set;
-        }
 
+        //Not needed anymore
         public static string intToRoleName(int number)
         {
             switch(number)
@@ -87,83 +68,25 @@ namespace Cyberpunk2020CharacterCreator
             }
         }
 
-        static Dictionary<string, Role> makeRoles()
+        Dictionary<string,Role> XMLDocToDictionaryStringRole(string path)
         {
-            Dictionary<string,Role> roles = new Dictionary<string,Role>();
+            XmlDocument doc = new XmlDocument();
+            doc.Load(path);
+            Dictionary<string, Role> temp = new Dictionary<string, Role>();
 
-            string[] lines = System.IO.File.ReadAllLines("roles.txt");
-            for (int i = 0; i < lines.Length; i++)
+            XmlNodeList list = doc.SelectNodes("role");
+            foreach (XmlNode node in list)
             {
-                var line = lines[i];
-                Role role = new Role();
-                //Checks for empty line
-                if (lines[i].Trim() != "")
-                {
-                    //In the text file the line above the empty one are the base skills, so checks that this is not base skills
-                    if (lines[i + 1].Trim() != "")
-                    {
-                        //if not base skills, reads txt file to make the different roles/class's
-                        role.name = line.Substring(0,line.IndexOf('('));
-                        string temp = line.Substring(line.IndexOf('(') + 1);
-                        temp = temp.Substring(0, temp.IndexOf(')'));
-                        role.jobNames = temp.Split(',');
-                        temp = line.Substring(line.IndexOf(')') + 1);
-                        temp = temp.Substring(0, temp.IndexOf("SA"));
-                        role.desc = temp.Trim();
-                        role.specialAbility = line.Substring(line.IndexOf("SA") + 2).Trim();
-                        role.skills = lines[i + 1].Split(',');
-
-                        roles.Add(role.name.ToLower(),role);
-
-                        //Sets the important stat of the role
-                        switch (role.name.Trim())
-                        {
-                            case "Techie":
-                                role.importantStat = "TECH";
-                                
-                                break;
-                            case "Solo":
-                                role.importantStat = "REF";
-                                
-                                break;
-                            case "Cop":
-                                role.importantStat = "REF";
-                                
-                                break;
-                            case "Nomad":
-                                role.importantStat = "REF";
-                                
-                                break;
-                            case "Rocker":
-                                role.importantStat = "REF";
-                                
-                                break;
-                            case "Corp":
-                                role.importantStat = "INT";
-                                
-                                break;
-                            case "Medtechie":
-                                role.importantStat = "INT";
-                                
-                                break;
-                            case "Netrunner":
-                                role.importantStat = "INT";
-                                
-                                break;
-                            case "Fixer":
-                                role.importantStat = "CL";
-                                
-                                break;
-                            case "Media":
-                                role.importantStat = "ATT";
-                                
-                                break;
-                        }
-                    }
-                }
+                Role tempRole = new Role();
+                tempRole.name = XmlRemoveAllChildren(node,"name").InnerText;
+                tempRole.desc = XmlRemoveAllChildren(node, "desc").InnerText;
+                tempRole.skills = XmlRemoveAllChildren(node, "skills").InnerText.Split(',');
             }
-            return roles;
-        }
+
+
+            return temp;
+        }   
+     
 
     }
 }

@@ -36,6 +36,7 @@ namespace Cyberpunk2020CharacterCreator
         public Style style;
         public Motivation motivation;
         public Dictionary<Character,Relationship> relationships;
+        public bool NPC;
 
         /// <summary>
         /// Generates random Character using all of the other functions in this class
@@ -68,7 +69,8 @@ namespace Cyberpunk2020CharacterCreator
             temp.motivation = Motivation.randomlyGenerateMotivation();
             rnd.Next(1, 10);
             temp.role = Role.roles[Role.intToRoleName(rnd.Next(1, 10))];
-            temp.stats = generateStatsForNPC(points, temp);
+            temp.stats = Stats.generateStatsForNPC(points, temp);
+            temp.NPC = true;
 
             return temp;
         }
@@ -121,42 +123,7 @@ namespace Cyberpunk2020CharacterCreator
         /// Generates stats for Character, based on the role's most important stat, all other stats are randomly distributed
         /// </summary>
         /// <returns>Stats class</returns>
-        static Stats generateStatsForNPC(int points, Character npc)
-        {
-            Random rnd = new Random();
-            int random = rnd.Next(6, 8);
-            Stats temp = new Stats();
-            temp.stats[npc.role.importantStat] = random;
-            points -= random;
-
-            foreach(KeyValuePair<string, int> key in temp.stats)
-            {
-                if (key.Key != npc.role.importantStat)
-                {
-                    bool run = true;
-                    while (run)
-                    {
-                        if (points % 8 == 0)
-                        {
-                            temp.stats[key.Key] += points / 8;
-                            run = false;
-                        }
-                        else if (temp.stats[key.Key] == 10)
-                        {
-                            run = false;
-                        }
-                        else
-                        {
-                            points -= 1;
-                            temp.stats[key.Key] += 1;
-                        }
-                    }
-
-                }
-            }
-            return temp;
-            
-        }
+        
 
         
 
