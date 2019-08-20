@@ -4,19 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using static Cyberpunk2020CharacterCreator.Utility;
 
 namespace Cyberpunk2020CharacterCreator
 {
     class Role
     {
         // Makes a Dictionary full of all the roles with the name of the role as the string key
-        public static Dictionary<string, Role> roles
-        {
-            get
-            {
-                return makeRoles();
-            }
-        }
+        public static Dictionary<string, Role> roles;
 
         public string name
         {
@@ -83,9 +78,10 @@ namespace Cyberpunk2020CharacterCreator
             foreach (XmlNode node in list)
             {
                 Role tempRole = new Role();
-                
+                tempRole.name = XmlRemoveAllChildren(node,"name").InnerText;
+                tempRole.desc = XmlRemoveAllChildren(node, "desc").InnerText;
+                tempRole.skills = XmlRemoveAllChildren(node, "skills").InnerText.Split(',');
             }
-
 
 
             return temp;
