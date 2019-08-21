@@ -36,15 +36,18 @@ namespace Cyberpunk2020CharacterCreator
 
         public object[] GetSortedItems()
         {
+            var temp = items;
             items.Sort();
-            return items.ToArray();
+            var sortedList = items;
+            items = temp;
+            return sortedList.ToArray();
         }
 
         public object[] GetSortedItemsReverse()
         {
-            items.Sort();
-            items.Reverse();
-            return items.ToArray();
+            var temp = GetSortedItems();
+            temp.Reverse();
+            return temp;
         }
 
         public Type[] GetTypesOfInventory()

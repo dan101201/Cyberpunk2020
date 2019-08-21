@@ -24,5 +24,19 @@ namespace Cyberpunk2020CC
         {
             InitializeComponent();
         }
+
+        private void BtnClickP1(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Character();
+        }
+
+        private void BtnClickP2(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Character();
+        }
+
     }
+
+
+
 }

@@ -4,36 +4,6 @@
              xmlns:local="clr-namespace:Cyberpunk2020CC"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         <Style TargetType="{x:Type Button}">
-   <Setter Property="SnapsToDevicePixels" Value="true"/>
-   <Setter Property="OverridesDefaultStyle" Value="true"/>
-   <Setter Property="MinHeight" Value="23"/>
-   <Setter Property="MinWidth" Value="75"/>
-   <Setter Property="Template">
-      <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Name="Border" CornerRadius="2" BorderThickness="1"
-                    Background="#FF1E1F23"
-                    BorderBrush="#FF1E1F23">
-                            <ContentPresenter Margin="2" 
-                                 HorizontalAlignment="Center"
-                                 VerticalAlignment="Center" 
-                                 RecognizesAccessKey="True"/>
-                        </Border>
-                        <ControlTemplate.Triggers>
 
-               <Trigger Property="IsMouseOver" Value="true">
-                    <Setter 
-                          Property="Background" Value="#FF201F29" />
-               </Trigger>
-               <Trigger Property="IsPressed" Value="true">
-                    <Setter 
-                          Property="Background" Value="#FF101017" />
-               </Trigger>
-            </ControlTemplate.Triggers>
-         </ControlTemplate>
-      </Setter.Value>
-   </Setter>
-</Style>
     </Application.Resources>
 </Application>
