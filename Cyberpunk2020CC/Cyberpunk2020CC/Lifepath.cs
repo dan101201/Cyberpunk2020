@@ -1159,15 +1159,5 @@ namespace Cyberpunk2020CharacterCreator
 					break;
 			}
 		}
-
-		static void StatBoost(string stat, int amount)
-		{
-
-		}
-
-		static void StatBoost(string stat, int amount, int special)
-		{
-
-		}
 	}
 }

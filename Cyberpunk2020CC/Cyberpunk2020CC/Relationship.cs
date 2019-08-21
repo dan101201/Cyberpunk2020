@@ -104,9 +104,5 @@ namespace Cyberpunk2020CharacterCreator
 			ExLover,
 			Lover
         }
-        
-        
-
-        
     }
 }

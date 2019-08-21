@@ -34,8 +34,9 @@ namespace Cyberpunk2020CharacterCreator
                     return 7;
                 case "BTM":
                     return 8;
-            }
-            return 0;
+				default:
+					return 0;
+			}
         }
 
         public int getStats(string temp)
@@ -123,10 +124,7 @@ namespace Cyberpunk2020CharacterCreator
             Stats temp = new Stats();
             temp.stats = Utility.GetSlots(9, 10);
             
-            
-
             return temp;
-
         }
     }
 }
