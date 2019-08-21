@@ -127,26 +127,26 @@ namespace Cyberpunk2020CharacterCreator
 
         
 
-        public static Character MakeQuickRelation(Character npc, Relationship.quickRelation relation)
+        public static Character MakeQuickRelation(Character npc, Relationship.QuickRelation relation)
         {
             Character temp = generateRandomNPC(0);
             Relationship rel = new Relationship();
             
             switch (relation)
             {
-                case Relationship.quickRelation.Enemy:
+                case Relationship.QuickRelation.Enemy:
                     rel.Enemy = true;
                     break;
 
-                case Relationship.quickRelation.Family:
+                case Relationship.QuickRelation.Family:
                     rel.Family = true;
                     break;
 
-                case Relationship.quickRelation.Friend:
+                case Relationship.QuickRelation.Friend:
                     rel.Friend = true;
                     break;
 
-                case Relationship.quickRelation.Acquantance:
+                case Relationship.QuickRelation.Acquantance:
                     rel.Acquaintance = true;
                     break;
             }

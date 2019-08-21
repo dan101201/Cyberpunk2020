@@ -10,22 +10,17 @@ namespace Cyberpunk2020CharacterCreator
     {
         public Character person;
         public Character character;
-        public bool Acquaintance
-        {
-            set
-            {
-                Acquaintance = value;
-            }
-            get
-            {
-                return Acquaintance;
-            }
-        }
+        public bool Acquaintance { get; set; }
+
         public bool Enemy
         {
             set
             {
                 Acquaintance = true;
+				if (Lover)
+				{
+					Lover = false;
+				}
                 Enemy = value;
             }
             get
@@ -54,27 +49,60 @@ namespace Cyberpunk2020CharacterCreator
                 if (!value)
                 {
                     Enemy = false;
-                    Friend = value;
                 }
                 else
                 {
                     Acquaintance = true;
                     Enemy = false;
-                    Friend = value;
                 }
-            }
+
+				if (Lover && value)
+				{
+					Lover = false;
+				}
+
+				Friend = value;
+			}
             get
             {
                 return Friend;
             }
         }
 
-        public enum quickRelation
+		public bool ExLover { get; set; }
+
+		public bool Lover
+		{
+			set
+			{
+				if (value)
+				{
+					if (Friend)
+					{
+						Friend = false;
+					}
+					Acquaintance = true;
+				}
+				else
+				{
+					ExLover = true;
+				}
+				Lover = value;
+			}
+			get
+			{
+				return Lover;
+			}
+		}
+
+        public enum QuickRelation
         {
             Friend,
             Enemy,
             Acquantance,
-            Family
+            Family,
+			ExLover,
+			Lover
         }
         
         

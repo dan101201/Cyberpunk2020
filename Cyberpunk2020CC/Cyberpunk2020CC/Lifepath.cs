@@ -307,20 +307,18 @@ namespace Cyberpunk2020CharacterCreator
 						}
 						else
 						{
-							character1 = Character.MakeQuickRelation(character, Relationship.quickRelation.Friend);
+							character1 = Character.MakeQuickRelation(character, Relationship.QuickRelation.Friend);
 						}
 
-						events.Add(i, "You made a new friend!");
-
+						events.Add(i, "You made a new friend! ");
 						if (character1.male)
 						{
-							events[i] += " He is ";
+							events[i] += "He is ";
 						}
 						else
 						{
-							events[i] += " She is ";
+							events[i] += "She is ";
 						}
-
 						if (random == 1)
 						{
 							events[i] += "like a big brother to you.";
@@ -382,11 +380,11 @@ namespace Cyberpunk2020CharacterCreator
 						int random4 = rnd.Next(1, 10);
 						int random5 = rnd.Next(1, 10);
 						relationship.Friend = true;
-						if (random1 == 1 || random1 == 2)
+						if (random1 == 1)
 						{
 							foreach (KeyValuePair<Character, Relationship> pair in character.relationships)
 							{
-								if (character.relationships[pair.Key].Acquaintance)
+								if (character.relationships[pair.Key].Friend)
 								{
 									preexisting = true;
 									character1 = pair.Key;
@@ -396,6 +394,18 @@ namespace Cyberpunk2020CharacterCreator
 
 							character.relationships[character1].Friend = false;
 							character1.relationships[character].Friend = false;
+						}
+						else if (random1 == 2)
+						{
+							foreach (KeyValuePair<Character, Relationship> pair in character.relationships)
+							{
+								if (character.relationships[pair.Key].ExLover)
+								{
+									preexisting = true;
+									character1 = pair.Key;
+								}
+							}
+							character1 = potentials[rnd.Next(0, potentials.Count)];
 						}
 						else if (random1 == 3)
 						{
@@ -417,7 +427,7 @@ namespace Cyberpunk2020CharacterCreator
 						}
 						else
 						{
-							character1 = Character.MakeQuickRelation(character, Relationship.quickRelation.Enemy);
+							character1 = Character.MakeQuickRelation(character, Relationship.QuickRelation.Enemy);
 						}
 
 						events.Add(i, "You made a new enemy!");
@@ -647,11 +657,13 @@ namespace Cyberpunk2020CharacterCreator
 						if (random3 > 7)
 						{
 							events[i].Replace("his", "each others");
+							events[i].Replace("him", "each other");
 							events[i].Replace("scum", "each other");
 						}
 						else if (!character1.male)
 						{
 							events[i].Replace("his", "her");
+							events[i].Replace("him", "her");
 						}
 
 						if (random5 <= 3)
@@ -682,7 +694,448 @@ namespace Cyberpunk2020CharacterCreator
 				}
 				else if (random <= 8)
 				{
+					random = rnd.Next(1, 10);
+					if (random <= 4)
+					{
+						Character character1 = null;
+						foreach (KeyValuePair<Character, Relationship> pair in character.relationships)
+						{
+							if (character.relationships[pair.Key].Lover)
+							{
+								character1 = pair.Key;
+							}
+						}
 
+						if (character1 == null) //alternatively try (character1 is null) if it fails
+						{
+							character1 = Character.MakeQuickRelation(character, Relationship.QuickRelation.Lover);
+							events.Add(i, "You fell happily in love with " + character1.name + ".");
+						}
+						else
+						{
+							events.Add(i, "You spent a lot of time with " + character1.name + " this year.");
+						}
+					}
+					else if (random == 5)
+					{
+						int random1 = rnd.Next(1, 10);
+						int random2 = rnd.Next(1, 10);
+
+						Character character1 = null;
+						bool preexisting = false;
+						foreach (KeyValuePair<Character, Relationship> pair in character.relationships)
+						{
+							if (character.relationships[pair.Key].Lover)
+							{
+								character1 = pair.Key;
+								preexisting = true;
+							}
+						}
+						if (!preexisting)
+						{
+							character1 = Character.MakeQuickRelation(character, Relationship.QuickRelation.Lover);
+						}
+
+						if (random1 == 1)
+						{
+							if (preexisting)
+							{
+								events.Add(i, character1.name + "died in an accident.");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name);
+								if (character1.male)
+								{
+									events[i] += ". Sadly, he died in an accident the same year.";
+								}
+								else
+								{
+									events[i] += ". Sadly, she died in an accident the same year.";
+								}
+							}
+						}
+						else if (random1 == 2)
+						{
+							if (preexisting)
+							{
+								events.Add(i, character1.name + "have mysteriously vanished.");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name);
+								if (character1.male)
+								{
+									events[i] += ". Sadly, he mysteriously vanished the same year.";
+								}
+								else
+								{
+									events[i] += ". Sadly, she mysteriously vanished the same year.";
+								}
+							}
+						}
+						else if (random1 == 3)
+						{
+							if (preexisting)
+							{
+								events.Add(i, "You and " + character1.name + "have gone your seperate ways. It didn't work out.");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name + ". Sadly, it didn't work out.");
+							}
+						}
+						else if (random1 == 4)
+						{
+							if (preexisting)
+							{
+								events.Add(i, "A personal goal or vendetta came in between you and " + character1.name + ".");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name + ". Sadly, a personal goal or vendetta came between you.");
+							}
+						}
+						else if (random1 == 5)
+						{
+							if (preexisting)
+							{
+								events.Add(i, character1.name + "has been kidnapped.");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name);
+								if (character1.male)
+								{
+									events[i] += ". Sadly, he was kidnapped.";
+								}
+								else
+								{
+									events[i] += ". Sadly, she was kidnapped.";
+								}
+							}
+						}
+						else if (random1 == 6)
+						{
+							if (preexisting)
+							{
+								events.Add(i, character1.name + "has gone insane.");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name);
+								if (character1.male)
+								{
+									events[i] += ". Sadly, he went insane.";
+								}
+								else
+								{
+									events[i] += ". Sadly, she went insane.";
+								}
+							}
+						}
+						else if (random1 == 7)
+						{
+							if (preexisting)
+							{
+								events.Add(i, character1.name + "has commited suicide.");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name);
+								if (character1.male)
+								{
+									events[i] += ". Sadly, he commited suicide.";
+								}
+								else
+								{
+									events[i] += ". Sadly, she commited suicide.";
+								}
+							}
+						}
+						else if (random1 == 8)
+						{
+							if (preexisting)
+							{
+								events.Add(i, character1.name + "has been killed in a fight.");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name);
+								if (character1.male)
+								{
+									events[i] += ". Sadly, he were killed in a fight.";
+								}
+								else
+								{
+									events[i] += ". Sadly, she were killed in a fight.";
+								}
+							}
+						}
+						else if (random1 == 9)
+						{
+							Character character2 = Character.MakeQuickRelation(character, Relationship.QuickRelation.Enemy);
+							if (preexisting)
+							{
+								events.Add(i, character1.name + "has left you over a romantic rival, " + character2.name);
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name);
+								if (character1.male)
+								{
+									events[i] += ". Sadly, he left you over your romantic rival " + character2.name + ".";
+								}
+								else
+								{
+									events[i] += ". Sadly, she left you over your romantic rival " + character2.name + ".";
+								}
+							}
+						}
+						else if (random1 == 10)
+						{
+							if (preexisting)
+							{
+								events.Add(i, character1.name + "has been imprisoned or exiled.");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name);
+								if (character1.male)
+								{
+									events[i] += ". Sadly, he were imprisoned or exiled.";
+								}
+								else
+								{
+									events[i] += ". Sadly, she were imprisoned or exiled.";
+								}
+							}
+						}
+
+						if (random2 == 1)
+						{
+							character1.relationships[character].Lover = true;
+							character.relationships[character1].Lover = false;
+							events[i] += " They still love you.";
+						}
+						else if (random2 == 2)
+						{
+							character1.relationships[character].Lover = false;
+							character.relationships[character1].Lover = true;
+							events[i] += " You still love them.";
+						}
+						else if (random2 == 3)
+						{
+							character1.relationships[character].Lover = true;
+							character.relationships[character1].Lover = true;
+							events[i] += " You still love each other.";
+						}
+						else if (random2 == 4)
+						{
+							character1.relationships[character].Lover = false;
+							character.relationships[character1].Enemy = true;
+							events[i] += " You hate them.";
+						}
+						else if (random2 == 5)
+						{
+							character1.relationships[character].Enemy = true;
+							character.relationships[character1].Lover = false;
+							events[i] += " They hate you.";
+						}
+						else if (random2 == 6)
+						{
+							character1.relationships[character].Enemy = true;
+							character.relationships[character1].Enemy = true;
+							events[i] += " You hate each other.";
+						}
+						else if (random2 == 7)
+						{
+							character1.relationships[character].Friend = true;
+							character.relationships[character1].Friend = true;
+							events[i] += " You are friends.";
+						}
+						else if (random2 == 8)
+						{
+							character1.relationships[character].Lover = false;
+							character.relationships[character1].Lover = false;
+							events[i] += " No feelings either way, it's over.";
+						}
+						else if (random2 == 9)
+						{
+							character1.relationships[character].Enemy = true;
+							character.relationships[character1].Lover = true;
+							events[i] += " You like them, they hate you.";
+						}
+						else if (random2 == 10)
+						{
+							character1.relationships[character].Lover = true;
+							character.relationships[character1].Enemy = true;
+							events[i] += " They like you, you hate them.";
+						}
+					}
+					else if (random <= 7)
+					{
+						random = rnd.Next(1, 10);
+						Character character1 = null;
+						bool preexisting = false;
+						foreach (KeyValuePair<Character, Relationship> pair in character.relationships)
+						{
+							if (character.relationships[pair.Key].Lover)
+							{
+								character1 = pair.Key;
+								preexisting = true;
+							}
+						}
+						if (!preexisting)
+						{
+							character1 = Character.MakeQuickRelation(character, Relationship.QuickRelation.Lover);
+						}
+
+						if (random == 1)
+						{
+							if (preexisting)
+							{
+								events.Add(i, character1.name + "'s friends/family hate you");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name);
+								if (character1.male)
+								{
+									events[i] += ", but his friends/family hate you";
+								}
+								else
+								{
+									events[i] += ", but her friends/family hate you";
+								}
+							}
+						}
+						else if (random == 2)
+						{
+							if (preexisting)
+							{
+								events.Add(i, character1.name + "'s friends/family would use any means to get rid of you.");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name);
+								if (character1.male)
+								{
+									events[i] += ", but his friends/family would use any means to get rid of you.";
+								}
+								else
+								{
+									events[i] += ", but her friends/family would use any means to get rid of you.";
+								}
+							}
+						}
+						else if (random == 3)
+						{
+							if (preexisting)
+							{
+								events.Add(i, "Your friends/family hate " + character1.name + ".");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name);
+								if (character1.male)
+								{
+									events[i] += ", but your friends/family hate him.";
+								}
+								else
+								{
+									events[i] += ", but your friends/family hate her.";
+								}
+							}
+						}
+						else if (random == 4)
+						{
+							if (preexisting)
+							{
+								events.Add(i, "A romantic lover complicates your relationship with " + character1.name + ".");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name + ", but a romantic lover made it complicated.");
+							}
+						}
+						else if (random == 5)
+						{
+							if (preexisting)
+							{
+								events.Add(i, "You have been seperated with " + character1.name + " in some way.");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name);
+								events[i] += ", but you have been seperated in some way.";
+							}
+						}
+						else if (random == 6)
+						{
+							if (preexisting)
+							{
+								events.Add(i, "You and " + character1.name + " fight constantly.");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name);
+								events[i] += ", but you fight constantly.";
+							}
+						}
+						else if (random == 7)
+						{
+							if (preexisting)
+							{
+								events.Add(i, "You and " + character1.name + " become professional rivals.");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name);
+								events[i] += ", but you are professional rivals.";
+							}
+						}
+						else if (random == 8)
+						{
+							if (preexisting)
+							{
+								events.Add(i, "Jealousy complicates you and " + character1.name + "'s relationship.");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name);
+								events[i] += ", but one of you are insanely jealous.";
+							}
+						}
+						else if (random == 9)
+						{
+							if (preexisting)
+							{
+								events.Add(i, "Messing around complicates you and " + character1.name + "'s relationship.");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name);
+								events[i] += ", but one of are messing around.";
+							}
+						}
+						else if (random == 9)
+						{
+							if (preexisting)
+							{
+								events.Add(i, "It turns out you and " + character1.name + " have conflicting backgrounds and families.");
+							}
+							else
+							{
+								events.Add(i, "You fell in love with " + character1.name);
+								events[i] += ", but you have conflicting backgrounds and families.";
+							}
+						}
+					}
+					else if (random <= 10)
+					{
+						events.Add(i, "This year was filled with fast affairs, hot dates and one-night-stands.");
+					}
 				}
 				else if (random <= 10)
 				{
