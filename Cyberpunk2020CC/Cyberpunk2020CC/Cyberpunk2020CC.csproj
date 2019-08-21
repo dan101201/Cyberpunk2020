@@ -73,6 +73,7 @@
     <Compile Include="Style.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="Weapon.cs" />
+    <Compile Include="Inventory.cs" />
     <Page Include="Character.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
