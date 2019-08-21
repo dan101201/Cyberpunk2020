@@ -295,12 +295,9 @@ namespace Cyberpunk2020CharacterCreator
 								}
 							}
 							character1 = potentials[rnd.Next(0, potentials.Count)];
-
-							character.relationships[character1].Enemy = false;
-							character1.relationships[character].Enemy = false;
 						}
 
-						if (!preexisting)
+						if (preexisting)
 						{
 							character.relationships[character1].Friend = true;
 							character1.relationships[character].Friend = true;
