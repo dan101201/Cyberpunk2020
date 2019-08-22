@@ -10,13 +10,13 @@
 
         <Frame x:Name="Main" HorizontalAlignment="Left" Height="526" VerticalAlignment="Top" Width="758" Margin="124,0,0,0" NavigationUIVisibility="Hidden" Background="#FF101017"/>
         <StackPanel HorizontalAlignment="Left" Height="526" VerticalAlignment="Top" Width="124">
-
+            
             <Button Content="Characters" Click="BtnClickP1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="124" Height="50" HorizontalContentAlignment="Left" BorderBrush="{x:Null}" Foreground="White">
                 <Button.Style>
 
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="BorderBrush" Value="Transparent"/>
-                        <Setter Property="Background" Value="{x:Null}"/>
+                        <Setter Property="Background" Value="Transparent"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="{x:Type Button}">
@@ -37,7 +37,32 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button Content="NPC" Click="BtnClickP2" Height="43" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="White"/>
+            <Button Content="NPC" Click="BtnClickP2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="124" Height="50" HorizontalContentAlignment="Left" BorderBrush="{x:Null}" Foreground="White">
+                <Button.Style>
+
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF282A30"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="Background" Value="#FF282A30"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Rectangle Fill="#FF20202C" Height="1" Stroke="#FF242732" RenderTransformOrigin="0.5,0.5">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
