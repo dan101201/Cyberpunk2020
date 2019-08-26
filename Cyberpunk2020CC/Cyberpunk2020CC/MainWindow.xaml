@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cyberpunk2020CC"
         mc:Ignorable="d"
-        Title="Samurai" Height="556.787" Width="900">
+        Title="Samurai" Height="556.787" Width="900" Background="#FF101017" Foreground="White">
+    
     <Grid Background="#FF1E1F23">
 
         <Frame x:Name="Main" HorizontalAlignment="Left" Height="526" VerticalAlignment="Top" Width="758" Margin="124,0,0,0" NavigationUIVisibility="Hidden" Background="#FF101017"/>
