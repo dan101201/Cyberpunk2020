@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Windows.Markup;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Cyberpunk2020CharacterCreator
 {
@@ -28,6 +31,15 @@ namespace Cyberpunk2020CharacterCreator
                 node.RemoveChild(child);
             }
             return node;
+        }
+
+        public static T DeepCopy<T>(T element)
+        {
+            var xaml = XamlWriter.Save(element);
+            var xamlString = new StringReader(xaml);
+            var xmlTextReader = new XmlTextReader(xamlString);
+            var deepCopyObject = (T)XamlReader.Load(xmlTextReader);
+            return deepCopyObject;
         }
 
         public static int[] GetSlots(int slots, int max)

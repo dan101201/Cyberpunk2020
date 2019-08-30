@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Interop;
+using Cyberpunk2020CharacterCreator;
 
 namespace Cyberpunk2020CC
 {
@@ -25,6 +26,8 @@ namespace Cyberpunk2020CC
         {
             InitializeComponent();
         }
+
+        
 
         private void BtnClickP1(object sender, RoutedEventArgs e)
         {
