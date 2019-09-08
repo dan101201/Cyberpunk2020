@@ -15,12 +15,12 @@ namespace Cyberpunk2020CharacterCreator
 		/// Generates Life events following the chart in the Cyberpunk 2020 book, currently not done
 		/// </summary>
 		/// <returns>A Dictionary<int,string> with the int value representing age and starting at 16</returns>
-		public static Dictionary<int, string> GenerateLifeEvents(Character character)
+		public static List<string> GenerateLifeEvents(Character character)
 		{
 
 			Random rnd = new Random();
-			Dictionary<int, string> events = new Dictionary<int, string>();
-			for (int i = 16; i < character.age; i++)
+			List<string> events = new List<string>();
+			for (int i = 0; i < character.age-16; i++)
 			{
 				int random = rnd.Next(1, 10);
 				//Big Problems, Big Wins
@@ -36,49 +36,49 @@ namespace Cyberpunk2020CharacterCreator
 								random = rnd.Next(1, 10);
 								if (1 <= random || random <= 4)
 								{
-									events.Add(i, "You made a powerful connection in the Police Dept.");
+									events.Add("You made a powerful connection in the Police Dept.");
 								}
 								if (5 <= random || random <= 7)
 								{
-									events.Add(i, "You made a powerful connection in the Districts Attorney's Office.");
+									events.Add("You made a powerful connection in the Districts Attorney's Office.");
 								}
 								if (8 <= random || random <= 10)
 								{
-									events.Add(i, "You made a powerful connection in the Mayor's Office.");
+									events.Add("You made a powerful connection in the Mayor's Office.");
 								}
 								break;
 							case 2:
 								random = rnd.Next(1, 10);
-								events.Add(i, "You had a Financial Windfall and gained " + random * 100 + " Eurodollars.");
+								events.Add("You had a Financial Windfall and gained " + random * 100 + " Eurodollars.");
 								character.Eurodollars += random * 100;
 								break;
 							case 3:
 								random = rnd.Next(1, 10);
-								events.Add(i, "You got a big score on a job or deal and gained " + random * 100 + " Eurodollars.");
+								events.Add("You got a big score on a job or deal and gained " + random * 100 + " Eurodollars.");
 								character.Eurodollars += random * 100;
 								break;
 							case 4:
-								events.Add(i, "You find a sensei(Teacher). Begin at +2 or add +1 to a Martial Arts Skill of your choice.");
+								events.Add("You find a sensei(Teacher). Begin at +2 or add +1 to a Martial Arts Skill of your choice.");
 								SkillBoost("Martial Arts", 2, 1);
 								break;
 							case 5:
-								events.Add(i, "You find a teacher. Add +1 to any INT based skill, or begin a new INT based skill at +2.");
+								events.Add("You find a teacher. Add +1 to any INT based skill, or begin a new INT based skill at +2.");
 								SkillBoost("INT", 2, 1);
 								break;
 							case 6:
-								events.Add(i, "A powerful Corporate Exec owes you a favor.");
+								events.Add("A powerful Corporate Exec owes you a favor.");
 								break;
 							case 7:
-								events.Add(i, "A local Nomad Pack befriends you. You can call upon them for one favor a month, equivilant to a Family Special Ability of +2.");
+								events.Add("A local Nomad Pack befriends you. You can call upon them for one favor a month, equivilant to a Family Special Ability of +2.");
 								break;
 							case 8:
-								events.Add(i, "You made a friend in the police force, You may use him for inside information at a level of +2 streetwise on any police related situation.");
+								events.Add("You made a friend in the police force, You may use him for inside information at a level of +2 streetwise on any police related situation.");
 								break;
 							case 9:
-								events.Add(i, "A local Booster Gang likes you (Who knows why. These are Boosters, right?). You can call upon them for one favor a month, equivilant to a Family Special Ability of +2. But don't push it.");
+								events.Add("A local Booster Gang likes you (Who knows why. These are Boosters, right?). You can call upon them for one favor a month, equivilant to a Family Special Ability of +2. But don't push it.");
 								break;
 							case 10:
-								events.Add(i, "You found a combat teacher. Add +1 to any weapon skill with the exception of Martial Arts or Brawling, or begin a new combat skill at +2.");
+								events.Add("You found a combat teacher. Add +1 to any weapon skill with the exception of Martial Arts or Brawling, or begin a new combat skill at +2.");
 								SkillBoost("Weapon*", 2, 1);
 								break;
 						}
@@ -91,144 +91,144 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							case 1:
 								random = rnd.Next(1, 10);
-								events.Add(i, "Financial Loss or Debt. You have lost " + random * 100 + " Eurodollars, if you can't pay this now, you have a debt to pay, in cash--or blood.");
+								events.Add("Financial Loss or Debt. You have lost " + random * 100 + " Eurodollars, if you can't pay this now, you have a debt to pay, in cash--or blood.");
 								character.Eurodollars -= random * 100;
 								break;
 							case 2:
 								random = rnd.Next(1, 10);
-								events.Add(i, "Imprisonment. You were imprisoned or held hostage (your choice) for " + random + "months.");
+								events.Add("Imprisonment. You were imprisoned or held hostage (your choice) for " + random + "months.");
 								break;
 							case 3:
-								events.Add(i, "Illness or addiction. You have contracted either and illness or a drug habit in this time. You have lost 1 REF as a result");
+								events.Add("Illness or addiction. You have contracted either and illness or a drug habit in this time. You have lost 1 REF as a result");
 								character.stats.stats[getStatsIndex("REF")] -= 1;
 								break;
 							case 4:
 								random = rnd.Next(1, 10);
 								if (random <= 3)
 								{
-									events.Add(i, "Betrayel. You are being blackmailed in some manner.");
+									events.Add("Betrayel. You are being blackmailed in some manner.");
 								}
 								else if (random <= 7)
 								{
-									events.Add(i, "Betrayel. One of your secrets has been exposed.");
+									events.Add("Betrayel. One of your secrets has been exposed.");
 								}
 								else
 								{
-									events.Add(i, "Betrayel.You were betrayed by a close friend in romance or career (your choice).");
+									events.Add("Betrayel.You were betrayed by a close friend in romance or career (your choice).");
 								}
 								break;
 							case 5:
 								random = rnd.Next(1, 10);
 								if (random <= 4)
 								{
-									events.Add(i, "Accident. You were in a terrible accident, and were terribly disfigured, you have lost 5 ATT.");
+									events.Add("Accident. You were in a terrible accident, and were terribly disfigured, you have lost 5 ATT.");
 									character.stats.stats[getStatsIndex("ATT")] -= 5;
 								}
 								else if (random <= 6)
 								{
 									random = rnd.Next(1, 10);
-									events.Add(i, "Accident. You were in a terrible accident, You were hospitalized for " + random + "months.");
+									events.Add("Accident. You were in a terrible accident, You were hospitalized for " + random + "months.");
 								}
 								else if (random <= 8)
 								{
 									random = rnd.Next(1, 10);
-									events.Add(i, "Accident. You were in a terrible accident, you have lost " + random + "months of memory that year.");
+									events.Add("Accident. You were in a terrible accident, you have lost " + random + "months of memory that year.");
 								}
 								else
 								{
-									events.Add(i, "Accident. You were in a terrible accident, you constantly relive nightmares(8 in 10 chance each night) of the accident and wake up screaming");
+									events.Add("Accident. You were in a terrible accident, you constantly relive nightmares(8 in 10 chance each night) of the accident and wake up screaming");
 								}
 								break;
 							case 6:
 								random = rnd.Next(1, 10);
 								if (random <= 5)
 								{
-									events.Add(i, "You lost someone you really cared about. They died accidentally.");
+									events.Add("You lost someone you really cared about. They died accidentally.");
 								}
 								else if (random <= 8)
 								{
-									events.Add(i, "You lost someone you really cared about. They were murdered by unknown parties.");
+									events.Add("You lost someone you really cared about. They were murdered by unknown parties.");
 								}
 								else if (random <= 10)
 								{
-									events.Add(i, "You lost someone you really cared about. They were murdered, and you know who did it. You just need the proof.");
+									events.Add("You lost someone you really cared about. They were murdered, and you know who did it. You just need the proof.");
 								}
 								break;
 							case 7:
 								random = rnd.Next(1, 10);
 								if (random <= 3)
 								{
-									events.Add(i, "You were set up and accused of theft.");
+									events.Add("You were set up and accused of theft.");
 								}
 								else if (random <= 5)
 								{
-									events.Add(i, "You were set up and accused of cowardise.");
+									events.Add("You were set up and accused of cowardise.");
 								}
 								else if (random <= 8)
 								{
-									events.Add(i, "You were set up and accused of murder.");
+									events.Add("You were set up and accused of murder.");
 								}
 								else if (random <= 9)
 								{
-									events.Add(i, "You were set up and accused of rape.");
+									events.Add("You were set up and accused of rape.");
 								}
 								else
 								{
-									events.Add(i, "You were set up and accused of lying or betrayel.");
+									events.Add("You were set up and accused of lying or betrayel.");
 								}
 								break;
 							case 8:
 								random = rnd.Next(1, 10);
 								if (random <= 3)
 								{
-									events.Add(i, "You are hunted by the law for crimes you may or may not have committed (Your choice). Only a couple local cops want you. ");
+									events.Add("You are hunted by the law for crimes you may or may not have committed (Your choice). Only a couple local cops want you. ");
 								}
 								else if (random <= 6)
 								{
-									events.Add(i, "You are hunted by the law for crimes you may or may not have committed (Your choice). The entire local force wants you.");
+									events.Add("You are hunted by the law for crimes you may or may not have committed (Your choice). The entire local force wants you.");
 								}
 								else if (random <= 8)
 								{
-									events.Add(i, "You are hunted by the law for crimes you may or may not have committed (Your choice). The state police or Militia want you.");
+									events.Add("You are hunted by the law for crimes you may or may not have committed (Your choice). The state police or Militia want you.");
 								}
 								else if (random <= 10)
 								{
-									events.Add(i, "You are hunted by the law for crimes you may or may not have committed (Your choice). The FBI or equivalent national police force wants you.");
+									events.Add("You are hunted by the law for crimes you may or may not have committed (Your choice). The FBI or equivalent national police force wants you.");
 								}
 								break;
 							case 9:
 								if (random <= 3)
 								{
-									events.Add(i, "You have angered some corporate honcho. It's a small, local firm.");
+									events.Add("You have angered some corporate honcho. It's a small, local firm.");
 								}
 								else if (random <= 6)
 								{
-									events.Add(i, "You have angered some corporate honcho. It's a larger corp with offices statewide.");
+									events.Add("You have angered some corporate honcho. It's a larger corp with offices statewide.");
 								}
 								else if (random <= 8)
 								{
-									events.Add(i, "You have angered some corporate honcho. I's a big, national corp with agents in major cities nationwide.");
+									events.Add("You have angered some corporate honcho. I's a big, national corp with agents in major cities nationwide.");
 								}
 								else if (random <= 10)
 								{
-									events.Add(i, "You have angered some corporate honcho. It's a huge multinational corp with armies, ninjas and spies everywhere.");
+									events.Add("You have angered some corporate honcho. It's a huge multinational corp with armies, ninjas and spies everywhere.");
 								}
 								break;
 							case 10:
 								random = rnd.Next(1, 10);
 								if (random <= 3)
 								{
-									events.Add(i, "You have experienced some type of nervous disorder, probably from a bioplague. You have lost 1 pt. REF.");
+									events.Add("You have experienced some type of nervous disorder, probably from a bioplague. You have lost 1 pt. REF.");
 									character.stats.stats[getStatsIndex("REF")] -= 1;
 								}
 								else if (random <= 7)
 								{
-									events.Add(i, "You have experienced some type of mental problem; you suffer anxiety attacks and phobias. You've lost 1 pt. CL.");
+									events.Add("You have experienced some type of mental problem; you suffer anxiety attacks and phobias. You've lost 1 pt. CL.");
 									character.stats.stats[getStatsIndex("CL")] -= 1;
 								}
 								else if (random <= 10)
 								{
-									events.Add(i, "You have experienced a major psychosis. You hear voices, are violent, irrational, depressive. You have lost 1 pt from your CL, and 1 from REF");
+									events.Add("You have experienced a major psychosis. You hear voices, are violent, irrational, depressive. You have lost 1 pt from your CL, and 1 from REF");
 									character.stats.stats[getStatsIndex("CL")] -= 1;
 									character.stats.stats[getStatsIndex("REF")] -= 1;
 								}
@@ -241,19 +241,19 @@ namespace Cyberpunk2020CharacterCreator
 							random = rnd.Next(1, 10);
 							if (random <= 3)
 							{
-								events[i] += "\nI am going to clear my name.";
+								events[i] += "I am going to clear my name.";
 							}
 							else if (random <= 6)
 							{
-								events[i] += "\nI am going to try to live it down and forget it.";
+								events[i] += "I am going to try to live it down and forget it.";
 							}
 							else if (random <= 8)
 							{
-								events[i] += "\nI am going to hunt down those responsible and make them pay!";
+								events[i] += "I am going to hunt down those responsible and make them pay!";
 							}
 							else
 							{
-								events[i] += "\nI am gong to save, if possible, anyone else involved with the situation.";
+								events[i] += "I am going to save, if possible, anyone else involved with the situation.";
 							}
 
 						}
@@ -282,8 +282,11 @@ namespace Cyberpunk2020CharacterCreator
 									potentials.Add(pair.Key);
 								}
 							}
-							character1 = potentials[rnd.Next(0, potentials.Count)];
-						}
+                            if (preexisting)
+                            {
+                                character1 = potentials[rnd.Next(0, potentials.Count - 1)];
+                            }
+                        }
 						else if (random == 6)
 						{
 							foreach (KeyValuePair<Character, Relationship> pair in character.relationships)
@@ -294,8 +297,11 @@ namespace Cyberpunk2020CharacterCreator
 									potentials.Add(pair.Key);
 								}
 							}
-							character1 = potentials[rnd.Next(0, potentials.Count)];
-						}
+                            if (preexisting)
+                            {
+                                character1 = potentials[rnd.Next(0, potentials.Count - 1)];
+                            }
+                        }
 
 						if (preexisting)
 						{
@@ -307,7 +313,7 @@ namespace Cyberpunk2020CharacterCreator
 							character1 = Character.MakeQuickRelation(character, Relationship.QuickRelation.Friend);
 						}
 
-						events.Add(i, "You made a new friend! ");
+						events.Add("You made a new friend! ");
 						if (character1.male)
 						{
 							events[i] += "He is ";
@@ -387,9 +393,12 @@ namespace Cyberpunk2020CharacterCreator
 									character1 = pair.Key;
 								}
 							}
-							character1 = potentials[rnd.Next(0, potentials.Count)];
+                            if (preexisting)
+                            {
+                                character1 = potentials[rnd.Next(0, potentials.Count - 1)];
+                            }
 
-							character.relationships[character1].Friend = false;
+                            character.relationships[character1].Friend = false;
 							character1.relationships[character].Friend = false;
 						}
 						else if (random1 == 2)
@@ -402,8 +411,11 @@ namespace Cyberpunk2020CharacterCreator
 									character1 = pair.Key;
 								}
 							}
-							character1 = potentials[rnd.Next(0, potentials.Count)];
-						}
+                            if (preexisting)
+                            {
+                                character1 = potentials[rnd.Next(0, potentials.Count - 1)];
+                            }
+                        }
 						else if (random1 == 3)
 						{
 							foreach (KeyValuePair<Character, Relationship> pair in character.relationships)
@@ -414,10 +426,13 @@ namespace Cyberpunk2020CharacterCreator
 									character1 = pair.Key;
 								}
 							}
-							character1 = potentials[rnd.Next(0, potentials.Count)];
+                            if (preexisting)
+                            {
+                                character1 = potentials[rnd.Next(0, potentials.Count - 1)];
+                            }
 						}
 
-						if (!preexisting)
+						if (preexisting)
 						{
 							character.relationships[character1].Enemy = true;
 							character1.relationships[character].Enemy = true;
@@ -427,7 +442,7 @@ namespace Cyberpunk2020CharacterCreator
 							character1 = Character.MakeQuickRelation(character, Relationship.QuickRelation.Enemy);
 						}
 
-						events.Add(i, "You made a new enemy!");
+						events.Add("You made a new enemy!");
 
 						if (random3 <= 4)
 						{
@@ -706,11 +721,11 @@ namespace Cyberpunk2020CharacterCreator
 						if (character1 == null) //alternatively try (character1 is null) if it fails
 						{
 							character1 = Character.MakeQuickRelation(character, Relationship.QuickRelation.Lover);
-							events.Add(i, "You fell happily in love with " + character1.name + ".");
+							events.Add("You fell happily in love with " + character1.name + ".");
 						}
 						else
 						{
-							events.Add(i, "You spent a lot of time with " + character1.name + " this year.");
+							events.Add("You spent a lot of time with " + character1.name + " this year.");
 						}
 					}
 					else if (random == 5)
@@ -737,11 +752,11 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							if (preexisting)
 							{
-								events.Add(i, character1.name + "died in an accident.");
+								events.Add(character1.name + "died in an accident.");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name);
+								events.Add("You fell in love with " + character1.name);
 								if (character1.male)
 								{
 									events[i] += ". Sadly, he died in an accident the same year.";
@@ -756,11 +771,11 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							if (preexisting)
 							{
-								events.Add(i, character1.name + "have mysteriously vanished.");
+								events.Add(character1.name + "have mysteriously vanished.");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name);
+								events.Add("You fell in love with " + character1.name);
 								if (character1.male)
 								{
 									events[i] += ". Sadly, he mysteriously vanished the same year.";
@@ -775,33 +790,33 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							if (preexisting)
 							{
-								events.Add(i, "You and " + character1.name + "have gone your seperate ways. It didn't work out.");
+								events.Add("You and " + character1.name + "have gone your seperate ways. It didn't work out.");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name + ". Sadly, it didn't work out.");
+								events.Add("You fell in love with " + character1.name + ". Sadly, it didn't work out.");
 							}
 						}
 						else if (random1 == 4)
 						{
 							if (preexisting)
 							{
-								events.Add(i, "A personal goal or vendetta came in between you and " + character1.name + ".");
+								events.Add("A personal goal or vendetta came in between you and " + character1.name + ".");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name + ". Sadly, a personal goal or vendetta came between you.");
+								events.Add("You fell in love with " + character1.name + ". Sadly, a personal goal or vendetta came between you.");
 							}
 						}
 						else if (random1 == 5)
 						{
 							if (preexisting)
 							{
-								events.Add(i, character1.name + "has been kidnapped.");
+								events.Add(character1.name + "has been kidnapped.");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name);
+								events.Add("You fell in love with " + character1.name);
 								if (character1.male)
 								{
 									events[i] += ". Sadly, he was kidnapped.";
@@ -816,11 +831,11 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							if (preexisting)
 							{
-								events.Add(i, character1.name + "has gone insane.");
+								events.Add(character1.name + "has gone insane.");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name);
+								events.Add("You fell in love with " + character1.name);
 								if (character1.male)
 								{
 									events[i] += ". Sadly, he went insane.";
@@ -835,11 +850,11 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							if (preexisting)
 							{
-								events.Add(i, character1.name + "has commited suicide.");
+								events.Add(character1.name + "has commited suicide.");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name);
+								events.Add("You fell in love with " + character1.name);
 								if (character1.male)
 								{
 									events[i] += ". Sadly, he commited suicide.";
@@ -854,11 +869,11 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							if (preexisting)
 							{
-								events.Add(i, character1.name + "has been killed in a fight.");
+								events.Add(character1.name + "has been killed in a fight.");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name);
+								events.Add("You fell in love with " + character1.name);
 								if (character1.male)
 								{
 									events[i] += ". Sadly, he were killed in a fight.";
@@ -874,11 +889,11 @@ namespace Cyberpunk2020CharacterCreator
 							Character character2 = Character.MakeQuickRelation(character, Relationship.QuickRelation.Enemy);
 							if (preexisting)
 							{
-								events.Add(i, character1.name + "has left you over a romantic rival, " + character2.name);
+								events.Add(character1.name + "has left you over a romantic rival, " + character2.name);
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name);
+								events.Add("You fell in love with " + character1.name);
 								if (character1.male)
 								{
 									events[i] += ". Sadly, he left you over your romantic rival " + character2.name + ".";
@@ -893,11 +908,11 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							if (preexisting)
 							{
-								events.Add(i, character1.name + "has been imprisoned or exiled.");
+								events.Add(character1.name + "has been imprisoned or exiled.");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name);
+								events.Add("You fell in love with " + character1.name);
 								if (character1.male)
 								{
 									events[i] += ". Sadly, he were imprisoned or exiled.";
@@ -992,11 +1007,11 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							if (preexisting)
 							{
-								events.Add(i, character1.name + "'s friends/family hate you");
+								events.Add(character1.name + "'s friends/family hate you");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name);
+								events.Add("You fell in love with " + character1.name);
 								if (character1.male)
 								{
 									events[i] += ", but his friends/family hate you";
@@ -1011,11 +1026,11 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							if (preexisting)
 							{
-								events.Add(i, character1.name + "'s friends/family would use any means to get rid of you.");
+								events.Add(character1.name + "'s friends/family would use any means to get rid of you.");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name);
+								events.Add("You fell in love with " + character1.name);
 								if (character1.male)
 								{
 									events[i] += ", but his friends/family would use any means to get rid of you.";
@@ -1030,11 +1045,11 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							if (preexisting)
 							{
-								events.Add(i, "Your friends/family hate " + character1.name + ".");
+								events.Add("Your friends/family hate " + character1.name + ".");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name);
+								events.Add("You fell in love with " + character1.name);
 								if (character1.male)
 								{
 									events[i] += ", but your friends/family hate him.";
@@ -1049,22 +1064,22 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							if (preexisting)
 							{
-								events.Add(i, "A romantic lover complicates your relationship with " + character1.name + ".");
+								events.Add("A romantic lover complicates your relationship with " + character1.name + ".");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name + ", but a romantic lover made it complicated.");
+								events.Add("You fell in love with " + character1.name + ", but a romantic lover made it complicated.");
 							}
 						}
 						else if (random == 5)
 						{
 							if (preexisting)
 							{
-								events.Add(i, "You have been seperated with " + character1.name + " in some way.");
+								events.Add("You have been seperated with " + character1.name + " in some way.");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name);
+								events.Add("You fell in love with " + character1.name);
 								events[i] += ", but you have been seperated in some way.";
 							}
 						}
@@ -1072,11 +1087,11 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							if (preexisting)
 							{
-								events.Add(i, "You and " + character1.name + " fight constantly.");
+								events.Add("You and " + character1.name + " fight constantly.");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name);
+								events.Add("You fell in love with " + character1.name);
 								events[i] += ", but you fight constantly.";
 							}
 						}
@@ -1084,11 +1099,11 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							if (preexisting)
 							{
-								events.Add(i, "You and " + character1.name + " become professional rivals.");
+								events.Add("You and " + character1.name + " become professional rivals.");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name);
+								events.Add("You fell in love with " + character1.name);
 								events[i] += ", but you are professional rivals.";
 							}
 						}
@@ -1096,11 +1111,11 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							if (preexisting)
 							{
-								events.Add(i, "Jealousy complicates you and " + character1.name + "'s relationship.");
+								events.Add("Jealousy complicates you and " + character1.name + "'s relationship.");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name);
+								events.Add("You fell in love with " + character1.name);
 								events[i] += ", but one of you are insanely jealous.";
 							}
 						}
@@ -1108,11 +1123,11 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							if (preexisting)
 							{
-								events.Add(i, "Messing around complicates you and " + character1.name + "'s relationship.");
+								events.Add("Messing around complicates you and " + character1.name + "'s relationship.");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name);
+								events.Add("You fell in love with " + character1.name);
 								events[i] += ", but one of are messing around.";
 							}
 						}
@@ -1120,23 +1135,23 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							if (preexisting)
 							{
-								events.Add(i, "It turns out you and " + character1.name + " have conflicting backgrounds and families.");
+								events.Add("It turns out you and " + character1.name + " have conflicting backgrounds and families.");
 							}
 							else
 							{
-								events.Add(i, "You fell in love with " + character1.name);
+								events.Add("You fell in love with " + character1.name);
 								events[i] += ", but you have conflicting backgrounds and families.";
 							}
 						}
 					}
 					else if (random <= 10)
 					{
-						events.Add(i, "This year was filled with fast affairs, hot dates and one-night-stands.");
+						events.Add("This year was filled with fast affairs, hot dates and one-night-stands.");
 					}
 				}
 				else if (random <= 10)
 				{
-					events.Add(i, "Nothing happened that year.");
+					events.Add("Nothing happened that year.");
 				}
 			}
 			return events;
