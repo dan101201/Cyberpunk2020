@@ -99,7 +99,7 @@ namespace Cyberpunk2020CharacterCreator
 								events.Add(i, "Imprisonment. You were imprisoned or held hostage (your choice) for " + random + "months.");
 								break;
 							case 3:
-								events.Add(i, "Illness or addiction. You have contracted either and illness or a drug habit in this time. You have lost 1 REF as a result");
+								events.Add(i, "Illness or addiction. You have contracted either and illness or a drug habit in this time. You have lost 1 REF as a result.");
 								character.stats.stats[getStatsIndex("REF")] -= 1;
 								break;
 							case 4:
