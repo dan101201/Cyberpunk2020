@@ -24,7 +24,11 @@ namespace Cyberpunk2020CC
         public Character(StackPanel _stack)
         {
             InitializeComponent();
-            AddButtonsForEachCharacter(_stack);
+            foreach (var item in LifeEvents.GenerateLifeEvents(Cyberpunk2020CharacterCreator.Character.generateRandomNPC(60)))
+            {
+                textBlock.Text += item + "\n";
+            }
+            
         }
 
         void AddButtonsForEachCharacter(StackPanel _stack)

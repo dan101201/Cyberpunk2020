@@ -33,9 +33,9 @@ namespace Cyberpunk2020CharacterCreator
         public Stats stats = new Stats();
 
         //The Character's Style
-        public Style style;
+        public Style style = new Style();
         public Motivation motivation;
-        public Dictionary<Character,Relationship> relationships;
+        public Dictionary<Character,Relationship> relationships = new Dictionary<Character, Relationship>();
         public bool NPC;
 
         /// <summary>
@@ -68,9 +68,11 @@ namespace Cyberpunk2020CharacterCreator
             temp.style.randomlySelectStyle();
             temp.motivation = Motivation.randomlyGenerateMotivation();
             rnd.Next(1, 10);
-            temp.role = Role.roles[Role.intToRoleName(rnd.Next(1, 10))];
+            temp.role = Role.roles[Role.intToRoleName(rnd.Next(1, 10)).ToLower()];
             temp.stats = Stats.generateStatsForNPC(points, temp);
             temp.NPC = true;
+
+            temp.age = 16 + rnd.Next(1, 6) + rnd.Next(1, 6);
 
             return temp;
         }
