@@ -42,10 +42,26 @@ namespace Cyberpunk2020CharacterCreator
 
         public void EquipItem((object item, bool equiped) item)
         {
-            if (item.equiped)
+            if (!item.equiped)
             {
-                throw new ItemAlreadyEquipedException();
+                
             }
+            throw new ItemAlreadyEquipedException();
+        }
+
+        void EquipCybernetic()
+        {
+
+        }
+
+        void EquipWeapon()
+        {
+
+        }
+
+        void EquipArmor()
+        {
+
         }
 
         public void AddItemToInventory(object item)
