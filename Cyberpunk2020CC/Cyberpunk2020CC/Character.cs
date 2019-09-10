@@ -32,6 +32,9 @@ namespace Cyberpunk2020CharacterCreator
         //Stats for the Character
         public Stats stats = new Stats();
 
+        //Inventory, it says in the name of the class.
+        public Inventory inv = new Inventory();
+
         //The Character's Style
         public Style style = new Style();
         public Motivation motivation;
@@ -43,9 +46,8 @@ namespace Cyberpunk2020CharacterCreator
         /// </summary>
         public Character()
         {
+
         }
-
-
 
         /// <summary>
         /// Generates random Character using all of the other functions in this class

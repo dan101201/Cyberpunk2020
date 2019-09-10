@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Cyberpunk2020CharacterCreator
 {
-    static class Skills
+    public class SkillDoesNotExistException : ApplicationException
+    {
+        SkillDoesNotExistException(string message)
+        {
+
+        }
+    }
+    class Skills
     {
         //Dictionary of the skills, with a string key being the nameo f the skill, and int being the level in the skill
         public static Dictionary<string, int> returnSkillDictionary(bool interlock)

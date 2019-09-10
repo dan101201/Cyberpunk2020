@@ -11,16 +11,44 @@ namespace Cyberpunk2020CharacterCreator
     //Gear
     class Armor
     {
-        //Name of armor
-        public string name;
+        string name;
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+        }
+        double weight;
+        public double Weight
+        {
+            get
+            {
+                return weight;
+            }
+        }
+        string desc;
+        public string Desc
+        {
+            get
+            {
+                return desc;
+            }
+        }
+        double cost;
+        public double Cost
+        {
+            get
+            {
+                return cost;
+            }
+        }
 
         //Stopping Power
         public int sp = 0;
 
         //Encumberance
         public int ev = 0;
-
-        public double cost = 0;
 
         static Armor[] XmlDocToArmorArray(string path)
         {
@@ -34,9 +62,11 @@ namespace Cyberpunk2020CharacterCreator
                 Armor tempArmor = new Armor();
 
                 tempArmor.name = XmlRemoveAllChildren(node, "name").InnerText;
+                tempArmor.desc = XmlRemoveAllChildren(node, "desc").InnerText;
                 tempArmor.sp = int.Parse(XmlRemoveAllChildren(node, "sp").InnerText);
                 tempArmor.ev = int.Parse(XmlRemoveAllChildren(node, "ev").InnerText);
                 tempArmor.cost = double.Parse(XmlRemoveAllChildren(node, "cost").InnerText);
+                tempArmor.weight = double.Parse(XmlRemoveAllChildren(node, "weight").InnerText);
 
                 armors.Add(tempArmor);
             }
