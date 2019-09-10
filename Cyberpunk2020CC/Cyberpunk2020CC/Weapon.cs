@@ -44,14 +44,6 @@ namespace Cyberpunk2020CharacterCreator
                 return name;
             }
         }
-        double weight;
-        public double Weight
-        {
-            get
-            {
-                return weight;
-            }
-        }
         string desc;
         public string Desc
         {
@@ -107,7 +99,6 @@ namespace Cyberpunk2020CharacterCreator
                 tempWeapon.shots = int.Parse(XmlRemoveAllChildren(node, "shots").InnerText);
                 tempWeapon.rof = int.Parse(XmlRemoveAllChildren(node, "rof").InnerText);
                 tempWeapon.cost = double.Parse(XmlRemoveAllChildren(node, "cost").InnerText);
-                tempWeapon.weight = double.Parse(XmlRemoveAllChildren(node, "weight").InnerText);
                 tempWeapon.wa = int.Parse(XmlRemoveAllChildren(node, "wa").InnerText);
                 tempWeapon.concealability = StringToCon(XmlRemoveAllChildren(node, "con").InnerText);
                 tempWeapon.reliability = StringToRel(XmlRemoveAllChildren(node, "rel").InnerText);

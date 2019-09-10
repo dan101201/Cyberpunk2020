@@ -31,12 +31,12 @@ namespace Cyberpunk2020CC
 
         private void BtnClickP1(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Character(ButtonHolder);
+            Main.Content = new Character((Button)ButtonHolder.Children[0]);
         }
 
         private void BtnClickP2(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Character(ButtonHolder);
+            Main.Content = new Character((Button)ButtonHolder.Children[0]);
         }
 
     }

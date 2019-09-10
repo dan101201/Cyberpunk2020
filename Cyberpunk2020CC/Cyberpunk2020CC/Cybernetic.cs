@@ -8,25 +8,14 @@ namespace Cyberpunk2020CharacterCreator
 {
 	class Cybernetic
 	{
-        public Dictionary<string, int> _statBoosts
-        {
-            private set;
-            get;
-        }
+        public (string stat, int boost) statBoost;
+        public Armor sp = null;
         string name;
         public string Name
         {
             get
             {
                 return name;
-            }
-        }
-        double weight;
-        public double Weight
-        {
-            get
-            {
-                return weight;
             }
         }
         string desc;
@@ -60,7 +49,7 @@ namespace Cyberpunk2020CharacterCreator
         {
             this.name = name;
             this.desc = description;
-            _statBoosts.Add(statName, statboost);
+            statBoost = (statName, statboost);
         }
     }
 }

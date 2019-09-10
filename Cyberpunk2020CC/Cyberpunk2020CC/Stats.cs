@@ -11,6 +11,18 @@ namespace Cyberpunk2020CharacterCreator
 
         int[] stats = new int[9];
 
+        public int this[int i]
+        {
+            get
+            {
+                return stats[i];
+            }
+            set
+            {
+                stats[i] = value;
+            }
+        }
+
         public int INT
         {
             get
@@ -115,7 +127,7 @@ namespace Cyberpunk2020CharacterCreator
         {
             get
             {
-                return stats[7];
+                return stats[8];
             }
         }
 
@@ -152,6 +164,14 @@ namespace Cyberpunk2020CharacterCreator
 			}
 		}
 
+        public int CarryWeight
+        {
+            get
+            {
+                return BT * 10;
+            }
+        }
+
         public static Stats generateStatsForNPC(int points, Character npc)
         {
             Stats temp = new Stats();
@@ -159,5 +179,32 @@ namespace Cyberpunk2020CharacterCreator
             
             return temp;
         }
+
+        public int ToIndex(string temp)
+        {
+            switch (temp)
+            {
+                case "INT":
+                    return stats[0];
+                case "REF":
+                    return stats[1];
+                case "CL":
+                    return stats[2];
+                case "TECH":
+                    return stats[3];
+                case "LK":
+                    return stats[4];
+                case "ATT":
+                    return stats[5];
+                case "MA":
+                    return stats[6];
+                case "EM":
+                    return stats[7];
+                case "BTM":
+                    return stats[8];
+            }
+            return stats[0];
+        }
+
     }
 }

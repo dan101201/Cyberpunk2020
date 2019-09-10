@@ -9,7 +9,7 @@ using System.Xml;
 namespace Cyberpunk2020CharacterCreator
 {
     //Gear
-    class Armor
+    class Armor : IItem
     {
         string name;
         public string Name
@@ -17,14 +17,6 @@ namespace Cyberpunk2020CharacterCreator
             get
             {
                 return name;
-            }
-        }
-        double weight;
-        public double Weight
-        {
-            get
-            {
-                return weight;
             }
         }
         string desc;
@@ -43,6 +35,8 @@ namespace Cyberpunk2020CharacterCreator
                 return cost;
             }
         }
+
+        public BodyPart bodyPart;
 
         //Stopping Power
         public int sp = 0;
@@ -66,7 +60,6 @@ namespace Cyberpunk2020CharacterCreator
                 tempArmor.sp = int.Parse(XmlRemoveAllChildren(node, "sp").InnerText);
                 tempArmor.ev = int.Parse(XmlRemoveAllChildren(node, "ev").InnerText);
                 tempArmor.cost = double.Parse(XmlRemoveAllChildren(node, "cost").InnerText);
-                tempArmor.weight = double.Parse(XmlRemoveAllChildren(node, "weight").InnerText);
 
                 armors.Add(tempArmor);
             }

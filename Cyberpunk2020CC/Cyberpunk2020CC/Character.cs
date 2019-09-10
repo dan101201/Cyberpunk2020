@@ -35,6 +35,8 @@ namespace Cyberpunk2020CharacterCreator
         //Inventory, it says in the name of the class.
         public Inventory inv = new Inventory();
 
+        public Body body = new Body();
+
         //The Character's Style
         public Style style = new Style();
         public Motivation motivation;
@@ -47,6 +49,26 @@ namespace Cyberpunk2020CharacterCreator
         public Character()
         {
 
+        }
+
+        public void EquipItem(object item)
+        {
+            inv.EquipItem(item,this);
+        }
+
+        public void UnEquipItem(object item)
+        {
+            inv.UnEquipItem(item,this);
+        }
+
+        public void AddItemToInventory(object item)
+        {
+            inv.AddItemToInventory(item);
+        }
+
+        public void RemoveItemFromInventory(object item)
+        {
+            inv.RemoveItemFromInventory(item);
         }
 
         /// <summary>
