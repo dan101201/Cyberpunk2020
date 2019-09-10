@@ -15,26 +15,61 @@ namespace Cyberpunk2020CharacterCreator
         }
     }
 
+    public class ItemDoesNotExistException : ApplicationException
+    {
+        public ItemDoesNotExistException(string message)
+        {
+
+        }
+    }
+
+    public class ItemAlreadyEquipedException : ApplicationException
+    {
+        public ItemAlreadyEquipedException()
+        {
+
+        }
+    }
+
     class Inventory
     {
-        List<object> items = new List<object>();
+        List<(object item, bool equiped)> items = new List<(object, bool)>();
 
-        public void AddItemToInventory(object item)
+        public void EquipItem(object item)
         {
-            object weapon = new Weapon();
-            object armor = new Armor();
-            //object cybernetic = new Cybernetic();
-            if (item.GetType() == weapon.GetType() || item.GetType() == armor.GetType() /* || item.GetType() == cybernetic.GetType() */ )
+            EquipItem(ObjectToInventoryTuple(item));
+        }
+
+        public void EquipItem((object item, bool equiped) item)
+        {
+            if (item.equiped)
             {
-                items.Add(item);
-            }
-            else
-            {
-                throw new ItemNotRightException("item needs to be of type Weapon, Armor of Cybernetic");
+                throw new ItemAlreadyEquipedException();
             }
         }
 
-        public object[] GetSortedItems()
+        public void AddItemToInventory(object item)
+        {
+            AddItemToInventory(item,false);
+        }
+
+        public void AddItemToInventory(object item, bool equip)
+        {
+            object weapon = new Weapon();
+            object armor = new Armor();
+            object cybernetic = new Cybernetic();
+            //object cybernetic = new Cybernetic();
+            if (item.GetType() == weapon.GetType() || item.GetType() == armor.GetType() || item.GetType() == cybernetic.GetType())
+            {
+                items.Add((item, equip));
+            }
+            else
+            {
+                throw new ItemNotRightException("Object needs to be of type Weapon, Armor or Cybernetic but has type " + item.GetType().ToString());
+            }
+        }
+
+        public (object, bool)[] GetItems()
         {
             var temp = items;
             items.Sort();
@@ -43,24 +78,16 @@ namespace Cyberpunk2020CharacterCreator
             return sortedList.ToArray();
         }
 
-        public object[] GetSortedItemsReverse()
+        (object, bool) ObjectToInventoryTuple(object item)
         {
-            var temp = GetSortedItems();
-            temp.Reverse();
-            return temp;
-        }
-
-        public Type[] GetTypesOfInventory()
-        {
-            List<Type> types = new List<Type>();
-
-            foreach (object item in items)
+            foreach (var _item in items)
             {
-                types.Add(item.GetType());
+                if (_item.Item1 == item)
+                {
+                    return _item;
+                }
             }
-
-            return types.ToArray();
-
+            throw new ItemDoesNotExistException("Object could not be found in list of valuetuples");
         }
 
     }

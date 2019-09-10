@@ -10,7 +10,7 @@ using static Cyberpunk2020CharacterCreator.Utility;
 namespace Cyberpunk2020CharacterCreator
 {
     
-    class Weapon
+    class Weapon : IItem
     {
         
         enum Con
@@ -37,7 +37,37 @@ namespace Cyberpunk2020CharacterCreator
         }
 
         string name;
-
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+        }
+        double weight;
+        public double Weight
+        {
+            get
+            {
+                return weight;
+            }
+        }
+        string desc;
+        public string Desc
+        {
+            get
+            {
+                return desc;
+            }
+        }
+        double cost;
+        public double Cost
+        {
+            get
+            {
+                return cost;
+            }
+        }
         //Weapon Accuracy
         int wa;
 
@@ -56,7 +86,7 @@ namespace Cyberpunk2020CharacterCreator
 
         Rel reliability;
 
-        double cost;
+        
 
         static Weapon[] XMLToWeapons (string path)
         {
@@ -77,6 +107,7 @@ namespace Cyberpunk2020CharacterCreator
                 tempWeapon.shots = int.Parse(XmlRemoveAllChildren(node, "shots").InnerText);
                 tempWeapon.rof = int.Parse(XmlRemoveAllChildren(node, "rof").InnerText);
                 tempWeapon.cost = double.Parse(XmlRemoveAllChildren(node, "cost").InnerText);
+                tempWeapon.weight = double.Parse(XmlRemoveAllChildren(node, "weight").InnerText);
                 tempWeapon.wa = int.Parse(XmlRemoveAllChildren(node, "wa").InnerText);
                 tempWeapon.concealability = StringToCon(XmlRemoveAllChildren(node, "con").InnerText);
                 tempWeapon.reliability = StringToRel(XmlRemoveAllChildren(node, "rel").InnerText);
