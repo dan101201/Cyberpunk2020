@@ -26,7 +26,7 @@ namespace Cyberpunk2020CC
             InitializeComponent();
             foreach (var item in LifeEvents.GenerateLifeEvents(Cyberpunk2020CharacterCreator.Character.generateRandomNPC(60)))
             {
-                textBlock.Text += item + "\n";
+                textBlock.Text += item + "\n\n";
             }
             
         }

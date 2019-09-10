@@ -96,25 +96,25 @@ namespace Cyberpunk2020CharacterCreator
 								break;
 							case 2:
 								random = rnd.Next(1, 10);
-								events.Add("Imprisonment. You were imprisoned or held hostage (your choice) for " + random + "months.");
+								events.Add("Imprisonment. You were imprisoned or held hostage (your choice) for " + random + " months.");
 								break;
 							case 3:
-								events.Add("Illness or addiction. You have contracted either and illness or a drug habit in this time. You have lost 1 REF as a result");
+								events.Add("Illness or addiction. You have contracted either an illness or a drug habit in this time. You have lost 1 REF as a result.");
 								character.stats.stats[getStatsIndex("REF")] -= 1;
 								break;
 							case 4:
 								random = rnd.Next(1, 10);
 								if (random <= 3)
 								{
-									events.Add("Betrayel. You are being blackmailed in some manner.");
+									events.Add("Betrayal. You are being blackmailed in some manner.");
 								}
 								else if (random <= 7)
 								{
-									events.Add("Betrayel. One of your secrets has been exposed.");
+									events.Add("Betrayal. One of your secrets has been exposed.");
 								}
 								else
 								{
-									events.Add("Betrayel.You were betrayed by a close friend in romance or career (your choice).");
+									events.Add("Betrayal.You were betrayed by a close friend in romance or career (your choice).");
 								}
 								break;
 							case 5:
@@ -136,7 +136,7 @@ namespace Cyberpunk2020CharacterCreator
 								}
 								else
 								{
-									events.Add("Accident. You were in a terrible accident, you constantly relive nightmares(8 in 10 chance each night) of the accident and wake up screaming");
+									events.Add("Accident. You were in a terrible accident, you constantly relive nightmares(8 in 10 chance each night) of the accident and wake up screaming.");
 								}
 								break;
 							case 6:
@@ -174,7 +174,7 @@ namespace Cyberpunk2020CharacterCreator
 								}
 								else
 								{
-									events.Add("You were set up and accused of lying or betrayel.");
+									events.Add("You were set up and accused of lying or betrayal.");
 								}
 								break;
 							case 8:
@@ -241,19 +241,19 @@ namespace Cyberpunk2020CharacterCreator
 							random = rnd.Next(1, 10);
 							if (random <= 3)
 							{
-								events[i] += "I am going to clear my name.";
+								events[i] += " I am going to clear my name.";
 							}
 							else if (random <= 6)
 							{
-								events[i] += "I am going to try to live it down and forget it.";
+								events[i] += " I am going to try to live it down and forget it.";
 							}
 							else if (random <= 8)
 							{
-								events[i] += "I am going to hunt down those responsible and make them pay!";
+								events[i] += " I am going to hunt down those responsible and make them pay!";
 							}
 							else
 							{
-								events[i] += "I am going to save, if possible, anyone else involved with the situation.";
+								events[i] += " I am going to save, if possible, anyone else involved with the situation.";
 							}
 
 						}
@@ -313,7 +313,7 @@ namespace Cyberpunk2020CharacterCreator
 							character1 = Character.MakeQuickRelation(character, Relationship.QuickRelation.Friend);
 						}
 
-						events.Add("You made a new friend! ");
+						events.Add("You made a new friend, " + character1.name + "! ");
 						if (character1.male)
 						{
 							events[i] += "He is ";
@@ -324,11 +324,25 @@ namespace Cyberpunk2020CharacterCreator
 						}
 						if (random == 1)
 						{
-							events[i] += "like a big brother to you.";
+							if (character1.male)
+							{
+								events[i] += "like a big brother to you.";
+							}
+							else
+							{
+								events[i] += "like a big sister to you.";
+							}
 						}
 						else if (random == 2)
 						{
-							events[i] += "like a kid brother to you.";
+							if (character1.male)
+							{
+								events[i] += "like a little brother to you.";
+							}
+							else
+							{
+								events[i] += "like a little sister to you.";
+							}
 						}
 						else if (random == 3)
 						{
@@ -340,11 +354,11 @@ namespace Cyberpunk2020CharacterCreator
 						}
 						else if (random == 5)
 						{
-							events[i] += "an old lover of yours, " + character1.name + ".";
+							events[i] += "an old lover of yours.";
 						}
 						else if (random == 6)
 						{
-							events[i] += "an old enemy of yours, " + character1.name + ".";
+							events[i] += "an old enemy of yours.";
 						}
 						else if (random == 7)
 						{
@@ -361,15 +375,6 @@ namespace Cyberpunk2020CharacterCreator
 						else if (random == 10)
 						{
 							events[i] += "someone you met through a common interest.";
-						}
-
-						if (random == 1 || random == 2)
-						{
-							if (!character1.male)
-							{
-								events[i].Replace("brother", "sister");
-							}
-
 						}
 					}
 					else
@@ -441,7 +446,7 @@ namespace Cyberpunk2020CharacterCreator
 							character1 = Character.MakeQuickRelation(character, Relationship.QuickRelation.Enemy);
 						}
 
-						events.Add("You made a new enemy!");
+						events.Add("You made a new enemy, " + character1.name + "!");
 
 						if (random3 <= 4)
 						{
@@ -650,7 +655,7 @@ namespace Cyberpunk2020CharacterCreator
 						}
 						else if (random4 <= 4)
 						{
-							events[i] += " avoid the scum.";
+							events[i] += " avoid them.";
 						}
 						else if (random4 <= 6)
 						{
@@ -658,7 +663,7 @@ namespace Cyberpunk2020CharacterCreator
 						}
 						else if (random4 <= 8)
 						{
-							events[i] += " ignore the scum.";
+							events[i] += " ignore them.";
 						}
 						else if (random4 <= 10)
 						{
@@ -1063,11 +1068,11 @@ namespace Cyberpunk2020CharacterCreator
 						{
 							if (preexisting)
 							{
-								events.Add("A romantic lover complicates your relationship with " + character1.name + ".");
+								events.Add("A romantic rival complicates your relationship with " + character1.name + ".");
 							}
 							else
 							{
-								events.Add("You fell in love with " + character1.name + ", but a romantic lover made it complicated.");
+								events.Add("You fell in love with " + character1.name + ", but a romantic rival made it complicated.");
 							}
 						}
 						else if (random == 5)
@@ -1127,7 +1132,7 @@ namespace Cyberpunk2020CharacterCreator
 							else
 							{
 								events.Add("You fell in love with " + character1.name);
-								events[i] += ", but one of are messing around.";
+								events[i] += ", but one of you are messing around.";
 							}
 						}
 						else if (random == 9)
