@@ -8,8 +8,6 @@ namespace Cyberpunk2020CharacterCreator
 {
     class Relationship
     {
-        public Character person;
-        public Character character;
         public bool Acquaintance;
 
         bool enemy;
