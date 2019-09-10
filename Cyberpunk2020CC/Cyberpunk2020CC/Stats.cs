@@ -17,7 +17,7 @@ namespace Cyberpunk2020CharacterCreator
             {
                 return stats[0];
             }
-            private set
+            set
             {
                 stats[0] = value;
             }
@@ -28,7 +28,7 @@ namespace Cyberpunk2020CharacterCreator
             {
                 return stats[1];
             }
-            private set
+            set
             {
                 stats[1] = value;
             }
@@ -39,7 +39,7 @@ namespace Cyberpunk2020CharacterCreator
             {
                 return stats[2];
             }
-            private set
+            set
             {
                 stats[2] = value;
             }
@@ -50,7 +50,7 @@ namespace Cyberpunk2020CharacterCreator
             {
                 return stats[3];
             }
-            private set
+            set
             {
                 stats[3] = value;
             }
@@ -61,7 +61,7 @@ namespace Cyberpunk2020CharacterCreator
             {
                 return stats[4];
             }
-            private set
+            set
             {
                 stats[4] = value;
             }
@@ -72,7 +72,7 @@ namespace Cyberpunk2020CharacterCreator
             {
                 return stats[5];
             }
-            private set
+            set
             {
                 stats[5] = value;
             }
@@ -83,7 +83,7 @@ namespace Cyberpunk2020CharacterCreator
             {
                 return stats[6];
             }
-            private set
+            set
             {
                 stats[6] = value;
             }
@@ -95,7 +95,7 @@ namespace Cyberpunk2020CharacterCreator
             {
                 return stats[7] - Convert.ToInt32(Math.Floor(humanityLost)) / 10;
             }
-            private set
+            set
             {
                 stats[7] = value;
             }
@@ -106,7 +106,7 @@ namespace Cyberpunk2020CharacterCreator
             {
                 return stats[8];
             }
-            private set
+            set
             {
                 stats[8] = value;
             }
