@@ -76,7 +76,6 @@
     <Compile Include="Role.cs" />
     <Compile Include="Skills.cs" />
     <Compile Include="Stats.cs" />
-    <Compile Include="Storage.cs" />
     <Compile Include="Style.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="Weapon.cs" />
