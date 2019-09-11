@@ -48,7 +48,7 @@ namespace Cyberpunk2020CharacterCreator
         /// </summary>
         public Character()
         {
-
+            characters.Add(this);
         }
 
         public void EquipItem(object item)
@@ -75,7 +75,7 @@ namespace Cyberpunk2020CharacterCreator
         /// Generates random Character using all of the other functions in this class
         /// </summary>
         /// <returns>Character</returns>
-        public static Character generateRandomNPC(int points)
+        public static Character GenerateRandomNPC(int points)
         {
             Character temp = new Character();
             Random rnd = new Random();
@@ -97,7 +97,6 @@ namespace Cyberpunk2020CharacterCreator
             temp.NPC = true;
 
             temp.age = 16 + rnd.Next(1, 6) + rnd.Next(1, 6);
-            characters.Add(temp);
             return temp;
         }
 
@@ -107,7 +106,7 @@ namespace Cyberpunk2020CharacterCreator
         /// <returns>string</returns>
         public static string RandomNameGenerator (bool male)
         {
-            string name = "";
+            string name;
             Random rnd = new Random();
             int random = rnd.Next(1,1002);
             if (male)
@@ -129,7 +128,7 @@ namespace Cyberpunk2020CharacterCreator
         /// <returns>string</returns>
         public static string RandomNameGenerator()
         {
-            string name = "";
+            string name;
             Random rnd = new Random();
             int random = rnd.Next(1, 2004);
             if (random < 1003)
@@ -145,17 +144,9 @@ namespace Cyberpunk2020CharacterCreator
             return name;
         }
 
-        /// <summary>
-        /// Generates stats for Character, based on the role's most important stat, all other stats are randomly distributed
-        /// </summary>
-        /// <returns>Stats class</returns>
-        
-
-        
-
         public static Character MakeQuickRelation(Character npc, Relationship.QuickRelation relation)
         {
-            Character temp = generateRandomNPC(0);
+            Character temp = GenerateRandomNPC(0);
             Relationship rel = new Relationship();
             
             switch (relation)
@@ -182,11 +173,9 @@ namespace Cyberpunk2020CharacterCreator
             return temp;
         }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
+        //A character array containing all characters.
         static List<Character> characters = new List<Character>();
+
         static public Character[] Characters
         {
             get

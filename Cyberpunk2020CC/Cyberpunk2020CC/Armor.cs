@@ -53,13 +53,14 @@ namespace Cyberpunk2020CharacterCreator
             XmlNodeList list = doc.SelectNodes("role");
             foreach (XmlNode node in list)
             {
-                Armor tempArmor = new Armor();
-
-                tempArmor.name = XmlRemoveAllChildren(node, "name").InnerText;
-                tempArmor.desc = XmlRemoveAllChildren(node, "desc").InnerText;
-                tempArmor.sp = int.Parse(XmlRemoveAllChildren(node, "sp").InnerText);
-                tempArmor.ev = int.Parse(XmlRemoveAllChildren(node, "ev").InnerText);
-                tempArmor.cost = double.Parse(XmlRemoveAllChildren(node, "cost").InnerText);
+                Armor tempArmor = new Armor
+                {
+                    name = XmlRemoveAllChildren(node, "name").InnerText,
+                    desc = XmlRemoveAllChildren(node, "desc").InnerText,
+                    sp = int.Parse(XmlRemoveAllChildren(node, "sp").InnerText),
+                    ev = int.Parse(XmlRemoveAllChildren(node, "ev").InnerText),
+                    cost = double.Parse(XmlRemoveAllChildren(node, "cost").InnerText)
+                };
 
                 armors.Add(tempArmor);
             }

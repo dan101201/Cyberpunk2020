@@ -136,9 +136,9 @@ namespace Cyberpunk2020CharacterCreator
 
         (object, bool) ObjectToInventoryTuple(object item)
         {
-            foreach (var _item in items)
+            foreach ((object item, bool equiped) _item in items)
             {
-                if (_item.Item1 == item)
+                if (_item.item == item)
                 {
                     return _item;
                 }

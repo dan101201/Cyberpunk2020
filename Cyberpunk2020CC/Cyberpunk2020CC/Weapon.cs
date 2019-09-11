@@ -92,17 +92,18 @@ namespace Cyberpunk2020CharacterCreator
             foreach (XmlNode node in nodes)
             {
 
-                Weapon tempWeapon = new Weapon();
-
-                tempWeapon.name = XmlRemoveAllChildren(node,"name").InnerText;
-                tempWeapon.damage = new Dice(XmlRemoveAllChildren(node, "damage").InnerText);
-                tempWeapon.shots = int.Parse(XmlRemoveAllChildren(node, "shots").InnerText);
-                tempWeapon.rof = int.Parse(XmlRemoveAllChildren(node, "rof").InnerText);
-                tempWeapon.cost = double.Parse(XmlRemoveAllChildren(node, "cost").InnerText);
-                tempWeapon.wa = int.Parse(XmlRemoveAllChildren(node, "wa").InnerText);
-                tempWeapon.concealability = StringToCon(XmlRemoveAllChildren(node, "con").InnerText);
-                tempWeapon.reliability = StringToRel(XmlRemoveAllChildren(node, "rel").InnerText);
-                tempWeapon.availability = StringToAvail(XmlRemoveAllChildren(node, "avail").InnerText);
+                Weapon tempWeapon = new Weapon
+                {
+                    name = XmlRemoveAllChildren(node, "name").InnerText,
+                    damage = new Dice(XmlRemoveAllChildren(node, "damage").InnerText),
+                    shots = int.Parse(XmlRemoveAllChildren(node, "shots").InnerText),
+                    rof = int.Parse(XmlRemoveAllChildren(node, "rof").InnerText),
+                    cost = double.Parse(XmlRemoveAllChildren(node, "cost").InnerText),
+                    wa = int.Parse(XmlRemoveAllChildren(node, "wa").InnerText),
+                    concealability = StringToCon(XmlRemoveAllChildren(node, "con").InnerText),
+                    reliability = StringToRel(XmlRemoveAllChildren(node, "rel").InnerText),
+                    availability = StringToAvail(XmlRemoveAllChildren(node, "avail").InnerText)
+                };
 
             }
 
