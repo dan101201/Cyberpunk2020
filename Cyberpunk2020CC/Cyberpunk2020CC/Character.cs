@@ -97,7 +97,7 @@ namespace Cyberpunk2020CharacterCreator
             temp.NPC = true;
 
             temp.age = 16 + rnd.Next(1, 6) + rnd.Next(1, 6);
-
+            characters.Add(temp);
             return temp;
         }
 
@@ -180,6 +180,42 @@ namespace Cyberpunk2020CharacterCreator
             temp.relationships.Add(npc,rel);
             npc.relationships.Add(temp,rel);
             return temp;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        static List<Character> characters = new List<Character>();
+        static public Character[] Characters
+        {
+            get
+            {
+                List<Character> chars = new List<Character>();
+                foreach (Character c in characters)
+                {
+                    if (!c.NPC)
+                    {
+                        chars.Add(c);
+                    }
+                }
+                return chars.ToArray();
+            }
+        }
+        static public Character[] NPCs
+        {
+            get
+            {
+                List<Character> chars = new List<Character>();
+                foreach (Character c in characters)
+                {
+                    if (c.NPC)
+                    {
+                        chars.Add(c);
+                    }
+                }
+                return chars.ToArray();
+            }
         }
 
     }

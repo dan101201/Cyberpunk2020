@@ -9,7 +9,6 @@ namespace Cyberpunk2020CharacterCreator
     interface IItem
     {
         string Name { get;}
-        double Weight { get;}
         string Desc { get;}
         double Cost { get;}
 
