@@ -133,5 +133,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="XMLSkills.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="weapons.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="cyberneticstemplate.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
