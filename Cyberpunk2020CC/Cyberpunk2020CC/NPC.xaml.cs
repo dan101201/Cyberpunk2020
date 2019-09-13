@@ -27,13 +27,20 @@ namespace Cyberpunk2020CC
         {
             InitializeComponent();
             this.template = template;
+            Cyberpunk2020CharacterCreator.Character temp = new Cyberpunk2020CharacterCreator.Character("bob", true);
+            AddButtonsForEachNPC();
         }
 
-        void AddButtonsForEachCharacter()
+        void AddButtonsForEachNPC()
         {
-            Button _tempButton = (Button)Utility.DeepCopy(template);
-            _tempButton.Content = "Temp";
-            characterPanel.Children.Add(_tempButton);
+            
+            foreach (Cyberpunk2020CharacterCreator.Character c in Cyberpunk2020CharacterCreator.Character.NPCs)
+            {
+                Button _tempButton = (Button)Utility.DeepCopy(template);
+                _tempButton.Content = c.name;
+                characterPanel.Children.Add(_tempButton);
+            }
+            
         }
     }
 }

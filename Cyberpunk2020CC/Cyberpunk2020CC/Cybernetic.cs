@@ -8,6 +8,9 @@ namespace Cyberpunk2020CharacterCreator
 {
 	class Cybernetic
 	{
+
+        static List<Cybernetic> cybernetics = new List<Cybernetic>();
+
         public (string stat, int boost) statBoost;
         public Armor sp = null;
         string name;

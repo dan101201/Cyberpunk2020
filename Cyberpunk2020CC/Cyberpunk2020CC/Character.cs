@@ -8,6 +8,7 @@ namespace Cyberpunk2020CharacterCreator
 {
     class Character
     {
+
         //All life events
         public Dictionary<int, string> lifeEvents;
 
@@ -49,6 +50,13 @@ namespace Cyberpunk2020CharacterCreator
         public Character()
         {
             characters.Add(this);
+        }
+
+        public Character(string name, bool npc)
+        {
+            this.name = name;
+            characters.Add(this);
+            this.NPC = npc;
         }
 
         public void EquipItem(object item)
@@ -176,7 +184,7 @@ namespace Cyberpunk2020CharacterCreator
         //A character array containing all characters.
         static List<Character> characters = new List<Character>();
 
-        static public Character[] Characters
+        public static Character[] Characters
         {
             get
             {
@@ -191,7 +199,7 @@ namespace Cyberpunk2020CharacterCreator
                 return chars.ToArray();
             }
         }
-        static public Character[] NPCs
+        public static Character[] NPCs
         {
             get
             {
