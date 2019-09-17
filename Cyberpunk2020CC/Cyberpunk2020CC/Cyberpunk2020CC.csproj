@@ -65,6 +65,7 @@
     <Compile Include="Character.xaml.cs">
       <DependentUpon>Character.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ClassComparer.cs" />
     <Compile Include="CustomItem.cs" />
     <Compile Include="IItem.cs" />
     <Compile Include="Cybernetic.cs" />

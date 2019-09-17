@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace Cyberpunk2020CharacterCreator
 {
@@ -42,6 +42,7 @@ namespace Cyberpunk2020CharacterCreator
     class Inventory
     {
         List<(object item, bool equiped)> items = new List<(object, bool)>();
+        (IItem, bool)[] sortedItems;
 
         public void EquipItem(object item, Character c)
         {
@@ -98,7 +99,7 @@ namespace Cyberpunk2020CharacterCreator
             AddItemToInventory(item,false);
         }
 
-        public void AddItemToInventory(object item, bool equip)
+        void AddItemToInventory(object item, bool equip)
         {
             object weapon = new Weapon();
             object armor = new Armor();
@@ -112,6 +113,8 @@ namespace Cyberpunk2020CharacterCreator
             {
                 throw new ItemNotRightException("Object needs to be of type Weapon, Armor or Cybernetic but has type " + item.GetType().ToString());
             }
+            Thread thread = new Thread(SetItemArray);
+            thread.Start();
         }
 
         public void RemoveItemFromInventory(object item)
@@ -125,13 +128,35 @@ namespace Cyberpunk2020CharacterCreator
             }
         }
 
-        public (object, bool)[] GetItemArray()
+        public (IItem, bool)[] GetItemArray()
         {
-            var temp = items;
-            items.Sort();
-            var sortedList = items;
-            items = temp;
-            return sortedList.ToArray();
+            return sortedItems;
+        }
+
+        void SetItemArray()
+        {
+            ClassComparer comparer = new ClassComparer();
+            List<IItem> items = new List<IItem>();
+            foreach ((object, bool) item in this.items)
+            {
+                items.Add((IItem)item.Item1);
+            }
+            IItem[] itemArr = comparer.SortIItems(items.ToArray());
+            List<(IItem, bool)> valueTuppleArr = new List<(IItem, bool)>();
+            for (int i = 0; i < itemArr.Length; i++)
+            {
+                valueTuppleArr.Add((itemArr[i], this.items[i].equiped));
+            }
+            sortedItems = valueTuppleArr.ToArray();
+            try
+            {
+                Thread.CurrentThread.Abort();
+            }
+            catch
+            {
+
+            }
+            
         }
 
         (object, bool) ObjectToInventoryTuple(object item)
