@@ -101,9 +101,9 @@ namespace Cyberpunk2020CharacterCreator
 
         void AddItemToInventory(object item, bool equip)
         {
-            object weapon = new Weapon();
-            object armor = new Armor();
-            object cybernetic = new Cybernetic();
+            Weapon weapon = new Weapon();
+            Armor armor = new Armor();
+            Cybernetic cybernetic = new Cybernetic();
             //object cybernetic = new Cybernetic();
             if (item.GetType() == weapon.GetType() || item.GetType() == armor.GetType() || item.GetType() == cybernetic.GetType())
             {
