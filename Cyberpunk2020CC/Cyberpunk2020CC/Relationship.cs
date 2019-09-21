@@ -8,41 +8,41 @@ namespace Cyberpunk2020CharacterCreator
 {
     class Relationship
     {
-        public bool Acquaintance;
+        public bool acquaintance;
 
-        bool enemy;
+        bool _enemy;
         public bool Enemy
         {
             set
             {
-                Acquaintance = true;
+                acquaintance = true;
 				if (Lover)
 				{
 					Lover = false;
 				}
-                enemy = value;
+                _enemy = value;
             }
             get
             {
-                return enemy;
+                return _enemy;
             }
         }
 
-        bool family;
+        bool _family;
         public bool Family
         {
             set
             {
-                Acquaintance = true;
-                family = value;
+                acquaintance = true;
+                _family = value;
             }
             get
             {
-                return family;
+                return _family;
             }
         }
 
-        bool friend;
+        bool _friend;
         public bool Friend
         {
             set
@@ -53,7 +53,7 @@ namespace Cyberpunk2020CharacterCreator
                 }
                 else
                 {
-                    Acquaintance = true;
+                    acquaintance = true;
                     Enemy = false;
                 }
 
@@ -62,15 +62,15 @@ namespace Cyberpunk2020CharacterCreator
 					Lover = false;
 				}
 
-				friend = value;
+				_friend = value;
 			}
             get
             {
-                return friend;
+                return _friend;
             }
         }
 
-        public bool ExLover;
+        public bool exLover;
 
         public bool lover;
 		public bool Lover
@@ -83,11 +83,11 @@ namespace Cyberpunk2020CharacterCreator
 					{
 						Friend = false;
 					}
-					Acquaintance = true;
+					acquaintance = true;
 				}
 				else
 				{
-					ExLover = true;
+					exLover = true;
 				}
 				lover = value;
 			}

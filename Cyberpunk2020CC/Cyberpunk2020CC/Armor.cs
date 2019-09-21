@@ -11,28 +11,28 @@ namespace Cyberpunk2020CharacterCreator
     //Gear
     class Armor : IItem
     {
-        string name;
+        string _name;
         public string Name
         {
             get
             {
-                return name;
+                return _name;
             }
         }
-        string desc;
+        string _desc;
         public string Desc
         {
             get
             {
-                return desc;
+                return _desc;
             }
         }
-        double cost;
+        double _cost;
         public double Cost
         {
             get
             {
-                return cost;
+                return _cost;
             }
         }
 
@@ -55,11 +55,11 @@ namespace Cyberpunk2020CharacterCreator
             {
                 Armor tempArmor = new Armor
                 {
-                    name = XmlRemoveAllChildren(node, "name").InnerText,
-                    desc = XmlRemoveAllChildren(node, "desc").InnerText,
+                    _name = XmlRemoveAllChildren(node, "name").InnerText,
+                    _desc = XmlRemoveAllChildren(node, "desc").InnerText,
                     sp = int.Parse(XmlRemoveAllChildren(node, "sp").InnerText),
                     ev = int.Parse(XmlRemoveAllChildren(node, "ev").InnerText),
-                    cost = double.Parse(XmlRemoveAllChildren(node, "cost").InnerText)
+                    _cost = double.Parse(XmlRemoveAllChildren(node, "cost").InnerText)
                 };
 
                 armors.Add(tempArmor);

@@ -22,19 +22,19 @@ namespace Cyberpunk2020CC
     public partial class Character : Page
     {
 
-        Button template;
+        Button _template;
 
         public Character(Button template)
         {
             InitializeComponent();
-            this.template = template;  
+            this._template = template;  
         }
 
         void AddButtonsForEachCharacter()
         {
-            Button _tempButton = (Button)Utility.DeepCopy(template);
-            _tempButton.Content = "Temp";
-            characterPanel.Children.Add(_tempButton);
+            Button tempButton = (Button)Utility.DeepCopy(_template);
+            tempButton.Content = "Temp";
+            characterPanel.Children.Add(tempButton);
         }
     }
 }

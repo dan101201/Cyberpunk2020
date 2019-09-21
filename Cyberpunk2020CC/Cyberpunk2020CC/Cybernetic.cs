@@ -9,32 +9,32 @@ namespace Cyberpunk2020CharacterCreator
 	class Cybernetic
 	{
 
-        static List<Cybernetic> cybernetics = new List<Cybernetic>();
+        static List<Cybernetic> _cybernetics = new List<Cybernetic>();
 
         public (string stat, int boost) statBoost;
         public Armor sp = null;
-        string name;
+        string _name;
         public string Name
         {
             get
             {
-                return name;
+                return _name;
             }
         }
-        string desc;
+        string _desc;
         public string Desc
         {
             get
             {
-                return desc;
+                return _desc;
             }
         }
-        double cost;
+        double _cost;
         public double Cost
         {
             get
             {
-                return cost;
+                return _cost;
             }
         }
 
@@ -44,14 +44,14 @@ namespace Cyberpunk2020CharacterCreator
 
         public Cybernetic(string name, string description)
         {
-            this.name = name;
-            this.desc = description;
+            this._name = name;
+            this._desc = description;
         }
 
         public Cybernetic(string name, string description, string statName, int statboost)
         {
-            this.name = name;
-            this.desc = description;
+            this._name = name;
+            this._desc = description;
             statBoost = (statName, statboost);
         }
     }

@@ -41,8 +41,8 @@ namespace Cyberpunk2020CharacterCreator
 
     class Inventory
     {
-        List<(object item, bool equiped)> items = new List<(object, bool)>();
-        (IItem, bool)[] sortedItems;
+        List<(object item, bool equiped, Type)> items = new List<(object, bool, Type)>();
+        (IItem, bool, Type)[] sortedItems;
 
         public void EquipItem(object item, Character c)
         {
@@ -94,32 +94,33 @@ namespace Cyberpunk2020CharacterCreator
             c.body.EquipArmor(new Armor());
         }
 
-        public void AddItemToInventory(object item)
+        public void AddItemToInventory(Weapon weapon)
         {
-            AddItemToInventory(item,false);
+            items.Add((weapon,false,typeof(Weapon)));
         }
 
-        void AddItemToInventory(object item, bool equip)
+        public void AddItemToInventory(Armor armor)
         {
-            Weapon weapon = new Weapon();
-            Armor armor = new Armor();
-            Cybernetic cybernetic = new Cybernetic();
-            //object cybernetic = new Cybernetic();
-            if (item.GetType() == weapon.GetType() || item.GetType() == armor.GetType() || item.GetType() == cybernetic.GetType())
-            {
-                items.Add((item, equip));
-            }
-            else
-            {
-                throw new ItemNotRightException("Object needs to be of type Weapon, Armor or Cybernetic but has type " + item.GetType().ToString());
-            }
-            Thread thread = new Thread(SetItemArray);
-            thread.Start();
+            items.Add((armor, false, typeof(Armor)));
+        }
+
+        public void AddItemToInventory(Cybernetic cybernetic)
+        {
+            items.Add((cybernetic, false, typeof(Cybernetic)));
+            Thread t = new Thread(SetItemArray);
+            t.Start();
+        }
+
+        public void AddItemToInventory(IItem item)
+        {
+            items.Add((item, false, typeof(IItem)));
+            Thread t = new Thread(SetItemArray);
+            t.Start();
         }
 
         public void RemoveItemFromInventory(object item)
         {
-            foreach ((object item, bool equiped) tuple in items)
+            foreach ((object item, bool equiped, Type) tuple in items)
             {
                 if (item == tuple.item)
                 {
@@ -128,7 +129,7 @@ namespace Cyberpunk2020CharacterCreator
             }
         }
 
-        public (IItem, bool)[] GetItemArray()
+        public (IItem, bool,Type)[] GetItemArray()
         {
             return sortedItems;
         }
@@ -137,31 +138,22 @@ namespace Cyberpunk2020CharacterCreator
         {
             ClassComparer comparer = new ClassComparer();
             List<IItem> items = new List<IItem>();
-            foreach ((object, bool) item in this.items)
+            foreach ((object, bool,Type) item in this.items)
             {
                 items.Add((IItem)item.Item1);
             }
             IItem[] itemArr = comparer.SortIItems(items.ToArray());
-            List<(IItem, bool)> valueTuppleArr = new List<(IItem, bool)>();
+            List<(IItem, bool,Type)> valueTuppleArr = new List<(IItem, bool,Type)>();
             for (int i = 0; i < itemArr.Length; i++)
             {
-                valueTuppleArr.Add((itemArr[i], this.items[i].equiped));
+                valueTuppleArr.Add((itemArr[i], this.items[i].equiped,this.items[i].Item3));
             }
             sortedItems = valueTuppleArr.ToArray();
-            try
-            {
-                Thread.CurrentThread.Abort();
-            }
-            catch
-            {
-
-            }
-            
         }
 
-        (object, bool) ObjectToInventoryTuple(object item)
+        (object, bool,Type) ObjectToInventoryTuple(object item)
         {
-            foreach ((object item, bool equiped) _item in items)
+            foreach ((object item, bool equiped, Type) _item in items)
             {
                 if (_item.item == item)
                 {

@@ -19,26 +19,26 @@ namespace Cyberpunk2020CC
     /// <summary>
     /// Interaction logic for NPC.xaml
     /// </summary>
-    public partial class NPC : Page
+    public partial class Npc : Page
     {
-        Button template;
+        Button _template;
 
-        public NPC(Button template)
+        public Npc(Button template)
         {
             InitializeComponent();
-            this.template = template;
+            this._template = template;
             Cyberpunk2020CharacterCreator.Character temp = new Cyberpunk2020CharacterCreator.Character("bob", true);
-            AddButtonsForEachNPC();
+            AddButtonsForEachNpc();
         }
 
-        void AddButtonsForEachNPC()
+        void AddButtonsForEachNpc()
         {
             
-            foreach (Cyberpunk2020CharacterCreator.Character c in Cyberpunk2020CharacterCreator.Character.NPCs)
+            foreach (Cyberpunk2020CharacterCreator.Character c in Cyberpunk2020CharacterCreator.Character.NpCs)
             {
-                Button _tempButton = (Button)Utility.DeepCopy(template);
-                _tempButton.Content = c.name;
-                characterPanel.Children.Add(_tempButton);
+                Button tempButton = (Button)Utility.DeepCopy(_template);
+                tempButton.Content = c.name;
+                characterPanel.Children.Add(tempButton);
             }
             
         }

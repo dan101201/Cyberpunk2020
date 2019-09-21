@@ -8,40 +8,40 @@ namespace Cyberpunk2020CharacterCreator
 {
     class CustomItem : IItem
     {
-        string name;
+        string _name;
         public string Name
         {
             get
             {
-                return name;
+                return _name;
             }
             set
             {
-                name = value;
+                _name = value;
             }
         }
-        string desc;
+        string _desc;
         public string Desc
         {
             get
             {
-                return desc;
+                return _desc;
             }
             set
             {
-                desc = value;
+                _desc = value;
             }
         }
-        double cost;
+        double _cost;
         public double Cost
         {
             get
             {
-                return cost;
+                return _cost;
             }
             set
             {
-                cost = value;
+                _cost = value;
             }
         }
     }

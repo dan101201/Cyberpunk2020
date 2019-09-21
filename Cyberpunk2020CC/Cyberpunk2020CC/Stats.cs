@@ -9,141 +9,141 @@ namespace Cyberpunk2020CharacterCreator
     class Stats
     {
 
-        int[] stats = new int[9];
+        int[] _stats = new int[9];
 
         public int this[int i]
         {
             get
             {
-                return stats[i];
+                return _stats[i];
             }
             set
             {
-                stats[i] = value;
+                _stats[i] = value;
             }
         }
 
-        public int INT
+        public int Int
         {
             get
             {
-                return stats[0];
+                return _stats[0];
             }
             set
             {
-                stats[0] = value;
+                _stats[0] = value;
             }
         }
-        public int REF
+        public int Ref
         {
             get
             {
-                return stats[1];
+                return _stats[1];
             }
             set
             {
-                stats[1] = value;
+                _stats[1] = value;
             }
         }
-        public int CL
+        public int Cl
         {
             get
             {
-                return stats[2];
+                return _stats[2];
             }
             set
             {
-                stats[2] = value;
+                _stats[2] = value;
             }
         }
-        public int TECH
+        public int Tech
         {
             get
             {
-                return stats[3];
+                return _stats[3];
             }
             set
             {
-                stats[3] = value;
+                _stats[3] = value;
             }
         }
-        public int LK
+        public int Lk
         {
             get
             {
-                return stats[4];
+                return _stats[4];
             }
             set
             {
-                stats[4] = value;
+                _stats[4] = value;
             }
         }
-        public int ATT
+        public int Att
         {
             get
             {
-                return stats[5];
+                return _stats[5];
             }
             set
             {
-                stats[5] = value;
+                _stats[5] = value;
             }
         }
-        public int MA
+        public int Ma
         {
             get
             {
-                return stats[6];
+                return _stats[6];
             }
             set
             {
-                stats[6] = value;
+                _stats[6] = value;
             }
         }
-        public int EM
+        public int Em
         {
 
             get
             {
-                return stats[7] - Convert.ToInt32(Math.Floor(humanityLost)) / 10;
+                return _stats[7] - Convert.ToInt32(Math.Floor(_humanityLost)) / 10;
             }
             set
             {
-                stats[7] = value;
+                _stats[7] = value;
             }
         }
-        public int BT
+        public int Bt
         {
             get
             {
-                return stats[8];
+                return _stats[8];
             }
             set
             {
-                stats[8] = value;
+                _stats[8] = value;
             }
         }
-        public int BTM
+        public int Btm
         {
             get
             {
-                return stats[8];
+                return _stats[8];
             }
         }
 
         //Double to keep track of lost humanity
-        double humanityLost = 0;
+        double _humanityLost = 0;
         public double Humanity
         {
             get
             {
-                return stats[7] * 4 - humanityLost;
+                return _stats[7] * 4 - _humanityLost;
             }
             set
             {
                 if(value < Humanity)
                 {
-                    humanityLost += Humanity - value;
+                    _humanityLost += Humanity - value;
                 }
             }
         }
@@ -152,7 +152,7 @@ namespace Cyberpunk2020CharacterCreator
 		{
 			get
 			{
-				return stats[6] * 3;
+				return _stats[6] * 3;
 			}
 		}
 
@@ -168,14 +168,14 @@ namespace Cyberpunk2020CharacterCreator
         {
             get
             {
-                return BT * 10;
+                return Bt * 10;
             }
         }
 
-        public static Stats generateStatsForNPC(int points, Character npc)
+        public static Stats GenerateStatsForNpc(int points, Character npc)
         {
             Stats temp = new Stats();
-            temp.stats = Utility.GetSlots(9, 10);
+            temp._stats = Utility.GetSlots(9, 10);
             
             return temp;
         }
@@ -185,25 +185,25 @@ namespace Cyberpunk2020CharacterCreator
             switch (temp)
             {
                 case "INT":
-                    return stats[0];
+                    return _stats[0];
                 case "REF":
-                    return stats[1];
+                    return _stats[1];
                 case "CL":
-                    return stats[2];
+                    return _stats[2];
                 case "TECH":
-                    return stats[3];
+                    return _stats[3];
                 case "LK":
-                    return stats[4];
+                    return _stats[4];
                 case "ATT":
-                    return stats[5];
+                    return _stats[5];
                 case "MA":
-                    return stats[6];
+                    return _stats[6];
                 case "EM":
-                    return stats[7];
+                    return _stats[7];
                 case "BTM":
-                    return stats[8];
+                    return _stats[8];
             }
-            return stats[0];
+            return _stats[0];
         }
 
     }

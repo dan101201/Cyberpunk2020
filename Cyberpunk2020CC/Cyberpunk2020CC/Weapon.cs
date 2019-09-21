@@ -31,56 +31,56 @@ namespace Cyberpunk2020CharacterCreator
 
         enum Rel
         {
-            VR,
-            ST,
-            UR
+            Vr,
+            St,
+            Ur
         }
 
-        string name;
+        string _name;
         public string Name
         {
             get
             {
-                return name;
+                return _name;
             }
         }
-        string desc;
+        string _desc;
         public string Desc
         {
             get
             {
-                return desc;
+                return _desc;
             }
         }
-        double cost;
+        double _cost;
         public double Cost
         {
             get
             {
-                return cost;
+                return _cost;
             }
         }
         //Weapon Accuracy
-        int wa;
+        int _wa;
 
         //Concealability, P for Pocket, Pants, Leg or Sleeve. J for Jacket, Coat or Shoulder Rig
         //L for Long Coat, N for Can't be hidden
-        Con concealability;
+        Con _concealability;
 
-        Avail availability;
+        Avail _availability;
 
-        Dice damage;
+        Dice _damage;
 
-        int shots;
+        int _shots;
 
         //Rate of fire
-        int rof;
+        int _rof;
 
-        Rel reliability;
+        Rel _reliability;
 
         
 
-        static Weapon[] XMLToWeapons (string path)
+        static Weapon[] XmlToWeapons (string path)
         {
 
             List<Weapon> weapons = new List<Weapon>();
@@ -94,15 +94,15 @@ namespace Cyberpunk2020CharacterCreator
 
                 Weapon tempWeapon = new Weapon
                 {
-                    name = XmlRemoveAllChildren(node, "name").InnerText,
-                    damage = new Dice(XmlRemoveAllChildren(node, "damage").InnerText),
-                    shots = int.Parse(XmlRemoveAllChildren(node, "shots").InnerText),
-                    rof = int.Parse(XmlRemoveAllChildren(node, "rof").InnerText),
-                    cost = double.Parse(XmlRemoveAllChildren(node, "cost").InnerText),
-                    wa = int.Parse(XmlRemoveAllChildren(node, "wa").InnerText),
-                    concealability = StringToCon(XmlRemoveAllChildren(node, "con").InnerText),
-                    reliability = StringToRel(XmlRemoveAllChildren(node, "rel").InnerText),
-                    availability = StringToAvail(XmlRemoveAllChildren(node, "avail").InnerText)
+                    _name = XmlRemoveAllChildren(node, "name").InnerText,
+                    _damage = new Dice(XmlRemoveAllChildren(node, "damage").InnerText),
+                    _shots = int.Parse(XmlRemoveAllChildren(node, "shots").InnerText),
+                    _rof = int.Parse(XmlRemoveAllChildren(node, "rof").InnerText),
+                    _cost = double.Parse(XmlRemoveAllChildren(node, "cost").InnerText),
+                    _wa = int.Parse(XmlRemoveAllChildren(node, "wa").InnerText),
+                    _concealability = StringToCon(XmlRemoveAllChildren(node, "con").InnerText),
+                    _reliability = StringToRel(XmlRemoveAllChildren(node, "rel").InnerText),
+                    _availability = StringToAvail(XmlRemoveAllChildren(node, "avail").InnerText)
                 };
 
             }
@@ -134,13 +134,13 @@ namespace Cyberpunk2020CharacterCreator
             switch (line)
             {
                 case "UR":
-                    return Rel.UR;
+                    return Rel.Ur;
                 case "VR":
-                    return Rel.VR;
+                    return Rel.Vr;
                 case "ST":
-                    return Rel.ST;
+                    return Rel.St;
                 default:
-                    return Rel.UR;
+                    return Rel.Ur;
             }
         }
 

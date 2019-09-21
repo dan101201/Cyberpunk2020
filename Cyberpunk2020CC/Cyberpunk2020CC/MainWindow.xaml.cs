@@ -36,7 +36,7 @@ namespace Cyberpunk2020CC
 
         private void BtnClickP2(object sender, RoutedEventArgs e)
         {
-            Main.Content = new NPC((Button)ButtonHolder.Children[1]);
+            Main.Content = new Npc((Button)ButtonHolder.Children[1]);
         }
 
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,7 +29,7 @@ namespace Cyberpunk2020CharacterCreator
         public Role role;
 
         //Dictionary full of the skills
-        Dictionary<string, int> skills;
+        Skills skills = new Skills();
 
         //Stats for the Character
         public Stats stats = new Stats();
@@ -66,12 +67,24 @@ namespace Cyberpunk2020CharacterCreator
 
         public void UnEquipItem(object item)
         {
-            inv.UnEquipItem(item,this);
+            inv.UnEquipItem(item, this);
         }
 
-        public void AddItemToInventory(object item)
+        public void EquipItem(Weapon t)
         {
-            inv.AddItemToInventory(item);
+            inv.AddItemToInventory(t);
+        }
+        public void EquipItem(Cybernetic t)
+        {
+            inv.AddItemToInventory(t);
+        }
+        public void EquipItem(Armor t)
+        {
+            inv.AddItemToInventory(t);
+        }
+        public void EquipItem(IItem t)
+        {
+            inv.AddItemToInventory(t);
         }
 
         public void RemoveItemFromInventory(object item)
@@ -97,11 +110,11 @@ namespace Cyberpunk2020CharacterCreator
             {
                 points = rnd.Next(30, 65);
             }
-            temp.style.randomlySelectStyle();
-            temp.motivation = Motivation.randomlyGenerateMotivation();
+            temp.style.RandomlySelectStyle();
+            temp.motivation = Motivation.RandomlyGenerateMotivation();
             rnd.Next(1, 10);
-            temp.role = Role.roles[Role.intToRoleName(rnd.Next(1, 10)).ToLower()];
-            temp.stats = Stats.generateStatsForNPC(points, temp);
+            temp.role = Role.roles[Role.IntToRoleName(rnd.Next(1, 10)).ToLower()];
+            temp.stats = Stats.GenerateStatsForNpc(points, temp);
             temp.NPC = true;
 
             temp.age = 16 + rnd.Next(1, 6) + rnd.Next(1, 6);
@@ -172,7 +185,7 @@ namespace Cyberpunk2020CharacterCreator
                     break;
 
                 case Relationship.QuickRelation.Acquantance:
-                    rel.Acquaintance = true;
+                    rel.acquaintance = true;
                     break;
             }
 

@@ -11,26 +11,26 @@ namespace Cyberpunk2020CharacterCreator
     class Role
     {
         // Makes a Dictionary full of all the roles with the name of the role as the string key
-        public static Dictionary<string, Role> roles = makeRoles();
+        public static Dictionary<string, Role> roles = MakeRoles();
 
-        public string name
+        public string Name
         {
             get;
             private set;
         }
-        public string desc
+        public string Desc
         {
             get;
             private set;
         }
-        public string[] skills
+        public string[] Skills
         {
             get;
             private set;
         }
 
         //Not needed anymore
-        public static string intToRoleName(int number)
+        public static string IntToRoleName(int number)
         {
             switch(number)
             {
@@ -68,7 +68,7 @@ namespace Cyberpunk2020CharacterCreator
             }
         }
 
-        static Dictionary<string, Role> makeRoles()
+        static Dictionary<string, Role> MakeRoles()
         {
             Dictionary<string, Role> roles = new Dictionary<string, Role>();
 
@@ -85,21 +85,21 @@ namespace Cyberpunk2020CharacterCreator
                     if (i+1 != lines.Length && lines[i + 1].Trim() != "")
                     {
                         //if not base skills, reads txt file to make the different roles/class's
-                        role.name = line.Substring(0, line.IndexOf('(')).Trim();
+                        role.Name = line.Substring(0, line.IndexOf('(')).Trim();
                         string temp = line.Substring(line.IndexOf('(') + 1);
                         temp = temp.Substring(0, temp.IndexOf(')'));
                         temp = line.Substring(line.IndexOf(')') + 1);
-                        role.desc = temp.Trim();
-                        role.skills = lines[i + 1].Split(',');
+                        role.Desc = temp.Trim();
+                        role.Skills = lines[i + 1].Split(',');
 
-                        roles.Add(role.name.ToLower(), role);
+                        roles.Add(role.Name.ToLower(), role);
 
                     }
                 }
             }
             return roles;
         }
-        Dictionary<string,Role> XMLDocToDictionaryStringRole(string path)
+        Dictionary<string,Role> XmlDocToDictionaryStringRole(string path)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
@@ -109,11 +109,11 @@ namespace Cyberpunk2020CharacterCreator
             foreach (XmlNode node in list)
             {
                 Role tempRole = new Role();
-                tempRole.name = XmlRemoveAllChildren(node,"name").InnerText;
-                tempRole.desc = XmlRemoveAllChildren(node, "desc").InnerText;
-                tempRole.skills = XmlRemoveAllChildren(node, "skills").InnerText.Split(',');
+                tempRole.Name = XmlRemoveAllChildren(node,"name").InnerText;
+                tempRole.Desc = XmlRemoveAllChildren(node, "desc").InnerText;
+                tempRole.Skills = XmlRemoveAllChildren(node, "skills").InnerText.Split(',');
 
-                temp.Add(tempRole.name,tempRole);
+                temp.Add(tempRole.Name,tempRole);
             }
 
 

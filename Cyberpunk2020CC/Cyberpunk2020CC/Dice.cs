@@ -8,45 +8,45 @@ namespace Cyberpunk2020CharacterCreator
 {
     class Dice
     {
-        int number;
-        int amount;
-        int bonus;
+        int _number;
+        int _amount;
+        int _bonus;
 
         int RoleDice()
         {
             Random rnd = new Random();
             int temp = 0;
-            for (int i = 0; i < amount; i++)
+            for (int i = 0; i < _amount; i++)
             { 
-                temp += rnd.Next(number);
+                temp += rnd.Next(_number);
             }
             return temp;
         }
 
         public override string ToString()
         {
-            return amount + "D" + number;
+            return _amount + "D" + _number;
         }
 
         public Dice (int amount, int number)
         {
-            this.amount = amount;
-            this.number = number;
+            this._amount = amount;
+            this._number = number;
         }
 
         public Dice(int amount, int number, int bonus)
         {
-            this.amount = amount;
-            this.number = number;
-            this.bonus = bonus;
+            this._amount = amount;
+            this._number = number;
+            this._bonus = bonus;
         }
 
         public Dice(string line)
         {
             
-            this.number = line[0];
-            this.amount = line[2];
-            this.bonus = int.Parse(line.Split('+')[1].Trim());
+            this._number = line[0];
+            this._amount = line[2];
+            this._bonus = int.Parse(line.Split('+')[1].Trim());
 
         }
 

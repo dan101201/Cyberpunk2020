@@ -11,14 +11,14 @@ namespace Cyberpunk2020CC
         public EthnicGroup()
 		{
 			Random random = new Random();
-			Ethnicity = random.Next(1, 10);
+			ethnicity = random.Next(1, 10);
 		}
 
-		public int Ethnicity;
+		public int ethnicity;
 
 		public override string ToString()
 		{
-			switch (Ethnicity)
+			switch (ethnicity)
 			{
 				case 1:
 					return "Anglo-American (English)";
