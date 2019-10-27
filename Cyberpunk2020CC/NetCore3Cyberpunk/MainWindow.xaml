@@ -3,14 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:NetCore3Cyberpunk"
+        xmlns:local="clr-namespace:NetCore3Cyberpunk.Backend"
         mc:Ignorable="d"
         Title="Samurai" Height="556.787" Width="900" Background="#FF101017" Foreground="White">
     <Grid Background="#FF1E1F23">
 
-        <Frame x:Name="Main" HorizontalAlignment="Left" Height="526" VerticalAlignment="Top" Width="758" Margin="124,0,0,0" NavigationUIVisibility="Hidden" Background="#FF101017"/>
+        <Frame x:Name="Main" HorizontalAlignment="Left" Height="541" VerticalAlignment="Top" Width="776" Margin="124,0,0,0" NavigationUIVisibility="Hidden" Background="#FF101017"/>
         <StackPanel x:Name="ButtonHolder" HorizontalAlignment="Left" VerticalAlignment="Top" Width="124">
-                
+
             <Button Content="Characters" Click="BtnClickP1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="124" Height="50" HorizontalContentAlignment="Left" BorderBrush="{x:Null}" Foreground="White">
                 <Button.Style>
 
