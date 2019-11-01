@@ -32,7 +32,7 @@ namespace NetCore3Cyberpunk
 
         public void BtnClickP1(object sender, EventArgs e)
         {
-
+            Main.Content = new Characters();   
         }
     }
 }

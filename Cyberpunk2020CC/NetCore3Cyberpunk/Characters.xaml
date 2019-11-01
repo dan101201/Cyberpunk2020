@@ -9,11 +9,17 @@
       Title="Characters">
 
     <Grid>
-        <ScrollViewer Margin="0,0,552,0">
-            <TextBlock Text="213213111111111111111111111111111111">
+        <Grid Margin="0,0,557,0">
+            <Grid Margin="0,0,0,422">
+                <Button Click="AddNewCharacter" Margin="209,0,0,0" Foreground="{x:Null}" BorderBrush="{x:Null}" Background="{x:Null}">
+                    <Image Source="plus.png"/>
+                </Button>
+            </Grid>
+            <ScrollViewer Margin="0,33,0,0">
                 
-            </TextBlock>
-        </ScrollViewer>
+            </ScrollViewer>
+        </Grid>
+        
         <Frame Name="CharacterDetails" Margin="248,0,0,0">
             
         </Frame>

@@ -22,5 +22,10 @@ namespace NetCore3Cyberpunk
         {
             InitializeComponent();
         }
+
+        private void AddNewCharacter(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
