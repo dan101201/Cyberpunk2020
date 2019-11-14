@@ -1,4 +1,4 @@
-name: Build Release Test--
+name: Build Release Test
 
 on: [push]
 
