@@ -20,4 +20,4 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --configuration Release --no-restore --output ../bin/
+      run: dotnet build Cyberpunk2020\source\Cyberpunk2020Library.csproj --configuration Release --no-restore --output ../bin/
