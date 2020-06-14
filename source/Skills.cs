@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CyberpunkWebsite.Backend
+namespace Cyberpunk2020Library
 {
     public class SkillDoesNotExistException : ApplicationException
     {

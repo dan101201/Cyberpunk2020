@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CyberpunkWebsite.Backend
+namespace Cyberpunk2020Library
 {
     [Serializable]
     class Character
@@ -132,7 +131,7 @@ namespace CyberpunkWebsite.Backend
             Random rnd = new Random();
             int firstNameId = rnd.Next(0, 1000);
             int lastNameId = rnd.Next(0, 1000);
-            return GetFullNameFromDatabase(male, firstNameId, firstNameId);
+            return "needs implementation";
         }
 
         /// <summary>
@@ -173,53 +172,6 @@ namespace CyberpunkWebsite.Backend
             temp.relationships.Add(npc,rel);
             npc.relationships.Add(temp,rel);
             return temp;
-        }
-
-        
-
-        
-
-        private static string GetFullNameFromDatabase(bool male, int firstNameId, int lastNameId)
-        {
-            string firstName = "";
-            string lastName = "";
-            //TODO: change to sql parameters.
-            using (SqlConnection con = new SqlConnection("Server=tcp:cyberpunk.database.windows.net,1433;Initial Catalog=data;Persist Security Info=False;User ID=dan101201;Password=D52QwF2vRO81;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
-            {
-                con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM [names].[Table] WHERE id='" + firstNameId + "' OR id='" + lastNameId + "'", con))
-                {
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader != null)
-                        {
-                            while (reader.Read())
-                            {
-                                if((int)reader[0] == firstNameId)
-                                {
-                                    if (male)
-                                    {
-                                        firstName = (string)reader[1];
-                                    }
-                                    else
-                                    {
-                                        firstName = (string)reader[2];
-                                    }
-                                }
-                                if ((int)reader[0] == lastNameId)
-                                {
-                                    lastName = (string)reader[3];
-                                }
-                            }
-                        }
-                        else
-                        {
-                            throw new ArgumentException("Index dont match id's present in database");
-                        }
-                    } // reader closed and disposed here
-                } // command disposed here
-            } //connection closed and disposed here
-            return firstName + " " + lastName;
         }
 
     }

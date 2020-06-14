@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Data;
 using System.Security.Cryptography;
-using System.Data.SqlClient;
-using System.Windows.Markup;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
 
-namespace CyberpunkWebsite.Backend
+namespace Cyberpunk2020Library
 {
 	
 

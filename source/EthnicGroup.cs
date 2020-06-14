@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cyberpunk2020CC
+namespace Cyberpunk2020Library
 {
     [Serializable]
     class EthnicGroup

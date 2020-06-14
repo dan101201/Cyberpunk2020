@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static CyberpunkWebsite.Backend.Utility;
+using static Cyberpunk2020Library.Utility;
 using System.Xml;
 
-namespace CyberpunkWebsite.Backend
+namespace Cyberpunk2020Library
 {
     //Gear
     [Serializable]

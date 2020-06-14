@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static CyberpunkWebsite.Backend.Stats;
+using static Cyberpunk2020Library.Stats;
 
-namespace CyberpunkWebsite.Backend
+namespace Cyberpunk2020Library
 {
     [Serializable]
     class LifeEvents

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CyberpunkWebsite.Backend
+namespace Cyberpunk2020Library
 {
     [Serializable]
     class Motivation
-    {
+    {   
         string _personalityTraits;
         string _mostValuedPerson;
         string _mostValued;

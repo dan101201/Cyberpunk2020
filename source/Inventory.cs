@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace CyberpunkWebsite.Backend
+namespace Cyberpunk2020Library
 {
 
     public class ItemNotRightException : ApplicationException

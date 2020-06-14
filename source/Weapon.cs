@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Xml;
-using static CyberpunkWebsite.Backend.Utility;
+using static Cyberpunk2020Library.Utility;
 
-namespace CyberpunkWebsite.Backend
+namespace Cyberpunk2020Library
 {
 
     [Serializable]
