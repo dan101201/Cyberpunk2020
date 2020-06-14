@@ -9,7 +9,7 @@ using static Cyberpunk2020Library.Utility;
 namespace Cyberpunk2020Library
 {
     [Serializable]
-    class Role
+    public class Role
     {
         // Makes a Dictionary full of all the roles with the name of the role as the string key
         public static Dictionary<string, Role> roles = MakeRoles();

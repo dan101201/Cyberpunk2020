@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Cyberpunk2020Library
 {
     [Serializable]
-    enum BodyPart
+    public enum BodyPart
     {
         Head,
         Torso,
@@ -19,7 +19,7 @@ namespace Cyberpunk2020Library
         LeftLeg
     }
     [Serializable]
-    class Body
+    public class Body
     {
         public Armor head;
         public Armor torso;

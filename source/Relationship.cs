@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Cyberpunk2020Library
 {
     [Serializable]
-    class Relationship
+    public class Relationship
     {
         public bool acquaintance;
 

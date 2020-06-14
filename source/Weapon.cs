@@ -11,7 +11,7 @@ namespace Cyberpunk2020Library
 {
 
     [Serializable]
-    class Weapon : IItem
+    public class Weapon : IItem
     {
         
         enum Con

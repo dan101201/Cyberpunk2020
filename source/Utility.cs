@@ -14,7 +14,7 @@ namespace Cyberpunk2020Library
 {
 	
 
-    static class Utility
+    public static class Utility
     {
         static public XmlNode RemoveAllChildren(XmlNode node)
         {

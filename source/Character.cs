@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Cyberpunk2020Library
 {
     [Serializable]
-    class Character
+    public class Character
     {
 
         //All life events

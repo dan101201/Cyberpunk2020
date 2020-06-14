@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Cyberpunk2020Library
 {
     [Serializable]
-    class Motivation
+    public class Motivation
     {   
         string _personalityTraits;
         string _mostValuedPerson;

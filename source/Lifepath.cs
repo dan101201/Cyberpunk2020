@@ -8,7 +8,7 @@ using static Cyberpunk2020Library.Stats;
 namespace Cyberpunk2020Library
 {
     [Serializable]
-    class LifeEvents
+    public class LifeEvents
 	{
 
 

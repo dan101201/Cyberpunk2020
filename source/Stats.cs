@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Cyberpunk2020Library
 {
     [Serializable]
-    class Stats
+    public class Stats
     {
 
         int[] _stats = new int[9];

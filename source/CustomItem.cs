@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Cyberpunk2020Library
 {
     [Serializable]
-    class CustomItem : IItem
+    public class CustomItem : IItem
     {
         string _name;
         public string Name

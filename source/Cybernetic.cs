@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Cyberpunk2020Library
 {
     [Serializable]
-    class Cybernetic
+    public class Cybernetic
 	{
 
         static List<Cybernetic> _cybernetics = new List<Cybernetic>();

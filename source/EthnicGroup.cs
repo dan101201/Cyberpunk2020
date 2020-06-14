@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Cyberpunk2020Library
 {
     [Serializable]
-    class EthnicGroup
+    public class EthnicGroup
     {
         public EthnicGroup()
 		{

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Cyberpunk2020Library
 {
     [Serializable]
-    class Dice
+    public class Dice
     {
         int _number;
         int _amount;

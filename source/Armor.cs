@@ -10,7 +10,7 @@ namespace Cyberpunk2020Library
 {
     //Gear
     [Serializable]
-    class Armor : IItem
+    public class Armor : IItem
     {
         string _name;
         public string Name

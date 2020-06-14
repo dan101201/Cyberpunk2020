@@ -40,7 +40,7 @@ namespace Cyberpunk2020Library
     }
 
     [Serializable]
-    class Inventory
+    public class Inventory
     {
         List<(object item, bool equiped, Type)> items = new List<(object, bool, Type)>();
         (IItem, bool, Type)[] sortedItems;

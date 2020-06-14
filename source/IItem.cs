@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cyberpunk2020Library
 {
-    interface IItem
+    public interface IItem
     {
         string Name { get;}
         string Desc { get;}

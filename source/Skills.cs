@@ -11,7 +11,7 @@ namespace Cyberpunk2020Library
     }
 
     [Serializable]
-    internal class Skills
+    public class Skills
     {
         //Dictionary of the skills, with a string key being the nameo f the skill, and int being the level in the skill
         private readonly Dictionary<string, int> skills = new Dictionary<string, int>();
