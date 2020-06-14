@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace NetCore3Cyberpunk.Backend
+namespace CyberpunkWebsite.Backend
 {
 
     public class ItemNotRightException : ApplicationException
@@ -39,6 +39,7 @@ namespace NetCore3Cyberpunk.Backend
         }
     }
 
+    [Serializable]
     class Inventory
     {
         List<(object item, bool equiped, Type)> items = new List<(object, bool, Type)>();

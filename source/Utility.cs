@@ -4,15 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Data;
+using System.Security.Cryptography;
+using System.Data.SqlClient;
 using System.Windows.Markup;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 
-namespace NetCore3Cyberpunk.Backend
+namespace CyberpunkWebsite.Backend
 {
+	
+
     static class Utility
     {
-
         static public XmlNode RemoveAllChildren(XmlNode node)
         {
             foreach (XmlNode child in node)
@@ -33,15 +38,6 @@ namespace NetCore3Cyberpunk.Backend
             return node;
         }
 
-        public static T DeepCopy<T>(T element)
-        {
-            var xaml = XamlWriter.Save(element);
-            var xamlString = new StringReader(xaml);
-            var xmlTextReader = new XmlTextReader(xamlString);
-            var deepCopyObject = (T)XamlReader.Load(xmlTextReader);
-            return deepCopyObject;
-        }
-
         public static int[] GetSlots(int slots, int max)
         {
             return new Random().Values(1, max)
@@ -60,8 +56,7 @@ namespace NetCore3Cyberpunk.Backend
 
         public static IEnumerable<TResult> Pairwise<TSource, TResult>(this IEnumerable<TSource> source, Func<TSource, TSource, TResult> resultSelector)
         {
-            TSource previous = default(TSource);
-
+            TSource previous = default;
             using (var it = source.GetEnumerator())
             {
                 if (it.MoveNext())
@@ -76,7 +71,5 @@ namespace NetCore3Cyberpunk.Backend
         {
             return source.Concat(args);
         }
-
     }
-
 }

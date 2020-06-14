@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetCore3Cyberpunk.Backend
+namespace CyberpunkWebsite.Backend
 {
-	class Cybernetic
+    [Serializable]
+    class Cybernetic
 	{
 
         static List<Cybernetic> _cybernetics = new List<Cybernetic>();

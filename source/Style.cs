@@ -4,17 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cyberpunk2020CharacterCreator
+namespace CyberpunkWebsite.Backend
 {
+    [Serializable]
     class Style
     {
 
-        static string clothing;
-        static string hairstyle;
-        static string affectation;
+        public string clothing;
+        public string hairstyle;
+        public string affectation;
 
 
-        static string[] clothes =
+        static string[] _clothes =
         {
             "Biker Leathers",
             "Blue jeans",
@@ -28,7 +29,7 @@ namespace Cyberpunk2020CharacterCreator
             "Bag Lady chic"
         };
 
-        static string[] hairstyles =
+        static string[] _hairstyles =
         {
             "Mohawk",
             "Long & Ratty",
@@ -42,7 +43,7 @@ namespace Cyberpunk2020CharacterCreator
             "Long, straight"
         };
 
-        static string[] affectations =
+        static string[] _affectations =
         {
             "Tatoos",
             "Mirrorshades",
@@ -56,15 +57,15 @@ namespace Cyberpunk2020CharacterCreator
             "Fingerless gloves"
         };
 
-        public void randomlySelectStyle()
+        public void RandomlySelectStyle()
         {
             Random rnd = new Random();
             int random = rnd.Next(1,10);
-            clothing = clothes[random];
+            clothing = _clothes[random];
             random = rnd.Next(1, 10);
-            hairstyle = hairstyles[random];
+            hairstyle = _hairstyles[random];
             random = rnd.Next(1, 10);
-            affectation = affectations[random];
+            affectation = _affectations[random];
         }
 
     }

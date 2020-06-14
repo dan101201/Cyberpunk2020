@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetCore3Cyberpunk.Backend
+namespace CyberpunkWebsite.Backend
 {
+    [Serializable]
     class Dice
     {
         int _number;

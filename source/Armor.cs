@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static NetCore3Cyberpunk.Backend.Utility;
+using static CyberpunkWebsite.Backend.Utility;
 using System.Xml;
 
-namespace NetCore3Cyberpunk.Backend
+namespace CyberpunkWebsite.Backend
 {
     //Gear
+    [Serializable]
     class Armor : IItem
     {
         string _name;

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NetCore3Cyberpunk.Backend
+namespace CyberpunkWebsite.Backend
 {
-
+    [Serializable]
     enum BodyPart
     {
         Head,
@@ -18,7 +18,7 @@ namespace NetCore3Cyberpunk.Backend
         RightLeg,
         LeftLeg
     }
-
+    [Serializable]
     class Body
     {
         public Armor head;

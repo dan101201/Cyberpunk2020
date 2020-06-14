@@ -4,68 +4,156 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cyberpunk2020CharacterCreator
+namespace CyberpunkWebsite.Backend
 {
-	class Stats
-	{
+    [Serializable]
+    class Stats
+    {
 
-		//Dictionary of the stats, with the key as a string representing the name of the skill, and int being the level in the stat
-		public Dictionary<string, int> stats = new Dictionary<string, int>();
+        int[] _stats = new int[9];
 
+        public int this[int i]
+        {
+            get
+            {
+                return _stats[i];
+            }
+            set
+            {
+                _stats[i] = value;
+            }
+        }
 
-		public Stats()
-		{
-			stats.Add("INT", 0);
-			stats.Add("REF", 0);
-			stats.Add("CL", 0);
-			stats.Add("TECH", 0);
-			stats.Add("LK", 0);
-			stats.Add("ATT", 0);
-			stats.Add("MA", 0);
-			stats.Add("EM", 0);
-			stats.Add("BTM", 0);
-		}
+        public int Int
+        {
+            get
+            {
+                return _stats[0];
+            }
+            set
+            {
+                _stats[0] = value;
+            }
+        }
+        public int Ref
+        {
+            get
+            {
+                return _stats[1];
+            }
+            set
+            {
+                _stats[1] = value;
+            }
+        }
+        public int Cl
+        {
+            get
+            {
+                return _stats[2];
+            }
+            set
+            {
+                _stats[2] = value;
+            }
+        }
+        public int Tech
+        {
+            get
+            {
+                return _stats[3];
+            }
+            set
+            {
+                _stats[3] = value;
+            }
+        }
+        public int Lk
+        {
+            get
+            {
+                return _stats[4];
+            }
+            set
+            {
+                _stats[4] = value;
+            }
+        }
+        public int Att
+        {
+            get
+            {
+                return _stats[5];
+            }
+            set
+            {
+                _stats[5] = value;
+            }
+        }
+        public int Ma
+        {
+            get
+            {
+                return _stats[6];
+            }
+            set
+            {
+                _stats[6] = value;
+            }
+        }
+        public int Em
+        {
 
-		//Double to keep track of lost humanity
-		double humanityLost = 0;
+            get
+            {
+                return _stats[7] - Convert.ToInt32(Math.Floor(_humanityLost)) / 10;
+            }
+            set
+            {
+                _stats[7] = value;
+            }
+        }
+        public int Bt
+        {
+            get
+            {
+                return _stats[8];
+            }
+            set
+            {
+                _stats[8] = value;
+            }
+        }
+        public int Btm
+        {
+            get
+            {
+                return _stats[8];
+            }
+        }
 
-		//Property for finding Empathy
-		public int EM
-		{
-
-			get
-			{
-				return stats["EM"] - Convert.ToInt32(Math.Floor(humanityLost)) / 10;
-			}
-			set
-			{
-				if (value < 1)
-				{
-					value = 1;
-				}
-				stats["EM"] = value;
-			}
-		}
-		public double Humanity
-		{
-			get
-			{
-				return stats["EM"] * 4 - humanityLost;
-			}
-			set
-			{
-				if (value < Humanity)
-				{
-					humanityLost += Humanity - value;
-				}
-			}
-		}
+        //Double to keep track of lost humanity
+        double _humanityLost = 0;
+        public double Humanity
+        {
+            get
+            {
+                return _stats[7] * 4 - _humanityLost;
+            }
+            set
+            {
+                if(value < Humanity)
+                {
+                    _humanityLost += Humanity - value;
+                }
+            }
+        }
 
 		public double Run
 		{
 			get
 			{
-				stats["MA"] * 3;
+				return _stats[6] * 3;
 			}
 		}
 
@@ -73,8 +161,51 @@ namespace Cyberpunk2020CharacterCreator
 		{
 			get
 			{
-				Run / 4;
+				return Run / 4;
 			}
 		}
-	}
+
+        public int CarryWeight
+        {
+            get
+            {
+                return Bt * 10;
+            }
+        }
+
+        public static Stats GenerateStatsForNpc(int points, Character npc)
+        {
+            Stats temp = new Stats();
+            temp._stats = Utility.GetSlots(9, 10);
+            
+            return temp;
+        }
+
+        public int ToIndex(string temp)
+        {
+            switch (temp)
+            {
+                case "INT":
+                    return _stats[0];
+                case "REF":
+                    return _stats[1];
+                case "CL":
+                    return _stats[2];
+                case "TECH":
+                    return _stats[3];
+                case "LK":
+                    return _stats[4];
+                case "ATT":
+                    return _stats[5];
+                case "MA":
+                    return _stats[6];
+                case "EM":
+                    return _stats[7];
+                case "BTM":
+                    return _stats[8];
+            }
+            return _stats[0];
+        }
+
+    }
 }
