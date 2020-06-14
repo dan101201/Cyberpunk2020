@@ -1,5 +1,6 @@
-# Cyberpunk2020CC
+# Cyberpunk2020
 
-A character and npc creator/manager for the pen and paper rpg Cyberpunk 2020. 
+This is a library that is meant to create and manage characters and everything about those characters.
+This is still work in progress.
 
 
