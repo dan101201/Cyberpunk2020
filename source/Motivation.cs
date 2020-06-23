@@ -21,7 +21,6 @@ namespace Cyberpunk2020Library
         /// <returns></returns>
         public static Motivation RandomlyGenerateMotivation()
         {
-            return new Motivation();
             Random rnd = new Random();
             Motivation temp = new Motivation();
             //Reads text file full of motivations

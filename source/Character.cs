@@ -14,6 +14,10 @@ namespace Cyberpunk2020Library
         //All life events
         public Dictionary<int, string> lifeEvents;
 
+        public int points = 0;
+
+        public int hp;
+
         //Age
         public int age;
 
@@ -97,22 +101,23 @@ namespace Cyberpunk2020Library
         /// <returns>Character</returns>
         public static Character GenerateRandomNPC(int points)
         {
-            Character temp = new Character();
+            Character res = new Character();
+            res.points = points;
             Random rnd = new Random();
             if (rnd.Next(1,10) < 6)
             {
-                temp.male = false;
+                res.male = false;
             }
-            temp.name = RandomNameGenerator(temp.male);
-            temp.style.RandomlySelectStyle();
-            temp.motivation = Motivation.RandomlyGenerateMotivation();
+            res.name = RandomNameGenerator(res.male);
+            res.style.RandomlySelectStyle();
+            res.motivation = Motivation.RandomlyGenerateMotivation();
             rnd.Next(1, 10);
             //temp.role = Role.roles[Role.IntToRoleName(rnd.Next(1, 10)).ToLower()];
             //temp.stats = Stats.GenerateStatsForNpc(points, temp);
-            temp.NPC = true;
+            res.NPC = true;
 
-            temp.age = 16 + rnd.Next(1, 6) + rnd.Next(1, 6);
-            return temp;
+            res.age = 16 + rnd.Next(1, 6) + rnd.Next(1, 6);
+            return res;
         }
 
         public static Character GenerateRandomNPC()
