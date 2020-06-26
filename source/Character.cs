@@ -135,8 +135,18 @@ namespace Cyberpunk2020Library
         {
             Random rnd = new Random();
             int firstNameId = rnd.Next(0, 1000);
-            int lastNameId = rnd.Next(0, 1000);
-            return "needs implementation";
+            int surnameId = rnd.Next(0, 1000);
+            string[] firstNames;
+            string[] surnames = Properties.Resources.Surnames.Split('\n');
+            if (male)
+            {
+                firstNames = Properties.Resources.MaleNames.Split('\n');
+            }
+            else
+            {
+                firstNames = Properties.Resources.FemaleNames.Split('\n');
+            }
+            return firstNames[firstNameId] + " " + surnames[surnameId];
         }
 
         /// <summary>

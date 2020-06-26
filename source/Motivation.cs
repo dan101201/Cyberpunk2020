@@ -24,7 +24,7 @@ namespace Cyberpunk2020Library
             Random rnd = new Random();
             Motivation temp = new Motivation();
             //Reads text file full of motivations
-            string[] lines = System.IO.File.ReadAllLines("Motivation.txt");
+            string[] lines = Properties.Resources.Motivation.Split('\n');
             int random = rnd.Next(1,10);
             temp._personalityTraits = lines[random];
             random = rnd.Next(1, 10);
