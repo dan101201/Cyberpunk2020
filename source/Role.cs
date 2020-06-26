@@ -73,7 +73,7 @@ namespace Cyberpunk2020Library
         {
             Dictionary<string, Role> roles = new Dictionary<string, Role>();
 
-            string[] lines = System.IO.File.ReadAllLines("roles.txt");
+            string[] lines = Properties.Resources.roles.Split('\n');
 
             for (int i = 0; i < lines.Length; i++)
             {
@@ -100,7 +100,7 @@ namespace Cyberpunk2020Library
             }
             return roles;
         }
-        Dictionary<string,Role> XmlDocToDictionaryStringRole(string path)
+        static Dictionary<string,Role> XmlDocToDictionaryStringRole(string path)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
