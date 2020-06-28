@@ -146,7 +146,8 @@ namespace Cyberpunk2020Library
             {
                 firstNames = Properties.Resources.FemaleNames.Split('\n');
             }
-            return firstNames[firstNameId] + " " + surnames[surnameId];
+            var res = (firstNames[firstNameId] + surnames[surnameId]).Replace('\r',' ');
+            return res.Trim();
         }
 
         /// <summary>
