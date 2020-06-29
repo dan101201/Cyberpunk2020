@@ -36,36 +36,36 @@ namespace Cyberpunk2020Library
             switch(number)
             {
                 case 1:
-                    return "Solo";
+                    return "solo";
                     
                 case 2:
-                    return "Rocker";
+                    return "rocker";
                     
                 case 3:
-                    return "Netrunner";
+                    return "netrunner";
                     
                 case 4:
-                    return "Media";
+                    return "media";
                     
                 case 5:
-                    return "Nomad";
+                    return "nomad";
                     
                 case 6:
-                    return "Fixer";
+                    return "fixer";
                     
                 case 7:
-                    return "Cop";
+                    return "cop";
                     
                 case 8:
-                    return "Corp";
+                    return "corp";
                     
                 case 9:
-                    return "Techie";
+                    return "techie";
                     
                 case 10:
-                    return "Medtechie";
+                    return "medtechie";
                 default:
-                    return "Solo";
+                    return "solo";
             }
         }
 
