@@ -18,17 +18,17 @@ namespace Cyberpunk2020Library
         {
             get;
             private set;
-        }
+        } = "";
         public string Desc
         {
             get;
             private set;
-        }
+        } = "";
         public string[] Skills
         {
             get;
             private set;
-        }
+        } = "";
 
         //Not needed anymore
         public static string IntToRoleName(int number)

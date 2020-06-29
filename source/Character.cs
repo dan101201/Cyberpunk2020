@@ -104,11 +104,9 @@ namespace Cyberpunk2020Library
             Character res = new Character();
             res.points = points;
             Random rnd = new Random();
-            if (rnd.Next(1,10) < 6)
-            {
-                res.male = false;
-            }
+            res.male = rnd.Next(0,2) != 0;
             res.name = RandomNameGenerator(res.male);
+            res.role = Role.roles[Role.IntToRoleName(rnd.Next(0,11))];
             res.style.RandomlySelectStyle();
             res.motivation = Motivation.RandomlyGenerateMotivation();
             rnd.Next(1, 10);

@@ -16,7 +16,6 @@ namespace Cyberpunk2020Library
         //Dictionary of the skills, with a string key being the nameo f the skill, and int being the level in the skill
         private readonly Dictionary<string, int> skills = new Dictionary<string, int>();
 
-
         public int this[string i]
         {
             get => skills[i];
