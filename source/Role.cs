@@ -28,7 +28,7 @@ namespace Cyberpunk2020Library
         {
             get;
             private set;
-        } = "";
+        } = new string[0];
 
         //Not needed anymore
         public static string IntToRoleName(int number)

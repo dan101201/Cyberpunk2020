@@ -31,15 +31,7 @@ namespace Cyberpunk2020Library
                     return skills[s];
                 }
             }
-            set => skills[i] = value;
-        }
-
-        public Skills()
-        {
-            foreach (var key in skills.Keys.ToList())
-            {
-                dict
-            }
+            set => skills[s] = value;
         }
     }
 }

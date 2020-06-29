@@ -31,7 +31,7 @@ namespace Cyberpunk2020Library
         public bool male;
 
         //The class/role of the Character
-        public Role role;
+        public Role role = new Role();
 
         //Dictionary full of the skills
         Skills skills = new Skills();
