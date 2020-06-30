@@ -133,7 +133,7 @@ namespace Cyberpunk2020Library
         {
             Random rnd = new Random();
             int firstNameId = rnd.Next(0, 1000);
-            int surnameId = rnd.Next(0, 1000);
+            int surnameId = rnd.Next(0, 972);
             string[] firstNames;
             string[] surnames = Properties.Resources.Surnames.Split('\n');
             if (male)
